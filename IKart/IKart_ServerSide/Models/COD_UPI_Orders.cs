@@ -21,6 +21,7 @@ namespace IKart_ServerSide.Models
         public System.DateTime DeliveryDate { get; set; }
         public string PaymentType { get; set; }
         public string PaymentStatus { get; set; }
+        public string RazorpayPaymentId { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }

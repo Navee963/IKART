@@ -14,151 +14,242 @@ namespace IKart_Client.Controllers.User
 {
     public class OrderController : Controller
     {
-       
-            string baseUrl = "https://localhost:44365/api/orders";
-            private int script;
+        string baseUrl = "https://localhost:44365/api/orders";
 
-            [HttpPost]
-            public async Task<ActionResult> BuyNow(int productId)
+        // Razorpay key (test key, replace with your own)
+        private readonly string RazorpayKey = "rzp_test_REOSbBMiZHhMMR";
+        private readonly string RazorpaySecret = "uTudflYReN7PqR4ZtSitanfZ";
+
+        [HttpPost]
+        public async Task<ActionResult> BuyNow(int productId)
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            List<AddressDto> addresses = new List<AddressDto>();
+
+            using (var handler = new HttpClientHandler())
             {
-                int userId = Convert.ToInt32(Session["UserId"]);
-                List<AddressDto> addresses = new List<AddressDto>();
-
-                using (var handler = new HttpClientHandler())
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
                 {
-                    handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                    using (HttpClient client = new HttpClient(handler))
+                    var response = await client.GetAsync($"https://localhost:44365/api/account/address/user/{userId}");
+                    if (response.IsSuccessStatusCode)
                     {
-                        var response = await client.GetAsync($"https://localhost:44365/api/account/address/user/{userId}");
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var json = await response.Content.ReadAsStringAsync();
-                            addresses = JsonConvert.DeserializeObject<List<AddressDto>>(json);
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("", "Failed to load addresses.");
-                            return View("Error");
-                        }
+                        var json = await response.Content.ReadAsStringAsync();
+                        addresses = JsonConvert.DeserializeObject<List<AddressDto>>(json);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Failed to load addresses.");
+                        return View("Error");
                     }
                 }
-
-                ViewBag.ProductId = productId;
-                ViewBag.UserId = userId;
-
-                return View("BuyNow", addresses); // Make sure BuyNow.cshtml exists
             }
 
+            ViewBag.ProductId = productId;
+            ViewBag.UserId = userId;
 
-            [HttpPost]
-            public async Task<ActionResult> ShowUPISummary(int productId, int addressId, int userId, string method)
+            return View("BuyNow", addresses);
+        }
+
+        public ActionResult ChoosePayment(int productId, int addressId)
+        {
+            ViewBag.ProductId = productId;
+            ViewBag.AddressId = addressId;
+            ViewBag.UserId = Convert.ToInt32(Session["UserId"]);
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ShowUPISummary(int productId, int addressId, int userId, string method)
+        {
+            ProductDto product = null;
+
+            using (var handler = new HttpClientHandler())
             {
-                ProductDto product = null;
-
-                using (var handler = new HttpClientHandler())
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
                 {
-                    handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                    using (HttpClient client = new HttpClient(handler))
+                    var res = await client.GetAsync($"https://localhost:44365/api/products/{productId}");
+                    if (res.IsSuccessStatusCode)
                     {
-                        var res = await client.GetAsync($"https://localhost:44365/api/products/{productId}");
-                        if (res.IsSuccessStatusCode)
-                        {
-                            var json = await res.Content.ReadAsStringAsync();
-                            product = JsonConvert.DeserializeObject<ProductDto>(json);
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("", "Unable to fetch product details.");
-                            return View("Error");
-                        }
+                        var json = await res.Content.ReadAsStringAsync();
+                        product = JsonConvert.DeserializeObject<ProductDto>(json);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Unable to fetch product details.");
+                        return View("Error");
                     }
                 }
-
-                ViewBag.Product = product;
-                ViewBag.AddressId = addressId;
-                ViewBag.UserId = userId;
-                ViewBag.Method = method;
-
-                return View("ShowUPISummary");
-            }
-            // ✅ Show payment options after selecting address
-            public ActionResult ChoosePayment(int productId, int addressId)
-            {
-                ViewBag.ProductId = productId;
-                ViewBag.AddressId = addressId;
-                ViewBag.UserId = Convert.ToInt32(Session["UserId"]);
-                return View();
             }
 
-            // ✅ Place Order (POST)
-            [HttpPost]
-            public async Task<ActionResult> PlaceOrder(int productId, int addressId, string method)
+            ViewBag.Product = product;
+            ViewBag.AddressId = addressId;
+            ViewBag.UserId = userId;
+            ViewBag.Method = method;
+
+            return View("ShowUPISummary");
+        }
+
+        // RAZORPAY: Show Razorpay payment page
+        [HttpPost]
+        public async Task<ActionResult> RazorPayment(int productId, int addressId, int userId)
+        {
+            ProductDto product = null;
+
+            using (var handler = new HttpClientHandler())
             {
-                System.Diagnostics.Debug.WriteLine("Method " + method);
-                System.Diagnostics.Debug.WriteLine("ProductID " + productId);
-                System.Diagnostics.Debug.WriteLine("AddressID " + addressId);
-
-                int userId = Convert.ToInt32(Session["UserId"]);
-
-                // 🔍 Fetch product price
-                decimal productCost = 0;
-                using (var handler = new HttpClientHandler())
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
                 {
-                    handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                    using (HttpClient client = new HttpClient(handler))
+                    var res = await client.GetAsync($"https://localhost:44365/api/products/{productId}");
+                    if (res.IsSuccessStatusCode)
                     {
-                        var res = await client.GetAsync($"https://localhost:44365/api/product/{productId}");
-                        System.Diagnostics.Debug.WriteLine($"Status Code: {res.StatusCode}");
-                        if (res.IsSuccessStatusCode)
-                        {
-                            var json = await res.Content.ReadAsStringAsync();
-                            var product = JsonConvert.DeserializeObject<ProductDto>(json);
-                            productCost = (decimal)product.Cost;
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("", "Unable to fetch product price.");
-                            return View("ChoosePayment");
-                        }
+                        var json = await res.Content.ReadAsStringAsync();
+                        product = JsonConvert.DeserializeObject<ProductDto>(json);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Unable to fetch product details.");
+                        return View("Error");
                     }
                 }
+            }
 
-                decimal deliveryFee = 100;
-                decimal totalCost = productCost + deliveryFee;
+            // Amount in paise
+            var amount = (int)((product.Cost + 100) * 100);
 
-                // ✅ Place order
-                using (var handler = new HttpClientHandler())
+            // Call your backend to create Razorpay order and get orderId
+            string razorpayOrderId = await CreateRazorpayOrder(amount);
+
+            ViewBag.Product = product;
+            ViewBag.AddressId = addressId;
+            ViewBag.UserId = userId;
+            ViewBag.Amount = amount;
+            ViewBag.RazorpayKey = RazorpayKey;
+            ViewBag.RazorpayOrderId = razorpayOrderId;
+
+            return View("RazorpayPayment");
+        }
+
+        // Helper to create Razorpay order (server-side)
+        private async Task<string> CreateRazorpayOrder(int amount)
+        {
+            // Minimal implementation, use Razorpay .NET SDK or plain HTTP POST
+            using (var client = new HttpClient())
+            {
+                var authToken = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{RazorpayKey}:{RazorpaySecret}"));
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authToken);
+
+                var payload = new
                 {
-                    handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                    using (HttpClient client = new HttpClient(handler))
+                    amount = amount,
+                    currency = "INR",
+                    receipt = $"order_rcptid_{Guid.NewGuid()}",
+                    payment_capture = 1
+                };
+                var content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
+                var res = await client.PostAsync("https://api.razorpay.com/v1/orders", content);
+                var json = await res.Content.ReadAsStringAsync();
+                dynamic obj = JsonConvert.DeserializeObject(json);
+                return obj.id;
+            }
+        }
+
+        // Razorpay payment callback (AJAX from client)
+        [HttpPost]
+        public async Task<ActionResult> CompleteRazorpay(string razorpay_payment_id, string razorpay_order_id, string razorpay_signature, int productId, int addressId)
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            // 1. (Optional): Verify signature here using your Razorpay secret if you want
+            // 2. Place order in DB (mark as paid)
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
+                {
+                    var order = new COD_UPI_OrdersDto
                     {
-                        var order = new COD_UPI_OrdersDto
-                        {
-                            ProductId = productId,
-                            UserId = userId,
-                            PaymentType = method.ToUpper(), // "COD" or "UPI"
-                            PaymentStatus = method.ToUpper() == "COD" ? "Pending" : "Paid",
-                            OrderDate = DateTime.Now,
-                            DeliveryDate = DateTime.Now.AddDays(5)
-                        };
+                        ProductId = productId,
+                        UserId = userId,
+                        PaymentType = "RAZORPAY",
+                        PaymentStatus = "Paid",
+                        OrderDate = DateTime.Now,
+                        DeliveryDate = DateTime.Now.AddDays(5)
+                    };
 
-                        var json = JsonConvert.SerializeObject(order);
-                        var content = new StringContent(json, Encoding.UTF8, "application/json");
-                        var res = await client.PostAsync("https://localhost:44365/api/orders/place", content);
-                        System.Diagnostics.Debug.WriteLine($"Status Code: {res.StatusCode}");
+                    var json = JsonConvert.SerializeObject(order);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var res = await client.PostAsync("https://localhost:44365/api/orders/place", content);
 
-                        if (res.IsSuccessStatusCode)
-                        {
-                            ViewBag.Message = "Order Confirmed!";
-                            return View("PlaceOrder");
-                        }
+                    if (res.IsSuccessStatusCode)
+                    {
+                        return Json(new { success = true });
+                    }
+                    return Json(new { success = false, message = await res.Content.ReadAsStringAsync() });
+                }
+            }
+        }
 
-                        ModelState.AddModelError("", await res.Content.ReadAsStringAsync());
+        // Existing UPI/COD Place Order (leave as is for fallback, but add "RAZORPAY" support in server)
+        [HttpPost]
+        public async Task<ActionResult> PlaceOrder(int productId, int addressId, string method)
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+
+            decimal productCost = 0;
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
+                {
+                    var res = await client.GetAsync($"https://localhost:44365/api/product/{productId}");
+                    if (res.IsSuccessStatusCode)
+                    {
+                        var json = await res.Content.ReadAsStringAsync();
+                        var product = JsonConvert.DeserializeObject<ProductDto>(json);
+                        productCost = (decimal)product.Cost;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Unable to fetch product price.");
                         return View("ChoosePayment");
                     }
                 }
             }
 
+            decimal deliveryFee = 100;
+            decimal totalCost = productCost + deliveryFee;
 
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (HttpClient client = new HttpClient(handler))
+                {
+                    var order = new COD_UPI_OrdersDto
+                    {
+                        ProductId = productId,
+                        UserId = userId,
+                        PaymentType = method.ToUpper(), // "COD" or "UPI"
+                        PaymentStatus = method.ToUpper() == "COD" ? "Pending" : "Paid",
+                        OrderDate = DateTime.Now,
+                        DeliveryDate = DateTime.Now.AddDays(5)
+                    };
+
+                    var json = JsonConvert.SerializeObject(order);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var res = await client.PostAsync("https://localhost:44365/api/orders/place", content);
+
+                    if (res.IsSuccessStatusCode)
+                    {
+                        ViewBag.Message = "Order Confirmed!";
+                        return View("PlaceOrder");
+                    }
+
+                    ModelState.AddModelError("", await res.Content.ReadAsStringAsync());
+                    return View("ChoosePayment");
+                }
+            }
         }
     }
+}

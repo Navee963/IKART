@@ -32,6 +32,9 @@ namespace IKart_ServerSide.Models
         public Nullable<decimal> TotalAmount { get; set; }
         public Nullable<System.DateTime> PaymentDate { get; set; }
         public string Status { get; set; }
+        public string RazorpayOrderId { get; set; }
+        public string RazorpayPaymentId { get; set; }
+        public Nullable<bool> IsEMI { get; set; }
     
         public virtual EMI_Card EMI_Card { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

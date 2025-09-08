@@ -29,6 +29,7 @@ namespace IKart_ServerSide.Models
         public Nullable<System.DateTime> DeliveryDate { get; set; }
         public string Region { get; set; }
         public string OrderStatus { get; set; }
+        public Nullable<int> TenureMonths { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Cancellations> Order_Cancellations { get; set; }

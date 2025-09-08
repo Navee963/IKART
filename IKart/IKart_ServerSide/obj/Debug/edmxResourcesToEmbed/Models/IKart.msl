@@ -132,6 +132,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="IKartModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="TenureMonths" ColumnName="TenureMonths" />
           <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -166,6 +167,9 @@
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="IKartModel.Payment">
         <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="IsEMI" ColumnName="IsEMI" />
+          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
+          <ScalarProperty Name="RazorpayOrderId" ColumnName="RazorpayOrderId" />
           <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
           <ScalarProperty Name="EmiCardId" ColumnName="EmiCardId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -276,6 +280,7 @@
     <EntitySetMapping Name="COD_UPI_Orders">
       <EntityTypeMapping TypeName="IKartModel.COD_UPI_Orders">
         <MappingFragment StoreEntitySet="COD_UPI_Orders">
+          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
           <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
           <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
           <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a1bd83d486fc4742920c2256e7185d49" Name="Diagram1" ZoomLevel="29">
+      <Diagram DiagramId="a1bd83d486fc4742920c2256e7185d49" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="IKartModel.Address" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="IKartModel.Admin" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="IKartModel.Card_Request" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />

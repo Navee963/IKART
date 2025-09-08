@@ -1,0 +1,69 @@
+﻿﻿@{
+    var product = ViewBag.Product as IKart_Shared.DTOs.ProductDto;
+    var amount = ViewBag.Amount;
+    var orderId = ViewBag.RazorpayOrderId;
+    var key = ViewBag.RazorpayKey;
+    var addressId = ViewBag.AddressId;
+    var userId = ViewBag.UserId;
+}
+
+<h2>Razorpay Payment</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>@product.ProductName</h4>
+        <img src="@product.ProductImage" alt="@product.ProductName" style="width:200px;" />
+        <p><strong>Price:</strong> ₹@product.Cost</p>
+        <p><strong>Delivery Fee:</strong> ₹100</p>
+        <p><strong>Total Cost:</strong> ₹@((decimal)product.Cost + 100)</p>
+        <p><strong>Expected Delivery Date:</strong> @DateTime.Now.AddDays(5)</p>
+    </div>
+</div>
+
+<button id="rzp-button" class="btn btn-primary">Pay Now</button>
+
+<!-- Razorpay script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    document.getElementById('rzp-button').onclick = function (e) {
+        var options = {
+            "key": "@key",
+            "amount": "@amount",
+            "currency": "INR",
+            "name": "IKart",
+            "description": "@product.ProductName",
+            "order_id": "@orderId",
+            "handler": function (response) {
+                // AJAX: Send payment details to server for verification and order storage
+                fetch('@Url.Action("CompleteRazorpay", "Order")', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    body: JSON.stringify({
+                        razorpay_payment_id: response.razorpay_payment_id,
+                        razorpay_order_id: response.razorpay_order_id,
+                        razorpay_signature: response.razorpay_signature,
+                        productId: @product.ProductId,
+                        addressId: @addressId
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location = '@Url.Action("PlaceOrder", "Order")?razorpay=1&success=1';
+                    } else {
+                        alert("Payment failed: " + (data.message || "Unknown error"));
+                    }
+                });
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp = new Razorpay(options);
+        rzp.open();
+        e.preventDefault();
+    }
+</script>

@@ -292,6 +292,7 @@
     <Content Include="Views\Shared\_UserSidebar.cshtml" />
     <Content Include="Views\Support\Index.cshtml" />
     <Content Include="Views\Support\IncidentStatus.cshtml" />
+    <Content Include="Views\Order\RazorpayPayment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

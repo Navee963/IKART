@@ -158,6 +158,7 @@
     <NavigationProperty Name="Product" Relationship="Self.FK__Orders__ProductI__619B8048" FromRole="Orders" ToRole="Products" />
     <NavigationProperty Name="User" Relationship="Self.FK__Orders__UserId__628FA481" FromRole="Orders" ToRole="Users" />
     <NavigationProperty Name="Returns" Relationship="Self.FK__Returns__OrderId__02084FDA" FromRole="Orders" ToRole="Returns" />
+    <Property Name="TenureMonths" Type="Int32" />
   </EntityType>
   <EntityType Name="Payment_Details">
     <Key>
@@ -203,6 +204,9 @@
     <NavigationProperty Name="User" Relationship="Self.FK__Payments__UserId__5AEE82B9" FromRole="Payments" ToRole="Users" />
     <NavigationProperty Name="Refunds" Relationship="Self.FK__Refunds__Payment__76969D2E" FromRole="Payments" ToRole="Refunds" />
     <NavigationProperty Name="Installment_Payments" Relationship="IKartModel.FK_Installment_Payments_Payment" FromRole="Payment" ToRole="Installment_Payments" />
+    <Property Name="RazorpayOrderId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RazorpayPaymentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsEMI" Type="Boolean" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -874,6 +878,7 @@
     <Property Name="PaymentStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Product" Relationship="IKartModel.FK__COD_UPI_O__Produ__1CBC4616" FromRole="COD_UPI_Orders" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="IKartModel.FK__COD_UPI_O__UserI__1DB06A4F" FromRole="COD_UPI_Orders" ToRole="User" />
+    <Property Name="RazorpayPaymentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK__COD_UPI_O__Produ__1CBC4616">
     <End Type="IKartModel.Product" Role="Product" Multiplicity="0..1" />
