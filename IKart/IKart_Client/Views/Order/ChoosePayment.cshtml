@@ -1,0 +1,11 @@
+﻿@{ ViewBag.Title = "Choose Payment Method"; }
+
+<h2>Select Payment Method</h2>
+<form method="post" action="@Url.Action("ShowUPISummary", "Order")">
+    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+    <input type="hidden" name="addressId" value="@ViewBag.AddressId" />
+    <input type="hidden" name="userId" value="@ViewBag.UserId" />
+    <input type="hidden" name="method" value="UPI" />
+
+    <button type="submit" class="btn btn-success">UPI Payment</button>
+</form>

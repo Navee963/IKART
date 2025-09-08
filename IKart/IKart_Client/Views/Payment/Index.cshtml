@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var fee = ViewBag.FeeAmount;
+    var razorpayKey = ViewBag.RazorpayKey;
+    var orderId = ViewBag.OrderId;
+}
+
+<h2>Pay Joining Fee</h2>
+<p>Amount: <strong>₹@fee</strong></p>
+
+<div class="form-group">
+    <label>Select Payment Method</label>
+    <select id="paymentMethodId" class="form-control">
+        <option value="1">Credit Card</option>
+        <option value="2">Debit Card</option>
+        <option value="3">Net Banking</option>
+        <option value="4" selected>UPI</option>
+    </select>
+</div>
+
+<button id="rzp-button" class="btn btn-success">Pay with Razorpay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "@razorpayKey",
+        "amount": @fee * 100,
+        "currency": "INR",
+        "name": "IKart EMI Card",
+        "description": "Joining Fee Payment",
+        "order_id": "@orderId",  // ✅ generated from server
+        "handler": function (response) {
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = '/Payment/VerifyPayment';
+            form.innerHTML = `
+                <input type="hidden" name="razorpay_payment_id" value="${response.razorpay_payment_id}" />
+                <input type="hidden" name="razorpay_order_id" value="${response.razorpay_order_id}" />
+                <input type="hidden" name="razorpay_signature" value="${response.razorpay_signature}" />
+                <input type="hidden" name="PaymentMethodId" value="${document.getElementById("paymentMethodId").value}" />
+            `;
+            document.body.appendChild(form);
+            form.submit();
+        },
+        "theme": { "color": "#3399cc" }
+    };
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById("rzp-button").onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>

@@ -1,0 +1,236 @@
+﻿@{ ViewBag.Title = "_UserLayout";
+                var userFullName = Session["FullName"] != null ? Session["FullName"].ToString() : "User"; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - IKart</title>
+
+    <!-- Bootstrap & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            /* Theme colors */
+            --primary: #fbcfe8; /* pastel pink */
+            --secondary: #c084fc; /* lavender */
+            --bg: #fff8fb; /* soft background */
+            --text: #2d2d2d;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sidebar */
+        #userSidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: transform 0.35s ease-in-out;
+            z-index: 2000;
+        }
+
+            #userSidebar.open {
+                transform: translateX(0);
+            }
+
+            #userSidebar .sidebar-brand {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-bottom: 25px;
+                text-align: center;
+                letter-spacing: 1px;
+            }
+
+            #userSidebar a {
+                display: flex;
+                align-items: center;
+                padding: 12px 14px;
+                margin-bottom: 10px;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 500;
+                transition: all 0.25s ease;
+            }
+
+                #userSidebar a i {
+                    margin-right: 12px;
+                    font-size: 1rem;
+                }
+
+                #userSidebar a:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateX(5px);
+                }
+
+        /* Main wrapper */
+        .page-content {
+            transition: margin-left 0.35s ease;
+            margin-left: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .page-content.shifted {
+                margin-left: var(--sidebar-width);
+            }
+
+        /* Topbar */
+        #topbar {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            color: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        #menuBtn {
+            background: transparent;
+            border: none;
+            font-size: 1.4rem;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 12px;
+        }
+
+        #searchBar {
+            max-width: 450px;
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+            #searchBar input {
+                border-radius: 20px 0 0 20px;
+                border: none;
+                padding: 8px 15px;
+                font-size: 14px;
+                box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+                flex: 1;
+            }
+
+            #searchBar button {
+                border: none;
+                background: #fff;
+                border-radius: 0 20px 20px 0;
+                padding: 8px 14px;
+                cursor: pointer;
+            }
+
+                #searchBar button i {
+                    color: var(--secondary);
+                }
+
+        /* Footer fixed */
+        footer.footer {
+            text-align: center;
+            padding: 14px;
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Mobile tweak */
+        @@media (max-width: 767px) {
+            #userSidebar {
+                width: 80vw;
+            }
+
+            .page-content.shifted {
+                margin-left: 0;
+            }
+        }
+    </style>
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav id="userSidebar">
+        <div class="sidebar-brand">IKart</div>
+        @Html.Partial("~/Views/Shared/_UserSidebar.cshtml")
+    </nav>
+
+    <!-- Main page -->
+    <div class="page-content" id="mainContent">
+        <!-- Topbar -->
+        <div id="topbar">
+            <div class="d-flex align-items-center">
+                <button id="menuBtn"><i class="fas fa-bars"></i></button>
+                <h5 class="mb-0">IKart</h5>
+            </div>
+
+            <form id="searchBar">
+                <input type="text" class="form-control" placeholder="Search products..." />
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div>
+                <span>Welcome, @userFullName</span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div id="content" class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; @DateTime.Now.Year - IKart
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const sidebar = document.getElementById("userSidebar");
+        const main = document.getElementById("mainContent");
+        const menuBtn = document.getElementById("menuBtn");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            main.classList.toggle("shifted");
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                sidebar.classList.remove("open");
+                main.classList.remove("shifted");
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

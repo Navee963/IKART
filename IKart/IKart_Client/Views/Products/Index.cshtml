@@ -1,0 +1,49 @@
+﻿@model List<IKart_Shared.DTOs.Admin.ProductDto>
+@using Newtonsoft.Json
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Manage Products";
+}
+
+<div class="container mt-4">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="mb-3 d-flex gap-4">
+        <a href="@Url.Action("Create")" class="btn btn-info">+ Add Product</a>
+        <a href="@Url.Action("Index", "Stocks")" class="btn btn-info"> Stocks</a>
+        <a href="@Url.Action("Reports", "Products")" class="btn btn-info">Products Info</a>
+    </div>
+
+
+
+    <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>SubCategory</th>
+                <th>Price (₹)</th>
+                <th>Stock Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.ProductId</td>
+                    <td>@p.ProductName</td>
+                    <td>@p.Category</td>
+                    <td>@p.SubCategory</td>
+                    <td>@p.Cost</td>
+                    <td>@p.Stock_Id</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = p.ProductId })" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = p.ProductId })" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+                ViewBag.Title = "Incident Status";
+
+}
+
+<h2>Your Ticket Status</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Created Date</th>
+            <th>Closed Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Any())
+
+        {
+
+            foreach (var t in Model)
+
+            {
+<tr>
+    <td>@t.TicketId</td>
+    <td>@t.Subject</td>
+    <td>@t.UserStatus</td>
+    <td>@t.CreatedDate.ToString("dd-MM-yyyy")</td>
+    <td>@(t.ClosedDate != null ? ((DateTime)t.ClosedDate).ToString("dd-MM-yyyy") : "-")</td>
+</tr>
+                }
+
+            }
+
+            else
+
+            {
+<tr><td colspan="5" class="text-center">No tickets found.</td></tr>
+            }
+    </tbody>
+</table>
+

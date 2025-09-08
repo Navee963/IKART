@@ -1,0 +1,21 @@
+﻿@model IKart_Shared.DTOs.Admin.ProductDto
+@using Newtonsoft.Json
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Delete Product";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="alert alert-warning">
+    Are you sure you want to delete the product: <strong>@Model.ProductName</strong>?
+</div>
+
+@using (Html.BeginForm("Delete", "Products", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ProductId)
+
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}

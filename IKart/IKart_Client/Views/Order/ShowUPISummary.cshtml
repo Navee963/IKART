@@ -1,0 +1,40 @@
+﻿@{ var product = ViewBag.Product as IKart_Shared.DTOs.ProductDto;
+                decimal deliveryFee = 100;
+                decimal? totalCost = product.Cost + deliveryFee; }
+
+<h2>UPI Payment Summary</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>@product.ProductName</h4>
+        <img src="@product.ProductImage" alt="@product.ProductName" style="width:200px;" />
+        <p><strong>Price:</strong> ₹@product.Cost</p>
+        <p><strong>Delivery Fee:</strong> ₹@deliveryFee</p>
+        <p><strong>Total Cost:</strong> ₹@totalCost</p>
+        <p><strong>Expected Delivery Date:</strong> ₹@DateTime.Now.AddDays(5)</p>
+    </div>
+</div>
+
+<h4>Scan to Pay</h4>
+<img src="/Content/Images/default-upi-qr.png" alt="UPI QR Code" style="width:200px;" />
+
+<form method="post" action="@Url.Action("PlaceOrder", "Order")" onsubmit="return validatePayment();">
+    <input type="hidden" name="productId" value="@product.ProductId" />
+    <input type="hidden" name="addressId" value="@ViewBag.AddressId" />
+    <input type="hidden" name="method" value="@ViewBag.Method" />
+
+    <div class="form-check mt-3">
+        <input type="checkbox" class="form-check-input" id="paymentDone" />
+        <label class="form-check-label" for="paymentDone">I have completed the UPI payment</label>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Place Order</button>
+</form>
+
+<script>function validatePayment() {
+        if (!document.getElementById("paymentDone").checked) {
+            alert("Please confirm that you have completed the UPI payment.");
+            return false;
+        }
+        return true;
+    }</script>

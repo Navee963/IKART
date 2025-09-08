@@ -1,0 +1,42 @@
+﻿@model IKart_Shared.DTOs.Admin.StocksDto
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Edit Stock";
+}
+
+<div class="container mt-4">
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("Edit", "Stocks", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.StockId)
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Category)
+            @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Category)
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.SubCategory)
+            @Html.TextBoxFor(m => m.SubCategory, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SubCategory)
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.TotalStocks)
+            @Html.TextBoxFor(m => m.TotalStocks, new { @class = "form-control", type = "number", min = "0" })
+            @Html.ValidationMessageFor(m => m.TotalStocks)
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.AvailableStocks)
+            @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0" })
+            @Html.ValidationMessageFor(m => m.AvailableStocks)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="@Url.Action("Index", "Stocks")" class="btn btn-secondary">Cancel</a>
+    }
+</div>

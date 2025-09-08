@@ -1,0 +1,56 @@
+﻿@model IKart_Shared.DTOs.Admin.RefundDto
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Refund Details";
+}
+
+<h2>Refund Details</h2>
+
+<div class="container mt-4">
+    <table class="table table-bordered">
+        <tr>
+            <th>Refund ID</th>
+            <td>@Model.RefundId</td>
+        </tr>
+        <tr>
+            <th>Payment ID</th>
+            <td>@Model.PaymentId</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+            <td>₹@Model.Amount</td>
+        </tr>
+        <tr>
+            <th>Reason</th>
+            <td>@Model.Reason</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@Model.Status</td>
+        </tr>
+        <tr>
+            <th>Refund Date</th>
+            <td>@Model.RefundDate.ToString("dd-MM-yyyy")</td>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <th>User Email</th>
+            <td>@Model.UserEmail</td>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th>Total Payment Amount</th>
+            <td>₹@Model.TotalAmount</td>
+        </tr>
+        <tr>
+            <th>Payment Status</th>
+            <td>@Model.PaymentStatus</td>
+        </tr>
+    </table>
+</div>

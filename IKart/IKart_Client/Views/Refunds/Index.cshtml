@@ -1,0 +1,39 @@
+﻿@model List<IKart_Shared.DTOs.Admin.RefundDto>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Refunds";
+}
+
+<h2>Refunds</h2>
+
+<div class="container mt-4">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Refund ID</th>
+                <th>Payment ID</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Refund Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var refund in Model)
+            {
+                <tr>
+                    <td>@refund.RefundId</td>
+                    <td>@refund.PaymentId</td>
+                    <td>₹@refund.Amount</td>
+                    <td>@refund.Reason</td>
+                    <td>@refund.Status</td>
+                    <td>@refund.RefundDate.ToString("dd-MM-yyyy")</td>
+                    <td>
+                        @Html.ActionLink("View", "View", "Refunds", new { id = refund.RefundId }, new { @class = "btn btn-sm btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

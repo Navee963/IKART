@@ -1,0 +1,157 @@
+﻿@{ ViewBag.Title = "_AdminLayout"; }
+@{ var appRoot = Url.Content("~"); }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - IKart Admin Panel</title>
+
+    <!-- Bootstrap & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --bg: #ecf0f1;
+            --text: #2d2d2d;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100%;
+            background-color: var(--primary);
+            color: #ecf0f1;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+            z-index: 2000;
+        }
+
+            #sidebar.open {
+                transform: translateX(0);
+            }
+
+        /* Main container */
+        #main {
+            transition: margin-left 0.3s ease;
+            margin-left: 0;
+        }
+
+            #main.shifted {
+                margin-left: var(--sidebar-width);
+            }
+
+        /* Topbar */
+        #topbar {
+            background-color: var(--secondary);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            color: #fff;
+        }
+
+        #menuBtn {
+            background: transparent;
+            border: none;
+            font-size: 1.4rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Content */
+        #content {
+            padding: 25px;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Footer */
+        footer.footer {
+            background-color: var(--secondary);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Smooth hover */
+        a, button {
+            transition: all 0.2s ease;
+        }
+    </style>
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        @Html.Partial("~/Views/Shared/_AdminSidebar.cshtml")
+    </nav>
+
+    <!-- Main content -->
+    <div id="main">
+        <!-- Topbar -->
+        <div id="topbar">
+            <button id="menuBtn"><i class="fas fa-bars"></i></button>
+            <h5 class="mb-0">IKart Admin Panel</h5>
+            @Html.Partial("~/Views/Shared/_AdminTopbar.cshtml")
+        </div>
+
+        <!-- Page content -->
+        <div id="content" class="container-fluid">
+            @RenderBody()
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            &copy; @DateTime.Now.Year - IKart Admin Panel
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("main");
+        const menuBtn = document.getElementById("menuBtn");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            main.classList.toggle("shifted");
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                sidebar.classList.remove("open");
+                main.classList.remove("shifted");
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

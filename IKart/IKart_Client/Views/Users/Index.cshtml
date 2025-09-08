@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.Admin.UserDto>
+@{
+    ViewBag.Title = "Users - Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4 d-flex flex-column min-vh-100">
+    <h2 class="mb-4">Manage Users</h2>
+
+    <div class="flex-grow-1">
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Created Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserId</td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.CreatedDate.ToString("dd-MM-yyyy")</td>
+                        <td class="status-cell">@user.Status</td>
+                        <td>
+                            @using (Html.BeginForm("View", "Users", new { id = user.UserId }, FormMethod.Get))
+                            {
+                                <button type="submit" class="btn btn-info btn-sm me-1">
+                                    <i class="fa fa-eye"></i> View
+                                </button>
+                            }
+                            @using (Html.BeginForm("UpdateStatus", "Users", new { id = user.UserId, status = "Active" }, FormMethod.Post))
+                            {
+                                <button type="submit" class="btn btn-outline-success btn-sm me-1">
+                                    <i class="fa fa-check-circle"></i> Activate
+                                </button>
+                            }
+                            @using (Html.BeginForm("UpdateStatus", "Users", new { id = user.UserId, status = "De-active" }, FormMethod.Post))
+                            {
+                                <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fa fa-ban"></i> De-activate
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

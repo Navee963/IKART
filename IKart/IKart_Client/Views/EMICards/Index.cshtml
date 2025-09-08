@@ -1,0 +1,57 @@
+﻿@model List<IKart_Shared.DTOs.EMI_Card.EmiCardDto>
+@{ Layout = "~/Views/Shared/_UserLayout.cshtml";
+                // The server that hosts IKart_ServerSide
+                var serverBase = "https://localhost:44365"; }
+
+<h2>My EMI Cards</h2>
+
+@if (Model == null || !Model.Any())
+{
+<p>No EMI cards found.</p>
+                <a href="@Url.Action("AddCard", "EMICards")" class="btn btn-primary">Add New EMI Card</a> }
+                            else
+                            {
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Card Image</th>
+                        <th>Card Type</th>
+                        <th>Card Number</th>
+                        <th>Limit</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                    </tr>
+
+                    @foreach (var card in Model)
+                    {
+    <tr>
+        <td>
+            @if (!string.IsNullOrEmpty(card.CardImage))
+            {@*<img src="@($"{serverBase}/Content/EmiCardImages/{card.CardImage}")"
+    alt="Card Image"
+    style="max-width:140px;max-height:80px;"
+    onerror="this.onerror=null;this.src='@Url.Content("~/Content/images/placeholder-card.png")';" />*@
+
+                                    <div style="display:flex; justify-content:center; align-items:center; height:180px; width:300px; margin:auto;">
+                                        <img src="@($"{serverBase}/Content/EmiCardImages/{card.CardImage}")"
+                                             alt="Card Image"
+                                             style="max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.2);" />
+                                    </div> }
+                                                        else
+                                                        {
+                                    <span>No Image</span>}
+        </td>
+        @*<td>@card.CardType</td>
+            <td>@card.CardNumber</td>
+            <td>@card.TotalLimit</td>
+            <td>@card.Balance</td>
+            <td>@(card.IsActive ? "Active" : "Inactive")</td>*@
+
+        <td style="text-align:center; vertical-align:middle;">@card.CardType</td>
+        <td style="text-align:center; vertical-align:middle;">@card.CardNumber</td>
+        <td style="text-align:center; vertical-align:middle;">@card.TotalLimit</td>
+        <td style="text-align:center; vertical-align:middle;">@card.Balance</td>
+        <td style="text-align:center; vertical-align:middle;">@(card.IsActive ? "Active" : "Inactive")</td>
+    </tr>}
+                </table>
+
+                                <a href="@Url.Action("AddCard", "EMICards")" class="btn btn-primary">Add Another EMI Card</a>}

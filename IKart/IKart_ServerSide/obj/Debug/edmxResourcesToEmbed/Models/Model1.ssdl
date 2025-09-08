@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IKartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Street" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Card_Request">
+    <Key>
+      <PropertyRef Name="Card_Id" />
+    </Key>
+    <Property Name="Card_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CardType" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="30" />
+    <Property Name="IFSC_Code" Type="nvarchar" MaxLength="15" />
+    <Property Name="AadhaarNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="VerifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="EMI_Card">
+    <Key>
+      <PropertyRef Name="EmiCardId" />
+    </Key>
+    <Property Name="EmiCardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PaymentMethodId" Type="int" />
+    <Property Name="ActivatedBy" Type="int" />
+    <Property Name="CardType" Type="nvarchar" MaxLength="20" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="TotalLimit" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Balance" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IssueDate" Type="date" />
+    <Property Name="ExpireDate" Type="date" />
+    <Property Name="CardImage" Type="nvarchar(max)" />
+    <Property Name="CVV" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="EmiCard_Documents">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Card_Id" Type="int" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="UploadedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FAQ">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Question" Type="nvarchar" MaxLength="255" />
+    <Property Name="Answer" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Installment_Payments">
+    <Key>
+      <PropertyRef Name="InstallmentId" />
+    </Key>
+    <Property Name="InstallmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMI_Id" Type="int" />
+    <Property Name="DueDate" Type="date" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IsPaid" Type="bit" />
+  </EntityType>
+  <EntityType Name="Joining_Fee">
+    <Key>
+      <PropertyRef Name="Fee_Id" />
+    </Key>
+    <Property Name="Fee_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Card_Id" Type="int" />
+    <Property Name="PaymentMethodId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Monthly_EMI_Calc">
+    <Key>
+      <PropertyRef Name="EMI_Id" />
+    </Key>
+    <Property Name="EMI_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="EMIAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TenureMonths" Type="int" />
+    <Property Name="RemainingAmount" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="OfferId" />
+    </Key>
+    <Property Name="OfferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ValidFrom" Type="date" />
+    <Property Name="ValidTo" Type="date" />
+    <Property Name="Terms" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Order_Id" />
+    </Key>
+    <Property Name="Order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="DeliveryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Payment_Details">
+    <Key>
+      <PropertyRef Name="PaymentDetailsId" />
+    </Key>
+    <Property Name="PaymentDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="int" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExpiryDate" Type="date" />
+    <Property Name="CVV" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Payment_Methods">
+    <Key>
+      <PropertyRef Name="PaymentMethodId" />
+    </Key>
+    <Property Name="PaymentMethodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmiCardId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="PaymentMethodId" Type="int" />
+    <Property Name="ProcessingFee" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Penalty">
+    <Key>
+      <PropertyRef Name="PenaltyId" />
+    </Key>
+    <Property Name="PenaltyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstallmentId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="DueDate" Type="date" />
+    <Property Name="Days_Overdue" Type="int" />
+    <Property Name="PenaltyPerDay" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PenaltyAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stock_Id" Type="int" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ProductDetails" Type="nvarchar(max)" />
+    <Property Name="ProductImage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Refunds">
+    <Key>
+      <PropertyRef Name="RefundId" />
+    </Key>
+    <Property Name="RefundId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="RefundDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Stocks">
+    <Key>
+      <PropertyRef Name="Stock_Id" />
+    </Key>
+    <Property Name="Stock_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubCategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Total_Stocks" Type="int" />
+    <Property Name="Available_Stocks" Type="int" />
+    <Property Name="Last_Updated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Support_Tickets">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ClosedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="OtpExpiry" Type="datetime" />
+    <Property Name="IsVerified" Type="bit" />
+  </EntityType>
+  <Association Name="FK__Address__UserId__3F466844">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Card_Requ__UserI__628FA481">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Card_Request" Type="Self.Card_Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Card_Request">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Card_Requ__Verif__6477ECF3">
+    <End Role="Admins" Type="Self.Admins" Multiplicity="0..1" />
+    <End Role="Card_Request" Type="Self.Card_Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="Card_Request">
+        <PropertyRef Name="VerifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMI_Card__Activa__5165187F">
+    <End Role="Admins" Type="Self.Admins" Multiplicity="0..1" />
+    <End Role="EMI_Card" Type="Self.EMI_Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="EMI_Card">
+        <PropertyRef Name="ActivatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMI_Card__Paymen__5070F446">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="EMI_Card" Type="Self.EMI_Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="EMI_Card">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMI_Card__UserId__4F7CD00D">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="EMI_Card" Type="Self.EMI_Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="EMI_Card">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmiCard_D__Card___17036CC0">
+    <End Role="Card_Request" Type="Self.Card_Request" Multiplicity="0..1" />
+    <End Role="EmiCard_Documents" Type="Self.EmiCard_Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card_Request">
+        <PropertyRef Name="Card_Id" />
+      </Principal>
+      <Dependent Role="EmiCard_Documents">
+        <PropertyRef Name="Card_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FAQ__ProductId__787EE5A0">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="FAQ" Type="Self.FAQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="FAQ">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Installme__EMI_I__6EF57B66">
+    <End Role="Monthly_EMI_Calc" Type="Self.Monthly_EMI_Calc" Multiplicity="0..1" />
+    <End Role="Installment_Payments" Type="Self.Installment_Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Monthly_EMI_Calc">
+        <PropertyRef Name="EMI_Id" />
+      </Principal>
+      <Dependent Role="Installment_Payments">
+        <PropertyRef Name="EMI_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Joining_F__Card___6754599E">
+    <End Role="Card_Request" Type="Self.Card_Request" Multiplicity="0..1" />
+    <End Role="Joining_Fee" Type="Self.Joining_Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card_Request">
+        <PropertyRef Name="Card_Id" />
+      </Principal>
+      <Dependent Role="Joining_Fee">
+        <PropertyRef Name="Card_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Joining_F__Payme__68487DD7">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="Joining_Fee" Type="Self.Joining_Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="Joining_Fee">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Monthly_E__Payme__6B24EA82">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <End Role="Monthly_EMI_Calc" Type="Self.Monthly_EMI_Calc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="PaymentId" />
+      </Principal>
+      <Dependent Role="Monthly_EMI_Calc">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Monthly_E__UserI__6C190EBB">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Monthly_EMI_Calc" Type="Self.Monthly_EMI_Calc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Monthly_EMI_Calc">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Offers__ProductI__7C4F7684">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Offers" Type="Self.Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Offers">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__PaymentI__5EBF139D">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="PaymentId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__ProductI__5CD6CB2B">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__UserId__5DCAEF64">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment_D__Payme__4BAC3F29">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="Payment_Details" Type="Self.Payment_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="Payment_Details">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payments__EmiCar__5535A963">
+    <End Role="EMI_Card" Type="Self.EMI_Card" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMI_Card">
+        <PropertyRef Name="EmiCardId" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="EmiCardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payments__Paymen__5812160E">
+    <End Role="Payment_Methods" Type="Self.Payment_Methods" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Methods">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payments__Produc__571DF1D5">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payments__UserId__5629CD9C">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Penalty__Install__72C60C4A">
+    <End Role="Installment_Payments" Type="Self.Installment_Payments" Multiplicity="0..1" />
+    <End Role="Penalty" Type="Self.Penalty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Installment_Payments">
+        <PropertyRef Name="InstallmentId" />
+      </Principal>
+      <Dependent Role="Penalty">
+        <PropertyRef Name="InstallmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Penalty__UserId__73BA3083">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Penalty" Type="Self.Penalty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Penalty">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Stock___45F365D3">
+    <End Role="Stocks" Type="Self.Stocks" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stocks">
+        <PropertyRef Name="Stock_Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Stock_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Refunds__Payment__00200768">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <End Role="Refunds" Type="Self.Refunds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="PaymentId" />
+      </Principal>
+      <Dependent Role="Refunds">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Support_T__UserI__03F0984C">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Support_Tickets" Type="Self.Support_Tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Support_Tickets">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IKartModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card_Request" EntityType="Self.Card_Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMI_Card" EntityType="Self.EMI_Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmiCard_Documents" EntityType="Self.EmiCard_Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Installment_Payments" EntityType="Self.Installment_Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Joining_Fee" EntityType="Self.Joining_Fee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Monthly_EMI_Calc" EntityType="Self.Monthly_EMI_Calc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offers" EntityType="Self.Offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Details" EntityType="Self.Payment_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Methods" EntityType="Self.Payment_Methods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Penalty" EntityType="Self.Penalty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Refunds" EntityType="Self.Refunds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Support_Tickets" EntityType="Self.Support_Tickets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Address__UserId__3F466844" Association="Self.FK__Address__UserId__3F466844">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Card_Requ__UserI__628FA481" Association="Self.FK__Card_Requ__UserI__628FA481">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Card_Request" EntitySet="Card_Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Card_Requ__Verif__6477ECF3" Association="Self.FK__Card_Requ__Verif__6477ECF3">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Card_Request" EntitySet="Card_Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMI_Card__Activa__5165187F" Association="Self.FK__EMI_Card__Activa__5165187F">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="EMI_Card" EntitySet="EMI_Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMI_Card__Paymen__5070F446" Association="Self.FK__EMI_Card__Paymen__5070F446">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="EMI_Card" EntitySet="EMI_Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMI_Card__UserId__4F7CD00D" Association="Self.FK__EMI_Card__UserId__4F7CD00D">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="EMI_Card" EntitySet="EMI_Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmiCard_D__Card___17036CC0" Association="Self.FK__EmiCard_D__Card___17036CC0">
+      <End Role="Card_Request" EntitySet="Card_Request" />
+      <End Role="EmiCard_Documents" EntitySet="EmiCard_Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FAQ__ProductId__787EE5A0" Association="Self.FK__FAQ__ProductId__787EE5A0">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="FAQ" EntitySet="FAQ" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Installme__EMI_I__6EF57B66" Association="Self.FK__Installme__EMI_I__6EF57B66">
+      <End Role="Monthly_EMI_Calc" EntitySet="Monthly_EMI_Calc" />
+      <End Role="Installment_Payments" EntitySet="Installment_Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Joining_F__Card___6754599E" Association="Self.FK__Joining_F__Card___6754599E">
+      <End Role="Card_Request" EntitySet="Card_Request" />
+      <End Role="Joining_Fee" EntitySet="Joining_Fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Joining_F__Payme__68487DD7" Association="Self.FK__Joining_F__Payme__68487DD7">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="Joining_Fee" EntitySet="Joining_Fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Monthly_E__Payme__6B24EA82" Association="Self.FK__Monthly_E__Payme__6B24EA82">
+      <End Role="Payments" EntitySet="Payments" />
+      <End Role="Monthly_EMI_Calc" EntitySet="Monthly_EMI_Calc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Monthly_E__UserI__6C190EBB" Association="Self.FK__Monthly_E__UserI__6C190EBB">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Monthly_EMI_Calc" EntitySet="Monthly_EMI_Calc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Offers__ProductI__7C4F7684" Association="Self.FK__Offers__ProductI__7C4F7684">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Offers" EntitySet="Offers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__PaymentI__5EBF139D" Association="Self.FK__Orders__PaymentI__5EBF139D">
+      <End Role="Payments" EntitySet="Payments" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__ProductI__5CD6CB2B" Association="Self.FK__Orders__ProductI__5CD6CB2B">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__UserId__5DCAEF64" Association="Self.FK__Orders__UserId__5DCAEF64">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment_D__Payme__4BAC3F29" Association="Self.FK__Payment_D__Payme__4BAC3F29">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="Payment_Details" EntitySet="Payment_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__EmiCar__5535A963" Association="Self.FK__Payments__EmiCar__5535A963">
+      <End Role="EMI_Card" EntitySet="EMI_Card" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__Paymen__5812160E" Association="Self.FK__Payments__Paymen__5812160E">
+      <End Role="Payment_Methods" EntitySet="Payment_Methods" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__Produc__571DF1D5" Association="Self.FK__Payments__Produc__571DF1D5">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payments__UserId__5629CD9C" Association="Self.FK__Payments__UserId__5629CD9C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Penalty__Install__72C60C4A" Association="Self.FK__Penalty__Install__72C60C4A">
+      <End Role="Installment_Payments" EntitySet="Installment_Payments" />
+      <End Role="Penalty" EntitySet="Penalty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Penalty__UserId__73BA3083" Association="Self.FK__Penalty__UserId__73BA3083">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Penalty" EntitySet="Penalty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Stock___45F365D3" Association="Self.FK__Products__Stock___45F365D3">
+      <End Role="Stocks" EntitySet="Stocks" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Refunds__Payment__00200768" Association="Self.FK__Refunds__Payment__00200768">
+      <End Role="Payments" EntitySet="Payments" />
+      <End Role="Refunds" EntitySet="Refunds" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Support_T__UserI__03F0984C" Association="Self.FK__Support_T__UserI__03F0984C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Support_Tickets" EntitySet="Support_Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,72 @@
+C:\IKart\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\IKart\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\IKart\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\IKart\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\IKart\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\Razorpay.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\Razorpay.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.dll
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\IKart_Shared.pdb
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.dll
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.dll
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\Razorpay.dll
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.xml
+C:\Naveen\Beyonders\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.xml
+C:\Naveen\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
+C:\Naveen\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
+C:\Naveen\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
+C:\Naveen\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
+C:\Naveen\Beyonders\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb

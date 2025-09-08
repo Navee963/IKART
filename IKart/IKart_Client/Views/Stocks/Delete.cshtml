@@ -1,0 +1,42 @@
+﻿@model IKart_Shared.DTOs.Admin.StocksDto
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Delete Stock";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">Delete Stock</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+    <p>Are you sure you want to delete this stock?</p>
+
+    <dl class="row">
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+
+        <dt class="col-sm-3">Sub Category</dt>
+        <dd class="col-sm-9">@Model.SubCategory</dd>
+
+        <dt class="col-sm-3">Total Stocks</dt>
+        <dd class="col-sm-9">@Model.TotalStocks</dd>
+
+        <dt class="col-sm-3">Available Stocks</dt>
+        <dd class="col-sm-9">@Model.AvailableStocks</dd>
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Stocks", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.StockId)
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("Index", "Stocks")" class="btn btn-secondary">Cancel</a>
+    }
+</div>

@@ -1,0 +1,77 @@
+﻿@model IKart_Shared.DTOs.Admin.ProductDto
+@using Newtonsoft.Json
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Add Product";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.ProductName)
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.ProductDetails)
+        @Html.TextAreaFor(m => m.ProductDetails, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Category")
+        @Html.DropDownList("Category", (SelectList)ViewBag.Categories, "Select Category", new { @class = "form-select", id = "categoryDropdown" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("SubCategory")
+        <select id="subCategoryDropdown" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Stock")
+        <select id="stockDropdown" name="Stock_Id" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Cost)
+        @Html.TextBoxFor(m => m.Cost, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <!-- Updated for file upload -->
+    <div class="mb-3">
+        @Html.Label("Product Image")
+        <input type="file" name="ProductImageFile" class="form-control" accept="image/*" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+}
+
+@section Scripts{
+    <script>
+        var allStocks = @Html.Raw(JsonConvert.SerializeObject(ViewBag.Stocks));
+
+        $('#categoryDropdown').change(function () {
+            var cat = $(this).val();
+            var subCats = allStocks.filter(s => s.Category === cat).map(s => s.SubCategory);
+            subCats = [...new Set(subCats)];
+            var subDropdown = $('#subCategoryDropdown');
+            subDropdown.empty().append('<option>Select SubCategory</option>');
+            subCats.forEach(sc => subDropdown.append('<option>' + sc + '</option>'));
+            $('#stockDropdown').empty().append('<option>Select Stock</option>');
+        });
+
+        $('#subCategoryDropdown').change(function () {
+            var cat = $('#categoryDropdown').val();
+            var sub = $(this).val();
+            var stocks = allStocks.filter(s => s.Category === cat && s.SubCategory === sub);
+            var stockDropdown = $('#stockDropdown');
+            stockDropdown.empty().append('<option>Select Stock</option>');
+            stocks.forEach(s => stockDropdown.append('<option value="' + s.StockId + '">Stock ' + s.StockId + ' - Available: ' + s.AvailableStocks + '</option>'));
+        });
+    </script>
+}

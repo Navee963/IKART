@@ -1,0 +1,64 @@
+﻿@model List<IKart_Shared.DTOs.Admin.StocksDto>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Products Report";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">@ViewBag.Title</h2>
+
+    <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Category</th>
+                <th>SubCategory</th>
+                <th>Total Stocks</th>
+                <th>Available Stocks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                string currentCategory = null;
+                int categoryTotal = 0;
+                int categoryAvailable = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                if (currentCategory != item.Category && currentCategory != null)
+                {
+                    <tr class="table-secondary fw-bold">
+                        <td colspan="2">Total (@currentCategory)</td>
+                        <td>@categoryTotal</td>
+                        <td>@categoryAvailable</td>
+                    </tr>
+
+                    categoryTotal = 0;
+                    categoryAvailable = 0;
+                }
+
+                currentCategory = item.Category;
+                categoryTotal += item.TotalStocks ?? 0;
+                categoryAvailable += item.AvailableStocks ?? 0;
+
+                <tr>
+                    <td>@item.Category</td>
+                    <td>@item.SubCategory</td>
+                    <td>@item.TotalStocks</td>
+                    <td>@item.AvailableStocks</td>
+                </tr>
+            }
+
+            @if (currentCategory != null)
+            {
+                <tr class="table-secondary fw-bold">
+                    <td colspan="2">Total (@currentCategory)</td>
+                    <td>@categoryTotal</td>
+                    <td>@categoryAvailable</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-secondary" onclick="history.back()">⬅ Back</button>
+</div>

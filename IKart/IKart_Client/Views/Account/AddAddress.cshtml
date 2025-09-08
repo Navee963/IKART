@@ -1,0 +1,62 @@
+﻿@model IKart_Shared.DTOs.AddressDto
+
+@{
+    ViewBag.Title = "Add Address";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+<h2>Add New Address</h2>
+
+@using (Html.BeginForm("AddAddress", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.HiddenFor(m => m.UserId)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Street, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.City, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.State, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ZipCode, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country, new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-6">
+            <button type="submit" class="btn btn-success">Add Address</button>
+            @Html.ActionLink("Back to Addresses", "Addresses", "Account", new { userId = Model.UserId }, new { @class = "btn btn-link" })
+        </div>
+    </div>
+}

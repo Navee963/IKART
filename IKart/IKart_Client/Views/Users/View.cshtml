@@ -1,0 +1,20 @@
+﻿@model IKart_Shared.DTOs.Admin.UserDto
+@{
+    ViewBag.Title = "User Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>User Details</h2>
+    <table class="table table-bordered">
+        <tr><th>User ID</th><td>@Model.UserId</td></tr>
+        <tr><th>User Name</th><td>@Model.UserName</td></tr>
+        <tr><th>Full Name</th><td>@Model.FullName</td></tr>
+        <tr><th>Email</th><td>@Model.Email</td></tr>
+        <tr><th>Phone Number</th><td>@Model.PhoneNumber</td></tr>
+        <tr><th>Created Date</th><td>@Model.CreatedDate.ToString("dd-MM-yyyy")</td></tr>
+        <tr><th>Status</th><td>@Model.Status</td></tr>
+    </table>
+
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</div>

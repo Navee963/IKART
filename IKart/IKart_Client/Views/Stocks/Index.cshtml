@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.Admin.StocksDto>
+
+@{
+    ViewBag.Title = "Stocks";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Stocks</h2>
+
+    <a href="@Url.Action("Create", "Stocks")" class="btn btn-success mb-3">Add Stock</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Stock Id</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Total Stocks</th>
+                <th>Available Stocks</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StockId</td>
+                    <td>@item.Category</td>
+                    <td>@item.SubCategory</td>
+                    <td>@item.TotalStocks</td>
+                    <td>@item.AvailableStocks</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

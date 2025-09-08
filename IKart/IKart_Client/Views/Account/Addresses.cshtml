@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.AddressDto>
+
+@{
+    ViewBag.Title = "My Addresses";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Saved Addresses</h2>
+
+<p>
+    @Html.ActionLink("Add New Address", "AddAddress", "Account", new { userId = ViewBag.UserId }, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>ZipCode</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.Street</td>
+                    <td>@a.City</td>
+                    <td>@a.State</td>
+                    <td>@a.ZipCode</td>
+                    <td>@a.Country</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditAddress", "Account", new { id = a.AddressId }, new { @class = "btn btn-sm btn-warning" })
+                        @using (Html.BeginForm("DeleteAddress", "Account", FormMethod.Post, new { @class = "d-inline" }))
+                        {
+                            @Html.Hidden("id", a.AddressId)
+                            @Html.Hidden("userId", a.UserId)
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">No addresses found.</td></tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,151 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.Admin.OrderDto>
+@using Newtonsoft.Json
+
+@{ Layout = "~/Views/Shared/_AdminLayout.cshtml";
+                ViewBag.Title = "Dashboard"; }
+
+<div class="container mt-5">
+    <h2 class="heading-title mb-4">@ViewBag.Title</h2>
+
+    <div class="row">
+        <!-- Tokens Raised -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header fw-semibold text-secondary">
+                    <i class="fa fa-tag me-2 text-muted"></i> Tokens Raised
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        @foreach (var token in ViewBag.Tokens)
+                        {
+            <li class="mb-2">
+                <strong>Token #@token.TicketId</strong> - @token.Subject
+                <span class="float-end badge bg-info text-dark">@token.Status</span>
+            </li>}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header fw-semibold text-secondary">
+                    <i class="fa fa-bolt me-2 text-warning"></i> Quick Actions
+                </div>
+                <div class="card-body d-flex flex-column align-items-center gap-100">
+                    <a class="btn btn-sm btn-primary mb-1" href="@Url.Action("Create","Products", new { area = "Admin" })">
+                        <i class="fa fa-plus me-1"></i> Add Product
+                    </a>
+                    <a class="btn btn-sm btn-secondary mb-1" href="@Url.Action("Index","Orders", new { area = "Admin" })">
+                        <i class="fa fa-truck me-1"></i> View Orders
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Chart -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header fw-semibold text-secondary">
+                    <i class="fa fa-chart-line me-2 text-success"></i> Revenue (Last 7 Days)
+                </div>
+                <div class="card-body" style="height:300px;">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Orders Table -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header fw-semibold text-secondary">
+                    <i class="fa fa-receipt me-2 text-primary"></i> Recent Orders
+                </div>
+                <div class="card-body">
+                    <table id="recentOrders" class="table table-striped table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model)
+                            {
+                <tr>
+                    <td>#@order.Order_Id</td>
+                    <td>@order.UserName</td>
+                    <td>₹@order.TotalAmount.ToString("N2")</td>
+                    <td>
+                        <span class="badge rounded-pill
+                                            @(order.Status == "Paid" ? "bg-success" :
+                                              order.Status == "Pending" ? "bg-warning text-dark" :
+                                              order.Status == "Failed" ? "bg-danger" : "bg-info text-dark")">
+                            @order.Status
+                        </span>
+                    </td>
+                    <td>@order.OrderDate.ToString("dd-MMM-yyyy")</td>
+                </tr>}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            // Chart.js Revenue Line Chart
+            var revenueData = @Html.Raw(JsonConvert.SerializeObject(ViewBag.Revenue));
+            var labels = revenueData.map(r => moment(r.Date).format("DD-MMM"));
+            var data = revenueData.map(r => r.Total);
+
+            var ctx = document.getElementById('revenueChart').getContext('2d');
+            var revenueChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: data,
+                        backgroundColor: 'rgba(173, 216, 230, 0.3)',
+                        borderColor: 'rgba(100, 149, 237, 1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    family: 'Segoe UI',
+                                    weight: '600'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // DataTable for recent orders
+            $('#recentOrders').DataTable({
+                paging: true,
+                searching: false,
+                info: false
+            });
+        });
+    </script>
+}

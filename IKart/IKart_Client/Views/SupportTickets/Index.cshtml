@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.Admin.SupportTicketDto>
+
+@{
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+                ViewBag.Title = "Support Tickets";
+
+}
+
+<div class="container mt-4">
+    <h2>Support Tickets</h2>
+    <table class="table table-bordered table-striped">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>Ticket ID</th>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Closed Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var ticket in Model)
+
+            {
+<tr>
+    <td>@ticket.TicketId</td>
+    <td>@ticket.UserId</td>
+    <td>@ticket.Username</td>
+    <td>@ticket.Subject</td>
+    <td>@ticket.Description</td>
+    <td>@ticket.Status</td>
+    <td>@ticket.CreatedDate.ToString("dd-MM-yyyy")</td>
+    <td>@(ticket.ClosedDate.HasValue ? ticket.ClosedDate.Value.ToString("dd-MM-yyyy") : "-")</td>
+    <td>
+
+        @if (ticket.Status != "Closed")
+
+        {
+<form action="@Url.Action("CloseTicket", "SupportTickets", new { id = ticket.TicketId })" method="post">
+    <button type="submit" class="btn btn-danger">Close Ticket</button>
+</form>
+                }
+    </td>
+</tr>
+            }
+        </tbody>
+    </table>
+</div>
+

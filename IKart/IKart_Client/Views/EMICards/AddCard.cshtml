@@ -1,0 +1,88 @@
+﻿@model IKart_Shared.DTOs.EMI_Card.CardRequestDto
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Choose Your EMI Card</h2>
+
+@using (Html.BeginForm("RequestCard", "EMICards", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="card-deck mb-3">
+        <div class="card p-3">
+            <h3>Gold</h3>
+            <p>Limit: ₹25,000</p>
+            <p>Joining Fee: ₹1,000</p>
+            @Html.RadioButtonFor(m => m.CardType, "Gold") Select
+            @Html.ValidationMessageFor(m => m.CardType, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="card p-3">
+            <h3>Diamond</h3>
+            <p>Limit: ₹50,000</p>
+            <p>Joining Fee: ₹2,000</p>
+            @Html.RadioButtonFor(m => m.CardType, "Diamond") Select
+            @Html.ValidationMessageFor(m => m.CardType, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="card p-3">
+            <h3>Platinum</h3>
+            <p>Limit: ₹1,00,000</p>
+            <p>Joining Fee: ₹3,000</p>
+            @Html.RadioButtonFor(m => m.CardType, "Platinum") Select
+            @Html.ValidationMessageFor(m => m.CardType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>Provide Documents</h4>
+    <div class="form-group">
+        <label>Bank Name</label>
+        @Html.TextBoxFor(m => m.BankName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BankName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Account Number</label>
+        @Html.TextBoxFor(m => m.AccountNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AccountNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>IFSC Code</label>
+        @Html.TextBoxFor(m => m.IFSC_Code, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.IFSC_Code, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Aadhaar Number</label>
+        @Html.TextBoxFor(m => m.AadhaarNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AadhaarNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <hr />
+
+    <h4>Upload Documents</h4>
+    <div class="form-group">
+        <label>Aadhaar Card</label>
+        <input type="file" name="Aadhaar" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>PAN Card</label>
+        <input type="file" name="PAN" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Bank Book Front Page</label>
+        <input type="file" name="BankBook" class="form-control" required />
+    </div>
+
+    <hr />
+
+    <h4>Pay Joining Fee</h4>
+    <p>After filling this form and uploading documents, you will be redirected to pay the joining fee.</p>
+
+    <button type="submit" class="btn btn-success">Proceed to Payment</button>
+}

@@ -1,0 +1,82 @@
+﻿<nav id="user-sidebar" class="d-flex flex-column" style="min-height:100vh; background:#fff; padding:15px; box-shadow:2px 0 8px rgba(0,0,0,0.08);">
+    <!-- Brand -->
+    <div class="sidebar-brand d-flex align-items-center mb-3 px-2">
+        <strong style="color:#6b21a8; font-size:1.3rem;">IKart</strong>
+    </div>
+
+    <!-- Nav links -->
+    <ul class="nav flex-column sidebar-nav flex-grow-1" style="gap:4px;">
+        <!-- reduced spacing -->
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Profile")">
+                <i class="fa fa-user mr-2"></i>Profile
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Orders")">
+                <i class="fa fa-box mr-2"></i>Your Orders
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Cart")">
+                <i class="fa fa-shopping-cart mr-2"></i>Cart
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","EMICards")">
+                <i class="fa fa-credit-card mr-2"></i>EMI Cards
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Category")">
+                <i class="fa fa-th-large mr-2"></i>Shop by Category
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Support")">
+                <i class="fa fa-headset mr-2"></i>Customer Service
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("IncidentStatus","Support")">
+                <i class="fa fa-headset mr-2"></i>Incident Status
+            </a>
+        </li>
+    </ul>
+
+    <!-- Logout -->
+    <div class="mb-2">
+        <!-- pulled up slightly -->
+        <a class="nav-link text-danger font-weight-bold" href="@Url.Action("Logout","Account")">
+            <i class="fa fa-sign-out-alt mr-2"></i>Logout
+        </a>
+    </div>
+</nav>
+
+<style>
+
+    #user-sidebar .nav-link {
+        color: #444;
+        padding: 10px 12px; /* reduced padding */
+
+        border-radius: 8px;
+        margin-bottom: 4px; /* less spacing */
+
+        font-weight: 500;
+        transition: all 0.25s ease;
+    }
+
+        #user-sidebar .nav-link:hover {
+            background: linear-gradient(90deg, #fbcfe8, #d8b4fe);
+            color: #111 !important;
+            transform: translateX(3px);
+        }
+
+        #user-sidebar .nav-link i {
+            color: #a855f7;
+        }
+
+        #user-sidebar .nav-link:hover i {
+            color: #ec4899;
+        }
+</style>

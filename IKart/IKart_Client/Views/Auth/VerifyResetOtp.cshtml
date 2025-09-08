@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Verify OTP";
+    Layout = "~/Views/Shared/_UserLogin.cshtml";
+}
+
+<div class="login-title">Verify OTP</div>
+<p class="mb-3 text-muted" style="font-size: 14px;">We've sent an OTP to your email. Please enter it below to continue.</p>
+
+@using (Html.BeginForm("VerifyResetOtp", "Auth", FormMethod.Post))
+{
+    @Html.Hidden("userId", (int)ViewBag.UserId)
+
+    <div class="form-group mb-3">
+        @Html.TextBox("otp", null, new { @class = "form-control", placeholder = "Enter OTP" })
+        @Html.ValidationMessage("otp", "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-login w-100">Verify OTP</button>
+}

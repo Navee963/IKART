@@ -1,0 +1,115 @@
+﻿﻿ /* Admin theme based on Amazon aesthetic: clean, wide content area, orange accent */
+html, body {
+    height: 100%;
+}
+
+#admin-root {
+    min-height: 100vh
+}
+
+#admin-sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: #1f2937;
+    display: flex;
+    flex-direction: column
+}
+
+    #admin-sidebar .sidebar-brand {
+        background: #111827;
+        color: #fff
+    }
+
+    #admin-sidebar .sidebar-nav {
+        padding-left: 0;
+        margin-top: 8px
+    }
+
+    #admin-sidebar .nav-link {
+        padding: 12px 18px
+    }
+
+        #admin-sidebar .nav-link:hover {
+            background: #111827;
+            text-decoration: none
+        }
+
+        #admin-sidebar .nav-link .fa {
+            width: 18px
+        }
+
+#admin-content {
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+/*.admin-topbar {
+    height: 56px
+}*/
+
+.admin-topbar {
+    position: relative;
+    z-index: 1050; /* Higher than sidebar (sidebar is 1040) */
+}
+
+
+.admin-footer {
+    background: transparent
+}
+
+.admin-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06)
+}
+
+.text-orange {
+    color: #ff9900
+}
+
+.display-4 {
+    font-size: 1.7rem
+}
+
+
+/* Responsive adjustments */
+#admin-sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    z-index: 1040;
+    transition: left 0.3s ease-in-out; /* Smooth animation */
+}
+
+    #admin-sidebar.show {
+        left: 0;
+    }
+
+
+/* DataTables small adjustments */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.25rem 0.5rem
+}
+
+
+/* small helpers */
+.badge {
+    font-size: 0.75rem
+}
+
+/* Add transition and margin-left to admin-content */
+#admin-content {
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 0; /* default when sidebar is hidden */
+}
+
+/* When sidebar is shown, shift content to the right */
+#admin-sidebar.show ~ #admin-content {
+    margin-left: 240px; /* same as sidebar width */
+}

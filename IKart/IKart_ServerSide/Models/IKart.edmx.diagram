@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a1bd83d486fc4742920c2256e7185d49" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="IKartModel.Address" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Admin" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Card_Request" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.EMI_Card" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.EmiCard_Documents" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.FAQ" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Installment_Payments" Width="1.5" PointX="12.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Joining_Fee" Width="1.5" PointX="8.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Monthly_EMI_Calc" Width="1.5" PointX="10.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Order_Cancellations" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Order" Width="1.5" PointX="13.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Payment_Details" Width="1.5" PointX="6" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Payment_Methods" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Payment" Width="1.5" PointX="8.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Product" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Refund" Width="1.5" PointX="10.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Return" Width="1.5" PointX="18.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Stock" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.Support_Tickets" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKartModel.User" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="IKartModel.FK__Address__UserId__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Card_Requ__Verif__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__EMI_Card__Activa__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Card_Requ__UserI__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__EmiCard_D__Card___7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Joining_F__Card___6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__EMI_Card__Paymen__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__EMI_Card__UserId__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Payments__EmiCar__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__FAQ__ProductId__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Installme__EMI_I__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Joining_F__Payme__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Monthly_E__Payme__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Monthly_E__UserI__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Order_Can__Order__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Order_Can__UserI__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Orders__PaymentI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Orders__ProductI__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Orders__UserId__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Returns__OrderId__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Payment_D__Payme__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Payments__Paymen__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Payments__Produc__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Payments__UserId__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Refunds__Payment__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Products__Stock___47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Returns__Product__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Returns__UserId__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK__Support_T__UserI__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="IKartModel.FK_Installment_Payments_Payment" />
+        <EntityTypeShape EntityType="IKartModel.Penalty" Width="1.5" PointX="16" PointY="17.125" />
+        <AssociationConnector Association="IKartModel.FK__Penalty__Install__17036CC0" />
+        <AssociationConnector Association="IKartModel.FK__Penalty__UserId__17F790F9" />
+        <EntityTypeShape EntityType="IKartModel.COD_UPI_Orders" Width="1.5" PointX="8.25" PointY="8.75" />
+        <AssociationConnector Association="IKartModel.FK__COD_UPI_O__Produ__1CBC4616" />
+        <AssociationConnector Association="IKartModel.FK__COD_UPI_O__UserI__1DB06A4F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

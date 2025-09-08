@@ -1,0 +1,24 @@
+﻿@model List<IKart_Shared.DTOs.AddressDto>
+
+@{ ViewBag.Title = "Select Delivery Address"; }
+
+<h2>Select Delivery Address</h2>
+
+<form method="post" action="@Url.Action("ChoosePayment", "Order")">
+    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+
+    @foreach (var address in Model)
+    {
+<div class="card mb-2">
+    <div class="card-body">
+        <label>
+            <input type="radio" name="addressId" value="@address.AddressId" required />
+            @address.Street, @address.City, @address.State - @address.ZipCode, @address.Country
+        </label>
+    </div>
+</div>}
+
+    <button type="submit" class="btn btn-success">Continue to Payment</button>
+</form>
+
+<a href="@Url.Action("AddAddress", "Account")" class="btn btn-info mt-3">Add New Address</a>

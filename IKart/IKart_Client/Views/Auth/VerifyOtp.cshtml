@@ -1,0 +1,59 @@
+﻿@{
+        Layout = "~/Views/Shared/_UserLogin.cshtml";
+    }
+    @{
+        ViewBag.Title = "Verify OTP";
+    }
+
+    <h2>Verify OTP</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("VerifyOtp", "Auth", FormMethod.Post))
+    {
+        <input type="hidden" name="userId" value="@ViewBag.UserId" />
+
+        <div class="form-group mb-3">
+            <label>Enter OTP</label>
+            <input type="text" name="otp" class="form-control" maxlength="6" required />
+        </div>
+
+        <button type="submit" class="btn btn-success">Verify</button>
+    }
+
+@*@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@{
+    ViewBag.Title = "Verify OTP";
+    bool isVerified = ViewBag.IsVerified ?? false;
+}
+
+<h2>Verify OTP</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm("VerifyOtp", "Auth", FormMethod.Post))
+{
+    <input type="hidden" name="userId" value="@ViewBag.UserId" />
+
+    <div class="form-group mb-3">
+        <label for="otp">Enter OTP</label>
+        <input type="text" id="otp" name="otp" class="form-control" maxlength="6" autocomplete="off" required />
+        @Html.ValidationMessage("otp", "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Verify</button>
+}
+
+@if (!isVerified)
+{
+    <div class="mt-3">
+        @using (Html.BeginForm("ResendOtp", "Auth", FormMethod.Post))
+        {
+            <input type="hidden" name="userId" value="@ViewBag.UserId" />
+            <button type="submit" class="btn btn-warning">Resend OTP</button>
+        }
+    </div>
+}*@
+

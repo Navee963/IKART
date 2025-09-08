@@ -1,0 +1,728 @@
+C:\IKart\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\IKart\IKart\IKart_Client\bin\IKart_Client.dll
+C:\IKart\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\IKart\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\IKart\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\IKart\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\IKart\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\IKart\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\IKart\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\IKart\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\IKart\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\IKart\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\IKart\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\IKart\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\IKart\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\IKart\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\IKart\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\IKart\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\IKart\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\IKart\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\IKart\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\IKart\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\IKart\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\IKart\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\IKart\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\IKart\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\IKart\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\IKart\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Users\naveent\OneDrive - Infinite Computer Solutions (India) Limited\Desktop\Ikart_Project\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\Training\FinalProject\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Buffers.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Memory.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.pdb
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Buffers.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Memory.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Training\Finalll_Projectt\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Buffers.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Memory.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Buffers.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.pdb
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Memory.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Users\naveent\Downloads\Nikitha\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Buffers.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Memory.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Buffers.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Memory.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\NaveenCode\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\NaveenCode\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\NaveenCode\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\NaveenCode\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\Razorpay.dll
+C:\NaveenCode\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Razorpay.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Buffers.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Memory.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Buffers.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.pdb
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Memory.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Users\naveent\Downloads\Final_Ikart\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll.config
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\IKart_Client.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\IKart_Client.pdb
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csc.exe.config
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csc.rsp
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csi.exe.config
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\csi.rsp
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.AppContext.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Collections.Immutable.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Console.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Globalization.Calendars.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Http.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Net.Sockets.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.ValueTuple.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.exe.config
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\vbc.rsp
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\roslyn\VBCSCompiler.exe.config
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\EntityFramework.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\IKart_Shared.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Microsoft.Web.Infrastructure.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Razorpay.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Buffers.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Memory.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\IKart_Shared.pdb
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\BouncyCastle.Crypto.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\EntityFramework.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\EntityFramework.SqlServer.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.pdb
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Newtonsoft.Json.Bson.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Buffers.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.pdb
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Drawing.Common.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Memory.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Net.Http.Formatting.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Numerics.Vectors.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Threading.Tasks.Extensions.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Razor.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Deployment.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Webpages.Razor.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Helpers.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\System.Web.Mvc.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Naveen\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.AssemblyReference.cache
+C:\Naveen\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CoreCompileInputs.cache
+C:\Naveen\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.csproj.CopyComplete
+C:\Naveen\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.dll
+C:\Naveen\Beyonders\IKart\IKart_Client\obj\Debug\IKart_Client.pdb

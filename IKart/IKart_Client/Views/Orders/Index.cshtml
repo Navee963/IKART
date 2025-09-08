@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.Admin.OrderDto>
+@{ ViewBag.Title = "Orders - Admin Dashboard";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+<div class="container mt-4 d-flex flex-column min-vh-100">
+    <h2 class="mb-4">Orders Management</h2>
+    <div class="flex-grow-1">
+        <table class="table table-bordered align-middle">
+            <thead class="table-dark user-select-none">
+                <tr>
+                    <th>Order ID</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Ordered Date</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var o in Model)
+                {
+    <tr>
+        <td>#@o.Order_Id</td>
+        <td>@o.UserName</td>
+        <td>
+            <span class="badge rounded-pill
+                            @(o.Status == "Completed" ? "text-bg-success" :
+                              o.Status == "Pending" ? "text-bg-warning" :
+                              o.Status == "Cancelled" ? "text-bg-danger" : "text-bg-primary")">
+                @o.Status
+            </span>
+        </td>
+        <td>₹@o.TotalAmount.ToString("N2")</td>
+        <td>@o.OrderDate.ToString("dd-MMM-yyyy")</td>
+        <td class="text-center">
+            <a href="@Url.Action("Details", "Orders", new { area="Admin", id=o.Order_Id })"
+               class="btn btn-outline-primary btn-sm">
+                <i class="fa fa-eye"></i> View
+            </a>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>
