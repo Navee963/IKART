@@ -79,7 +79,9 @@
     <Compile Include="DTOs\EMI_Card\CardRequestDto.cs" />
     <Compile Include="DTOs\EMI_Card\EMICardDto.cs" />
     <Compile Include="DTOs\EMI_Card\PaymentDto.cs" />
+    <Compile Include="DTOs\FAQ\FAQDto.cs" />
     <Compile Include="DTOs\Orders\OrderDto.cs" />
+    <Compile Include="DTOs\Payment\PaymentDto.cs" />
     <Compile Include="DTOs\Payment\UserPaymentDto.cs" />
     <Compile Include="DTOs\Products\ProductDto.cs" />
     <Compile Include="DTOs\Products\StocksDto.cs" />

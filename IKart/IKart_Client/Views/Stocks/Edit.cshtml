@@ -32,7 +32,7 @@
 
         <div class="form-group mb-3">
             @Html.LabelFor(m => m.AvailableStocks)
-            @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0" })
+            @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0", @readonly = "readonly" })
             @Html.ValidationMessageFor(m => m.AvailableStocks)
         </div>
 

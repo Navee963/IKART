@@ -1,35 +1,37 @@
 ﻿@model List<IKart_Shared.DTOs.Payment.UserPaymentDto>
-@*@model List<IKart_Shared.DTOs.EMI_Card.PaymentDto>*@
 
-@{ ViewBag.Title = "My Payments"; }
+@{
+    ViewBag.Title = "Your Payments";
+}
 
-<h2>My Payments</h2>
+<h2>Your Payments</h2>
 
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th>Payment ID</th>
             <th>Product</th>
-            <th>Card</th>
-            <th>Total</th>
-            <th>EMI</th>
+            <th>Card Type</th>
+            <th>Total Amount</th>
+            <th>Payment Date</th>
             <th>Status</th>
-            <th>Date</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var p in Model)
+        @foreach (var payment in Model)
         {
-<tr>
-    <td>@p.ProductName</td>
-    <td>@p.CardType</td>
-    <td>₹@p.TotalAmount</td>
-    <td>₹@p.EMIAmount × @p.TenureMonths</td>
-    <td>@p.Status</td>
-    <td>@p.PaymentDate.ToShortDateString()</td>
-    <td>
-        <a href="@Url.Action("Details", "ProductPayment", new { paymentId = p.PaymentId })" class="btn btn-sm btn-info">View</a>
-    </td>
-</tr>}
+            <tr>
+                <td>@payment.PaymentId</td>
+                <td>@payment.ProductName</td>
+                <td>@payment.CardType</td>
+                <td>₹@payment.TotalAmount</td>
+                <td>@payment.PaymentDate.ToShortDateString()</td>
+                <td>@payment.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", "ProductPayment", new { paymentId = payment.PaymentId })" class="btn btn-info">View</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

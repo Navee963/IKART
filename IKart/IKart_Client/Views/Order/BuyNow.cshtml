@@ -1,4 +1,4 @@
-﻿@model List<IKart_Shared.DTOs.AddressDto>
+﻿﻿@model List<IKart_Shared.DTOs.AddressDto>
 
 @{ ViewBag.Title = "Select Delivery Address"; }
 
@@ -9,14 +9,14 @@
 
     @foreach (var address in Model)
     {
-<div class="card mb-2">
-    <div class="card-body">
-        <label>
-            <input type="radio" name="addressId" value="@address.AddressId" required />
-            @address.Street, @address.City, @address.State - @address.ZipCode, @address.Country
-        </label>
-    </div>
-</div>}
+        <div class="card mb-2">
+            <div class="card-body">
+                <label>
+                    <input type="radio" name="addressId" value="@address.AddressId" required />
+                    @address.Street, @address.City, @address.State - @address.ZipCode, @address.Country
+                </label>
+            </div>
+        </div>}
 
     <button type="submit" class="btn btn-success">Continue to Payment</button>
 </form>

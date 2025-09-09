@@ -38,6 +38,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="COD_UPI_Orders">
+      <EntityTypeMapping TypeName="IKartModel.COD_UPI_Orders">
+        <MappingFragment StoreEntitySet="COD_UPI_Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EMI_Card">
       <EntityTypeMapping TypeName="IKartModel.EMI_Card">
         <MappingFragment StoreEntitySet="EMI_Card">
@@ -82,25 +95,25 @@
     <EntitySetMapping Name="Installment_Payments">
       <EntityTypeMapping TypeName="IKartModel.Installment_Payments">
         <MappingFragment StoreEntitySet="Installment_Payments">
-          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
           <ScalarProperty Name="InstallmentId" ColumnName="InstallmentId" />
           <ScalarProperty Name="EMI_Id" ColumnName="EMI_Id" />
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Joining_Fee">
       <EntityTypeMapping TypeName="IKartModel.Joining_Fee">
         <MappingFragment StoreEntitySet="Joining_Fee">
-          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
-          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
           <ScalarProperty Name="Fee_Id" ColumnName="Fee_Id" />
           <ScalarProperty Name="Card_Id" ColumnName="Card_Id" />
           <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -132,7 +145,6 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="IKartModel.Order">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="TenureMonths" ColumnName="TenureMonths" />
           <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -167,9 +179,6 @@
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="IKartModel.Payment">
         <MappingFragment StoreEntitySet="Payments">
-          <ScalarProperty Name="IsEMI" ColumnName="IsEMI" />
-          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
-          <ScalarProperty Name="RazorpayOrderId" ColumnName="RazorpayOrderId" />
           <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
           <ScalarProperty Name="EmiCardId" ColumnName="EmiCardId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -177,8 +186,24 @@
           <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
           <ScalarProperty Name="ProcessingFee" ColumnName="ProcessingFee" />
           <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
           <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penalties">
+      <EntityTypeMapping TypeName="IKartModel.Penalty">
+        <MappingFragment StoreEntitySet="Penalty">
+          <ScalarProperty Name="PenaltyId" ColumnName="PenaltyId" />
+          <ScalarProperty Name="InstallmentId" ColumnName="InstallmentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Days_Overdue" ColumnName="Days_Overdue" />
+          <ScalarProperty Name="PenaltyPerDay" ColumnName="PenaltyPerDay" />
+          <ScalarProperty Name="PenaltyAmount" ColumnName="PenaltyAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -259,36 +284,6 @@
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="OtpExpiry" ColumnName="OtpExpiry" />
           <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Penalties">
-      <EntityTypeMapping TypeName="IKartModel.Penalty">
-        <MappingFragment StoreEntitySet="Penalty">
-          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="PenaltyAmount" ColumnName="PenaltyAmount" />
-          <ScalarProperty Name="PenaltyPerDay" ColumnName="PenaltyPerDay" />
-          <ScalarProperty Name="Days_Overdue" ColumnName="Days_Overdue" />
-          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="InstallmentId" ColumnName="InstallmentId" />
-          <ScalarProperty Name="PenaltyId" ColumnName="PenaltyId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="COD_UPI_Orders">
-      <EntityTypeMapping TypeName="IKartModel.COD_UPI_Orders">
-        <MappingFragment StoreEntitySet="COD_UPI_Orders">
-          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
-          <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
-          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
-          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

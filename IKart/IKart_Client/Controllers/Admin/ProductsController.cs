@@ -19,9 +19,7 @@ namespace IKart_Client.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            List<ProductDto>
-    products = new List<ProductDto>
-        ();
+            List<ProductDto> products = new List<ProductDto>();
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
@@ -86,6 +84,7 @@ namespace IKart_Client.Controllers
 
                     if (response.IsSuccessStatusCode)
                     {
+                        // REMOVED: UpdateStockAvailable
                         return RedirectToAction("Index");
                     }
                     else
@@ -134,6 +133,22 @@ namespace IKart_Client.Controllers
                 return View(dto);
             }
 
+            // Get old product for stock comparison (no update logic here)
+            ProductDto oldDto = null;
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+                using (HttpClient client = new HttpClient(handler))
+                {
+                    var res = client.GetAsync($"{apiUrl}/{id}").Result;
+                    if (res.IsSuccessStatusCode)
+                    {
+                        var data = res.Content.ReadAsStringAsync().Result;
+                        oldDto = JsonConvert.DeserializeObject<ProductDto>(data);
+                    }
+                }
+            }
+
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
@@ -143,7 +158,10 @@ namespace IKart_Client.Controllers
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
                     var res = client.PutAsync($"{apiUrl}/{id}", data).Result;
                     if (res.IsSuccessStatusCode)
+                    {
+                        // REMOVED: UpdateStockAvailable
                         return RedirectToAction("Index");
+                    }
                 }
             }
 
@@ -179,6 +197,22 @@ namespace IKart_Client.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
+            // Get product for stock reference (no update logic here)
+            ProductDto dto = null;
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+                using (HttpClient client = new HttpClient(handler))
+                {
+                    var res = client.GetAsync($"{apiUrl}/{id}").Result;
+                    if (res.IsSuccessStatusCode)
+                    {
+                        var data = res.Content.ReadAsStringAsync().Result;
+                        dto = JsonConvert.DeserializeObject<ProductDto>(data);
+                    }
+                }
+            }
+
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
@@ -186,7 +220,10 @@ namespace IKart_Client.Controllers
                 {
                     var res = client.DeleteAsync($"{apiUrl}/{id}").Result;
                     if (res.IsSuccessStatusCode)
+                    {
+                        // REMOVED: UpdateStockAvailable
                         return RedirectToAction("Index");
+                    }
                 }
             }
             return RedirectToAction("Index");

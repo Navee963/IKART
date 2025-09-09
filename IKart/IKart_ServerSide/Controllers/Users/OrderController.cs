@@ -14,7 +14,7 @@ namespace IKart_ServerSide.Controllers.Users
     {
         private readonly IKartEntities db = new IKartEntities();
 
-        // ✅ Place Order (supports COD, UPI, RAZORPAY)
+        // ✅ Place Order
         [HttpPost]
         [Route("place")]
         public IHttpActionResult PlaceOrder(COD_UPI_OrdersDto dto)
@@ -27,18 +27,15 @@ namespace IKart_ServerSide.Controllers.Users
 
                 var paymentType = dto.PaymentType.Trim().ToUpper();
 
-                if (paymentType != "COD" && paymentType != "UPI" && paymentType != "RAZORPAY")
-                    return BadRequest("Unsupported payment type. Use 'COD', 'UPI' or 'RAZORPAY'.");
-
-                var paymentStatus = paymentType == "COD" ? "Pending" : "Paid";
+                if (paymentType != "COD" && paymentType != "UPI")
+                    return BadRequest("Unsupported payment type. Use 'COD' or 'UPI'.");
 
                 var order = new COD_UPI_Orders
                 {
                     ProductId = dto.ProductId,
                     UserId = dto.UserId,
-                    AddressId = dto.AddressId,  // <-- Add this
                     PaymentType = paymentType,
-                    PaymentStatus = paymentStatus,
+                    PaymentStatus = paymentType == "COD" ? "Pending" : "Paid",
                     OrderDate = dto.OrderDate != default ? dto.OrderDate : DateTime.Now,
                     DeliveryDate = dto.DeliveryDate != default ? dto.DeliveryDate : DateTime.Now.AddDays(5)
                 };
@@ -53,6 +50,7 @@ namespace IKart_ServerSide.Controllers.Users
                 return InternalServerError(new Exception("Error placing order: " + ex.Message));
             }
         }
+
 
         // ✅ Get all orders for a user
         [HttpGet]

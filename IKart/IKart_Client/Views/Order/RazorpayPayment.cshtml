@@ -1,68 +1,47 @@
-﻿@{
-    var product = ViewBag.Product as IKart_Shared.DTOs.ProductDto;
-    var amount = ViewBag.Amount;
-    var orderId = ViewBag.RazorpayOrderId;
-    var key = ViewBag.RazorpayKey;
-    var addressId = ViewBag.AddressId;
-    var userId = ViewBag.UserId;
-}
+﻿@{ ViewBag.Title = "Pay with Razorpay"; }
 
-<h2>Razorpay Payment</h2>
+<h2>Pay with Razorpay</h2>
+<p>Product: @ViewBag.ProductName</p>
+<p>Amount: ₹@((decimal)ViewBag.Amount / 100)</p>
 
-<div class="card mb-3">
-    <div class="card-body">
-        <h4>@product.ProductName</h4>
-        <img src="@product.ProductImage" alt="@product.ProductName" style="width:200px;" />
-        <p><strong>Price:</strong> ₹@product.Cost</p>
-        <p><strong>Delivery Fee:</strong> ₹100</p>
-        <p><strong>Total Cost:</strong> ₹@((decimal)product.Cost + 100)</p>
-        <p><strong>Expected Delivery Date:</strong> @DateTime.Now.AddDays(5)</p>
-    </div>
-</div>
+<form id="razorpayForm">
+    <input type="hidden" id="orderId" value="@ViewBag.OrderId" />
+    <input type="hidden" id="productId" value="@ViewBag.ProductId" />
+    <input type="hidden" id="addressId" value="@ViewBag.AddressId" />
+    <input type="hidden" id="userId" value="@ViewBag.UserId" />
+    <button type="button" id="payBtn" class="btn btn-success">Pay Now</button>
+</form>
 
-<button id="rzp-button" class="btn btn-primary">Pay Now</button>
-
-<!-- Razorpay script -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-    document.getElementById('rzp-button').onclick = function (e) {
-        var options = {
-            "key": "@key",
-            "amount": "@amount",
-            "currency": "INR",
-            "name": "IKart",
-            "description": "@product.ProductName",
-            "order_id": "@orderId",
-            "handler": function (response) {
-                // AJAX: Send payment details to server for verification and order storage
-                fetch('@Url.Action("CompleteRazorpay", "Order")', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        razorpay_payment_id: response.razorpay_payment_id,
-                        razorpay_order_id: response.razorpay_order_id,
-                        razorpay_signature: response.razorpay_signature,
-                        productId: @product.ProductId,
-                        addressId: @addressId
-                    })
+document.getElementById("payBtn").onclick = function () {
+    var options = {
+        "key": "rzp_test_REOSbBMiZHhMMR",
+        "amount": "@ViewBag.Amount",
+        "currency": "@ViewBag.Currency",
+        "name": "@ViewBag.ProductName",
+        "order_id": "@ViewBag.OrderId",
+        "handler": function (response){
+            fetch("/Order/VerifyRazorpayPayment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    RazorpayOrderId: response.razorpay_order_id,
+                    RazorpayPaymentId: response.razorpay_payment_id,
+                    RazorpaySignature: response.razorpay_signature,
+                    UserId: document.getElementById("userId").value,
+                    ProductId: document.getElementById("productId").value,
+                    Amount: parseFloat("@((decimal)ViewBag.Amount / 100)")
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location = data.redirectUrl;
-                    } else {
-                        alert("Payment failed: " + (data.message || "Unknown error"));
-                    }
-                });
-            },
-            "theme": {
-                "color": "#3399cc"
-            }
-        };
-        var rzp = new Razorpay(options);
-        rzp.open();
-        e.preventDefault();
-    }
+            })
+            .then(res => res.text())
+            .then(data => {
+                window.location = "/Order/PaymentSuccess";
+            });
+        },
+        "theme": { "color": "#F37254" }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
 </script>

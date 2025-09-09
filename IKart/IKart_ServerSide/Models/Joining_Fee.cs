@@ -19,8 +19,8 @@ namespace IKart_ServerSide.Models
         public Nullable<int> PaymentMethodId { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public string Status { get; set; }
-        public string PaymentId { get; set; }
         public string RazorpayPaymentId { get; set; }
+        public string PaymentId { get; set; }
     
         public virtual Card_Request Card_Request { get; set; }
         public virtual Payment_Methods Payment_Methods { get; set; }

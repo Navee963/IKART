@@ -3,6 +3,7 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Add Stock";
+    var categories = ViewBag.Categories as List<string>;
 }
 
 <div class="container mt-4">
@@ -12,8 +13,24 @@
     {
         <div class="form-group mb-3">
             @Html.LabelFor(m => m.Category)
-            @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+
+            <div class="input-group">
+                @Html.DropDownListFor(
+                    m => m.Category,
+                    new SelectList(categories ?? new List<string>(), Model?.Category),
+                    "-- Select Category --",
+                    new { @class = "form-control", id = "Category" }
+                )
+                <button type="button" class="btn btn-primary" id="btnAddCategory">Add Category</button>
+            </div>
+
             @Html.ValidationMessageFor(m => m.Category)
+        </div>
+
+        <div class="form-group mb-3" id="newCategoryGroup" style="display:none;">
+            <label for="NewCategory">New Category Name</label>
+            <input type="text" id="NewCategory" name="NewCategory" class="form-control" />
+            <small class="text-muted">Enter a new category name and it will be added to the dropdown.</small>
         </div>
 
         <div class="form-group mb-3">
@@ -28,7 +45,8 @@
             @Html.ValidationMessageFor(m => m.TotalStocks)
         </div>
 
-        <div class="form-group mb-3">
+        <!-- Hide AvailableStocks on creation -->
+        <div class="form-group mb-3" style="display:none;">
             @Html.LabelFor(m => m.AvailableStocks)
             @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0" })
             @Html.ValidationMessageFor(m => m.AvailableStocks)
@@ -38,3 +56,30 @@
         <a href="@Url.Action("Index", "Stocks")" class="btn btn-secondary">Cancel</a>
     }
 </div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            // Toggle new category input
+            $("#btnAddCategory").click(function () {
+                $("#newCategoryGroup").toggle();
+
+                if ($("#newCategoryGroup").is(":visible")) {
+                    $("#NewCategory").focus();
+                }
+            });
+
+            // Before submit, if NewCategory is filled, use it instead of dropdown
+            $("form").submit(function () {
+                var newCat = $("#NewCategory").val().trim();
+                if (newCat.length > 0) {
+                    // Add to dropdown dynamically and select it
+                    if ($("#Category option").filter(function () { return $(this).text().toLowerCase() === newCat.toLowerCase(); }).length === 0) {
+                        $("#Category").append(new Option(newCat, newCat));
+                    }
+                    $("#Category").val(newCat);
+                }
+            });
+        });
+    </script>
+}

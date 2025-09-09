@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.FAQDto>
+@{ ViewBag.Title = "Manage FAQs"; }
+
+<h3>FAQs for Product ID: @ViewBag.ProductId</h3>
+
+@if (TempData["Message"] != null)
+{
+<div class="alert alert-success">@TempData["Message"]</div>}
+
+<a class="btn btn-success mb-2" href="@Url.Action("Add", new { productId = ViewBag.ProductId })">Add FAQ</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any(f => f != null))
+        {
+<p>Total FAQs received: @(Model != null ? Model.Count() : 0)</p> foreach (var faq in Model)
+                {
+                    if (faq == null) { continue; }
+
+<tr>
+    <td>@(faq.Question ?? "(no question)")</td>
+    <td>@(faq.Answer ?? "(no answer)")</td>
+    <td>
+        <a href="@Url.Action("Edit", new { id = faq.FaqId })" class="btn btn-warning btn-sm">Edit</a>
+        <a href="@Url.Action("Delete", new { id = faq.FaqId, productId = faq.ProductId })" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this FAQ?');">Delete</a>
+    </td>
+</tr> }
+            }
+            else
+            {
+<tr><td colspan="3" class="text-center text-muted">No FAQs available for this product.</td></tr>}
+    </tbody>
+</table>
+

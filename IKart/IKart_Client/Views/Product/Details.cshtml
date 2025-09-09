@@ -10,3 +10,6 @@
     <input type="hidden" name="productId" value="@Model.ProductId" />
     <button type="submit">Buy Now</button>
 </form>
+
+<a href="@Url.Action("ProductFAQs", "FAQ", new { productId = Model.ProductId })"
+   class="btn btn-info">View FAQs</a>

@@ -1,78 +1,70 @@
 ﻿@model IKart_Shared.DTOs.Payment.UserPaymentDto
-@{ ViewBag.Title = "Payment Details"; }
 
+@{
+    ViewBag.Title = "Payment Details";
+}
 
-@{ var Totalfee = (Model.EMIAmount * Model.TenureMonths); }
 <h2>Payment Details</h2>
 
-<div class="card mb-4">
-    <div class="card-body">
-        <p><strong>Product:</strong> @Model.ProductName</p>
-        <p><strong>Card:</strong> @Model.CardType</p>
-        <p><strong>Platform Fees:</strong>200</p>
-        <p><strong>Processing fees:</strong> ₹@Model.TotalAmount</p>
-        <p><strong>Total fees:</strong> ₹@Totalfee.ToString("0.00")</p>
-        <p><strong>EMI:</strong> ₹@Model.EMIAmount × @Model.TenureMonths</p>
-        <p><strong>Status:</strong> @Model.Status</p>
-        <p><strong>Date:</strong> @Model.PaymentDate.ToShortDateString()</p>
-    </div>
-</div>
+<p><strong>Payment ID:</strong> @Model.PaymentId</p>
+<p><strong>Product:</strong> @Model.ProductName</p>
+<p><strong>Card Type:</strong> @Model.CardType</p>
+<p><strong>Total Amount:</strong> ₹@Model.TotalAmount</p>
+<p><strong>Payment Date:</strong> @Model.PaymentDate.ToShortDateString()</p>
+<p><strong>Status:</strong> @Model.Status</p>
 
-<h4>Installments</h4>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Due Date</th>
-            <th>Amount</th>
-            <th>Status</th>
-            <th>Penalty</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (int i = 0; i < Model.Installments.Count; i++)
-        {
-            var inst = Model.Installments[i];
-<tr>
-    <td>@(i + 1)</td>
-    <td>@inst.DueDate.ToShortDateString()</td>
-    <td>₹@inst.Amount</td>
-    <td>
-        @if (inst.IsPaid)
-        {
-<span class="text-success">Paid</span> }
-                else
-                {
-<span class="text-warning">Pending</span>}
-    </td>
-    <td>
-        @if (inst.Penalty != null)
-        {
-<span class="text-danger">₹@inst.Penalty.PenaltyAmount (@inst.Penalty.Status)</span> }
-                else
-                {
-<span>—</span>}
-    </td>
-    <td>
-        @if (!inst.IsPaid)
-        {
-<form method="post" action="@Url.Action("PayInstallment", "ProductPayment")">
-    <input type="hidden" name="installmentId" value="@inst.InstallmentId" />
-    <input type="hidden" name="paymentId" value="@Model.PaymentId" />
-    <button type="submit" class="btn btn-sm btn-outline-success">Pay Now</button>
-</form> }
-                else
-                {
-<span class="text-muted">—</span>}
-    </td>
-</tr>}
-    </tbody>
-</table>
+@if (Model.TenureMonths > 1)
+{
+    <h3>EMI Details</h3>
+    <p><strong>Tenure:</strong> @Model.TenureMonths months</p>
+    <p><strong>Monthly EMI:</strong> ₹@Model.EMIAmount</p>
 
-@if (TempData["Success"] != null)
-{
-<div class="alert alert-success mt-3">@TempData["Success"]</div>}
-@if (TempData["Error"] != null)
-{
-<div class="alert alert-danger mt-3">@TempData["Error"]</div>}
+    <h4>Installments</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Installment ID</th>
+                <th>Due Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Penalty</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inst in Model.Installments)
+            {
+                <tr>
+                    <td>@inst.InstallmentId</td>
+                    <td>@inst.DueDate.ToShortDateString()</td>
+                    <td>₹@inst.Amount</td>
+                    <td>@(inst.IsPaid ? "Paid" : "Pending")</td>
+                    <td>
+                        @if (inst.Penalty != null)
+                        {
+                            <span>@inst.Penalty.PenaltyAmount (Days overdue: @inst.Penalty.Days_Overdue)</span>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!inst.IsPaid)
+                        {
+                            <form asp-action="PayInstallment" method="post" style="display:inline;">
+                                <input type="hidden" name="installmentId" value="@inst.InstallmentId" />
+                                <input type="hidden" name="paymentId" value="@Model.PaymentId" />
+                                <button type="submit" class="btn btn-success btn-sm">Pay</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

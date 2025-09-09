@@ -1,20 +1,49 @@
-﻿﻿@{ ViewBag.Title = "Choose Payment Method"; }
+﻿@{ ViewBag.Title = "Choose Payment Option";
+    var cards = ViewBag.Cards as IEnumerable<dynamic>;
+    var productId = ViewBag.ProductId;
+    var addressId = ViewBag.AddressId; }
 
-<h2>Select Payment Method</h2>
+<h2>Choose Payment Option</h2>
+<form id="choosePaymentForm" method="post" action="/Order/PlaceOrder">
+    <input type="hidden" name="productId" value="@productId" />
+    <input type="hidden" name="addressId" value="@addressId" />
 
-<!-- UPI Payment -->
-<form method="post" action="@Url.Action("ShowUPISummary", "Order")">
-    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
-    <input type="hidden" name="addressId" value="@ViewBag.AddressId" />
-    <input type="hidden" name="userId" value="@ViewBag.UserId" />
-    <input type="hidden" name="method" value="UPI" />
-    <button type="submit" class="btn btn-success">UPI Payment</button>
+    <div>
+        <label><input type="radio" name="method" value="Razorpay" checked /> Razorpay</label>
+        <label><input type="radio" name="method" value="Card" /> IKart EMI Card</label>
+        <label><input type="radio" name="method" value="CreditCard" /> Credit Card</label>
+        <label><input type="radio" name="method" value="DebitCard" /> Debit Card</label>
+        <label><input type="radio" name="method" value="UPI" /> UPI</label>
+    </div>
+
+    <div id="emiCardSection" style="display:none;">
+        <label>Select IKart EMI Card:</label>
+        <select name="emiCardId">
+            <option value="">Select IKart Card</option>
+            @if (cards != null)
+            {
+                foreach (var card in cards)
+                {
+                    <option value="@card.EmiCardId">@card.CardType - Balance ₹@card.Balance</option>
+}
+            }
+        </select>
+        <label>Choose Tenure (months):</label>
+        <select name="tenureMonths">
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12">12</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Proceed to Pay</button>
 </form>
 
-<!-- Razorpay Payment -->
-<form method="post" action="@Url.Action("RazorPayment", "Order")" style="margin-top:15px;">
-    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
-    <input type="hidden" name="addressId" value="@ViewBag.AddressId" />
-    <input type="hidden" name="userId" value="@ViewBag.UserId" />
-    <button type="submit" class="btn btn-primary">Pay with Razorpay</button>
-</form>
+<script>
+    document.querySelectorAll('input[name="method"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            document.getElementById('emiCardSection').style.display = this.value === "Card" ? "block" : "none";
+        });
+    });
+</script>

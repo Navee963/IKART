@@ -1,0 +1,7 @@
+﻿@{ ViewBag.Title = "Payment Success"; }
+<h2>Payment Successful!</h2>
+<p>Your payment and order are complete.</p>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>}
+<a href="/">Back to Home</a>

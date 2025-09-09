@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IKart_Shared.DTOs.ProductDto>
+
+<h3>Search Results</h3>
+<hr />
+
+<div class="row">
+
+    @if (Model != null && Model.Any())
+
+    {
+
+        foreach (var item in Model)
+
+        {
+<div class="col-md-3">
+    <div class="card mb-3 shadow-sm">
+        <img src="~/Content/ProductImages/@item.ProductImage" alt="@item.ProductName"
+             class="card-img-top" style="height:200px;object-fit:cover;" />
+        <div class="card-body">
+            <h5 class="card-title">@item.ProductName</h5>
+            <p class="card-text">₹@item.Cost</p>
+            <a href="@Url.Action("Details", "Product", new { id = item.ProductId })"
+               class="btn btn-primary btn-sm">View Details</a>
+        </div>
+    </div>
+</div>
+                }
+
+            }
+
+            else
+
+            {
+<div class="col-12">
+    <p class="text-muted">No products found.</p>
+</div>
+            }
+</div>
+
+

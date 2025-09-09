@@ -68,13 +68,14 @@ namespace IKart_ServerSide.Controllers
                 CategoryName = dto.Category,
                 SubCategoryName = dto.SubCategory,
                 Total_Stocks = dto.TotalStocks,
-                Available_Stocks = dto.AvailableStocks ?? dto.TotalStocks
+                Available_Stocks = dto.TotalStocks // Always set equal on create
             };
 
             db.Stocks.Add(stock);
             db.SaveChanges();
 
             dto.StockId = stock.Stock_Id;
+            dto.AvailableStocks = stock.Available_Stocks; // Always reflect equal value
             return Ok(dto);
         }
 
@@ -99,7 +100,6 @@ namespace IKart_ServerSide.Controllers
         // =========================
         // DELETE STOCK
         // =========================
-        // =========================
         [HttpDelete, Route("{id:int}")]
         public IHttpActionResult DeleteStock(int id)
         {
@@ -117,6 +117,5 @@ namespace IKart_ServerSide.Controllers
             db.SaveChanges();
             return Ok("Stock deleted successfully");
         }
-
     }
 }

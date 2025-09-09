@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<IKart_Shared.DTOs.ProductDto>
+@{ ViewBag.Title = "Select Product"; }
+
+<h3>Select Product to Manage FAQs</h3>
+<ul class="list-group">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var product in Model)
+        {
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    @product.ProductName
+    <a class="btn btn-primary btn-sm" href="@Url.Action("Index", "FAQAdmin", new { productId = product.ProductId })">Manage FAQs</a>
+</li> }
+            }
+            else
+            {
+<li class="list-group-item text-center">No products available.</li>}
+</ul>

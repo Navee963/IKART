@@ -15,6 +15,18 @@ namespace IKart_ServerSide.Controllers
     {
         IKartEntities db = new IKartEntities();
 
+        // Helper for stock update
+        private void ChangeStockAvailable(int? stockId, int delta)
+        {
+            if (stockId == null) return;
+            var stock = db.Stocks.Find(stockId);
+            if (stock != null)
+            {
+                stock.Available_Stocks = (stock.Available_Stocks ?? 0) + delta;
+                db.SaveChanges();
+            }
+        }
+
         // Get all products
         [HttpGet]
         [Route("")]
@@ -84,6 +96,9 @@ namespace IKart_ServerSide.Controllers
             db.Products.Add(p);
             db.SaveChanges();
 
+            // Update stock available count (decrement ON SERVER ONLY)
+            ChangeStockAvailable(p.Stock_Id, -1);
+
             dto.ProductId = p.ProductId;
             dto.CreatedDate = p.CreatedDate;
 
@@ -103,6 +118,9 @@ namespace IKart_ServerSide.Controllers
             var p = db.Products.Find(id);
             if (p == null) return NotFound();
 
+            var oldStockId = p.Stock_Id;
+            var newStockId = dto.Stock_Id;
+
             p.ProductName = dto.ProductName;
             p.Cost = dto.Cost;
             p.ProductDetails = dto.ProductDetails;
@@ -110,6 +128,12 @@ namespace IKart_ServerSide.Controllers
             p.Stock_Id = dto.Stock_Id;
 
             db.SaveChanges();
+
+            if (oldStockId != newStockId)
+            {
+                ChangeStockAvailable(oldStockId, 1);
+                ChangeStockAvailable(newStockId, -1);
+            }
 
             // Optionally update category info
             var stock = db.Stocks.Find(p.Stock_Id);
@@ -127,8 +151,13 @@ namespace IKart_ServerSide.Controllers
             var p = db.Products.Find(id);
             if (p == null) return NotFound();
 
+            var stockId = p.Stock_Id;
+
             db.Products.Remove(p);
             db.SaveChanges();
+
+            // Update stock available count (increment ON SERVER ONLY)
+            ChangeStockAvailable(stockId, 1);
 
             return Ok("Deleted");
         }

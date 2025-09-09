@@ -28,6 +28,7 @@ namespace IKart_ServerSide.Models
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Card_Request> Card_Request { get; set; }
+        public virtual DbSet<COD_UPI_Orders> COD_UPI_Orders { get; set; }
         public virtual DbSet<EMI_Card> EMI_Card { get; set; }
         public virtual DbSet<EmiCard_Documents> EmiCard_Documents { get; set; }
         public virtual DbSet<FAQ> FAQs { get; set; }
@@ -39,13 +40,12 @@ namespace IKart_ServerSide.Models
         public virtual DbSet<Payment_Details> Payment_Details { get; set; }
         public virtual DbSet<Payment_Methods> Payment_Methods { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Penalty> Penalties { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Refund> Refunds { get; set; }
         public virtual DbSet<Return> Returns { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<Support_Tickets> Support_Tickets { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Penalty> Penalties { get; set; }
-        public virtual DbSet<COD_UPI_Orders> COD_UPI_Orders { get; set; }
     }
 }

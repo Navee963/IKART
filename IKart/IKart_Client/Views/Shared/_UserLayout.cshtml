@@ -189,9 +189,19 @@
                 <h5 class="mb-0">IKart</h5>
             </div>
 
-            <form id="searchBar">
-                <input type="text" class="form-control" placeholder="Search products..." />
-                <button type="submit"><i class="fas fa-search"></i></button>
+            <form class="form-inline mx-auto w-50"
+                  action="@Url.Action("Products","ProductSearch")"
+                  method="get">
+
+                <input class="form-control w-75"
+                       type="text"
+                       name="query"
+                       placeholder="Search for products..."
+                       value="@(Request.QueryString["query"] ?? string.Empty)" />
+
+                <button class="btn btn-warning ml-2" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
 
             <div>

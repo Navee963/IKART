@@ -2,9 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IKart_Client.Controllers.User
@@ -24,7 +22,7 @@ namespace IKart_Client.Controllers.User
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                using (HttpClient client = new HttpClient(handler))
+                using (var client = new HttpClient(handler))
                 {
                     var res = client.GetAsync($"{apiBase}/user/{userId}").Result;
                     if (res.IsSuccessStatusCode)
@@ -45,7 +43,7 @@ namespace IKart_Client.Controllers.User
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                using (HttpClient client = new HttpClient(handler))
+                using (var client = new HttpClient(handler))
                 {
                     var res = client.GetAsync($"{apiBase}/details/{paymentId}").Result;
                     if (res.IsSuccessStatusCode)
@@ -65,7 +63,7 @@ namespace IKart_Client.Controllers.User
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
-                using (HttpClient client = new HttpClient(handler))
+                using (var client = new HttpClient(handler))
                 {
                     var res = client.PostAsync($"{apiBase}/pay-installment/{installmentId}", null).Result;
                     if (res.IsSuccessStatusCode)

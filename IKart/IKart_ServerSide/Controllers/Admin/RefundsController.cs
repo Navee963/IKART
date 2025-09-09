@@ -36,7 +36,7 @@ namespace IKart_ServerSide.Controllers.Admin
                                UserEmail = u.Email,
                                ProductId = prod.ProductId,
                                ProductName = prod.ProductName,
-                               TotalAmount = p.TotalAmount ?? 0m,       // handle nullable decimal
+                               TotalAmount = p.TotalAmount,       // handle nullable decimal
                                PaymentStatus = p.Status
                            }).ToList();
 
@@ -66,7 +66,7 @@ namespace IKart_ServerSide.Controllers.Admin
                               UserEmail = u.Email,
                               ProductId = prod.ProductId,
                               ProductName = prod.ProductName,
-                              TotalAmount = p.TotalAmount ?? 0m,
+                              TotalAmount = p.TotalAmount,
                               PaymentStatus = p.Status
                           }).FirstOrDefault();
 

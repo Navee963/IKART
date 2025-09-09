@@ -28,8 +28,8 @@ namespace IKart_ServerSide.Models
         public Nullable<int> PaymentId { get; set; }
     
         public virtual Monthly_EMI_Calc Monthly_EMI_Calc { get; set; }
-        public virtual Payment Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Penalty> Penalties { get; set; }
+        public virtual Payment Payment { get; set; }
     }
 }

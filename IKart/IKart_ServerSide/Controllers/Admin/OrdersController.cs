@@ -28,7 +28,7 @@ namespace IKart_ServerSide.Controllers.Admin
                     Order_Id = o.Order_Id,
                     UserName = o.User.FullName,
                     Status = o.Payment.Status,
-                    TotalAmount = o.Payment.TotalAmount ?? 0,    // FIX
+                    TotalAmount = o.Payment.TotalAmount,    // FIX
                     OrderDate = o.OrderDate ?? DateTime.MinValue // FIX
                 }).ToList();
 
@@ -61,7 +61,7 @@ namespace IKart_ServerSide.Controllers.Admin
                 PaymentType = order.Payment.Payment_Methods.MethodName,
                 PaidAmount = emi != null
                                 ? (emi.TotalAmount ?? 0) - (emi.RemainingAmount ?? 0)
-                                : (order.Payment.TotalAmount ?? 0), // FIX
+                                : (order.Payment.TotalAmount), // FIX
                 RemainingAmount = emi?.RemainingAmount ?? 0, // FIX
                 TenureMonths = emi?.TenureMonths ?? 0,       // FIX
                 MonthsRemaining = emi != null

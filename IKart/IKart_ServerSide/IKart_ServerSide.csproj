@@ -167,9 +167,11 @@
     <Compile Include="Controllers\Users\AuthController.cs" />
     <Compile Include="Controllers\Users\AccountController.cs" />
     <Compile Include="Controllers\Users\EMICardsController.cs" />
+    <Compile Include="Controllers\Users\FAQController.cs" />
     <Compile Include="Controllers\Users\OrderController.cs" />
     <Compile Include="Controllers\Users\ProductController.cs" />
     <Compile Include="Controllers\Users\ProductPaymentController.cs" />
+    <Compile Include="Controllers\Users\ProductSearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

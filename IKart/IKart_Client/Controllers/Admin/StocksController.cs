@@ -35,19 +35,51 @@ namespace IKart_Client.Controllers
         }
 
         // CREATE GET
-        public ActionResult Create() => View();
+        public ActionResult Create()
+        {
+            ViewBag.Categories = GetExistingCategories();
+            return View(new StocksDto()); // ✅ ensure Model is not null
+        }
 
         // CREATE POST
         [HttpPost]
         public ActionResult Create(StocksDto dto)
         {
-            if (!ModelState.IsValid) return View(dto);
+            ViewBag.Categories = GetExistingCategories();
+
+            // Server-side: check for duplicate category+subcategory
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, errors) => true;
+                using (var client = new HttpClient(handler))
+                {
+                    var res = client.GetAsync(apiUrl).Result;
+                    if (res.IsSuccessStatusCode)
+                    {
+                        var json = res.Content.ReadAsStringAsync().Result;
+                        var stocks = JsonConvert.DeserializeObject<List<StocksDto>>(json);
+                        bool exists = stocks.Any(s =>
+                            string.Equals(s.Category?.Trim(), dto.Category?.Trim(), StringComparison.OrdinalIgnoreCase)
+                            && string.Equals(s.SubCategory?.Trim(), dto.SubCategory?.Trim(), StringComparison.OrdinalIgnoreCase)
+                        );
+                        if (exists)
+                        {
+                            ModelState.AddModelError("Category", "This Category and SubCategory combination already exists.");
+                            return View(dto); // ✅ still safe, ViewBag is set above
+                        }
+                    }
+                }
+            }
+
+            if (!ModelState.IsValid) return View(dto); // ✅ ViewBag already set
 
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, errors) => true;
                 using (var client = new HttpClient(handler))
                 {
+                    // Only send TotalStocks; AvailableStocks is handled by server
+                    dto.AvailableStocks = null;
                     var json = JsonConvert.SerializeObject(dto);
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
                     var res = client.PostAsync(apiUrl, data).Result;
@@ -136,11 +168,9 @@ namespace IKart_Client.Controllers
                     }
                     else if (res.StatusCode == HttpStatusCode.Conflict)
                     {
-                        // Read API error message
                         var errorMsg = res.Content.ReadAsStringAsync().Result;
                         ViewBag.Error = errorMsg;
 
-                        // Reload stock details so view can render again
                         var stockRes = client.GetAsync(apiUrl + "/" + id).Result;
                         if (stockRes.IsSuccessStatusCode)
                         {
@@ -153,8 +183,30 @@ namespace IKart_Client.Controllers
                 }
             }
 
-            // fallback
             return RedirectToAction("Index");
+        }
+
+        private List<string> GetExistingCategories()
+        {
+            List<StocksDto> stocks = new List<StocksDto>();
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, errors) => true;
+                using (var client = new HttpClient(handler))
+                {
+                    var res = client.GetAsync(apiUrl).Result;
+                    if (res.IsSuccessStatusCode)
+                    {
+                        var json = res.Content.ReadAsStringAsync().Result;
+                        stocks = JsonConvert.DeserializeObject<List<StocksDto>>(json);
+                    }
+                }
+            }
+            return stocks.Select(s => s.Category)
+                         .Where(c => !string.IsNullOrWhiteSpace(c))
+                         .Distinct()
+                         .OrderBy(x => x)
+                         .ToList();
         }
     }
 }

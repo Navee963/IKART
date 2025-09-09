@@ -17,26 +17,26 @@ namespace IKart_ServerSide.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Payment()
         {
+            this.Installment_Payments = new HashSet<Installment_Payments>();
             this.Monthly_EMI_Calc = new HashSet<Monthly_EMI_Calc>();
             this.Orders = new HashSet<Order>();
             this.Refunds = new HashSet<Refund>();
-            this.Installment_Payments = new HashSet<Installment_Payments>();
         }
     
         public int PaymentId { get; set; }
         public Nullable<int> EmiCardId { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> PaymentMethodId { get; set; }
+        public int UserId { get; set; }
+        public int ProductId { get; set; }
+        public int PaymentMethodId { get; set; }
         public Nullable<decimal> ProcessingFee { get; set; }
-        public Nullable<decimal> TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string RazorpayPaymentId { get; set; }
         public Nullable<System.DateTime> PaymentDate { get; set; }
         public string Status { get; set; }
-        public string RazorpayOrderId { get; set; }
-        public string RazorpayPaymentId { get; set; }
-        public Nullable<bool> IsEMI { get; set; }
     
         public virtual EMI_Card EMI_Card { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Installment_Payments> Installment_Payments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Monthly_EMI_Calc> Monthly_EMI_Calc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -46,7 +46,5 @@ namespace IKart_ServerSide.Models
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Refund> Refunds { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Installment_Payments> Installment_Payments { get; set; }
     }
 }
