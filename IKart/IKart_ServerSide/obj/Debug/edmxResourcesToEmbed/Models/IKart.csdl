@@ -879,6 +879,7 @@
     <NavigationProperty Name="Product" Relationship="IKartModel.FK__COD_UPI_O__Produ__1CBC4616" FromRole="COD_UPI_Orders" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="IKartModel.FK__COD_UPI_O__UserI__1DB06A4F" FromRole="COD_UPI_Orders" ToRole="User" />
     <Property Name="RazorpayPaymentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__COD_UPI_O__Produ__1CBC4616">
     <End Type="IKartModel.Product" Role="Product" Multiplicity="0..1" />

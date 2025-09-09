@@ -36,6 +36,7 @@ namespace IKart_ServerSide.Controllers.Users
                 {
                     ProductId = dto.ProductId,
                     UserId = dto.UserId,
+                    AddressId = dto.AddressId,  // <-- Add this
                     PaymentType = paymentType,
                     PaymentStatus = paymentStatus,
                     OrderDate = dto.OrderDate != default ? dto.OrderDate : DateTime.Now,

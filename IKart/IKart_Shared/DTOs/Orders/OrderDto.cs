@@ -21,8 +21,9 @@ namespace IKart_Shared.DTOs.Orders
     {
         public int ProductId { get; set; }
         public int UserId { get; set; }
+        public int AddressId { get; set; } // <-- Add this
         public string PaymentType { get; set; } // "COD" or "UPI"
-        public string PaymentStatus { get; set; } // Optional for UPI
+        public string PaymentStatus { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
     }

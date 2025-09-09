@@ -161,8 +161,9 @@ namespace IKart_Client.Controllers.User
         public async Task<ActionResult> CompleteRazorpay(string razorpay_payment_id, string razorpay_order_id, string razorpay_signature, int productId, int addressId)
         {
             int userId = Convert.ToInt32(Session["UserId"]);
-            // 1. (Optional): Verify signature here using your Razorpay secret if you want
-            // 2. Place order in DB (mark as paid)
+            // (Optional): You can verify the Razorpay signature here for higher security
+
+            // Place order in DB (mark as paid)
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
@@ -184,11 +185,20 @@ namespace IKart_Client.Controllers.User
 
                     if (res.IsSuccessStatusCode)
                     {
-                        return Json(new { success = true });
+                        // Return a redirect URL to confirmation page
+                        return Json(new { success = true, redirectUrl = Url.Action("OrderConfirmed", "Order") });
                     }
                     return Json(new { success = false, message = await res.Content.ReadAsStringAsync() });
                 }
             }
+        }
+
+        // Confirmation page after payment success
+        [HttpGet]
+        public ActionResult OrderConfirmed()
+        {
+            ViewBag.Message = "Order Confirmed!";
+            return View("PlaceOrder");
         }
 
         // Existing UPI/COD Place Order (leave as is for fallback, but add "RAZORPAY" support in server)

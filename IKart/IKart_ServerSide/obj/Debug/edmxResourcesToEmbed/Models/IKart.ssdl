@@ -46,6 +46,7 @@
     <Property Name="PaymentType" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="PaymentStatus" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="RazorpayPaymentId" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EMI_Card">
     <Key>

@@ -22,6 +22,7 @@ namespace IKart_ServerSide.Models
         public string PaymentType { get; set; }
         public string PaymentStatus { get; set; }
         public string RazorpayPaymentId { get; set; }
+        public int AddressId { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }

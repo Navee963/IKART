@@ -1,4 +1,4 @@
-﻿﻿@{
+﻿@{
     var product = ViewBag.Product as IKart_Shared.DTOs.ProductDto;
     var amount = ViewBag.Amount;
     var orderId = ViewBag.RazorpayOrderId;
@@ -38,8 +38,7 @@
                 fetch('@Url.Action("CompleteRazorpay", "Order")', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         razorpay_payment_id: response.razorpay_payment_id,
@@ -52,7 +51,7 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        window.location = '@Url.Action("PlaceOrder", "Order")?razorpay=1&success=1';
+                        window.location = data.redirectUrl;
                     } else {
                         alert("Payment failed: " + (data.message || "Unknown error"));
                     }

@@ -280,6 +280,7 @@
     <EntitySetMapping Name="COD_UPI_Orders">
       <EntityTypeMapping TypeName="IKartModel.COD_UPI_Orders">
         <MappingFragment StoreEntitySet="COD_UPI_Orders">
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
           <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
           <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
           <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />

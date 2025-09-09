@@ -51,6 +51,7 @@
           <Property Name="PaymentType" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="PaymentStatus" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="RazorpayPaymentId" Type="nvarchar" MaxLength="100" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EMI_Card">
           <Key>
@@ -1724,6 +1725,7 @@
           <NavigationProperty Name="Product" Relationship="IKartModel.FK__COD_UPI_O__Produ__1CBC4616" FromRole="COD_UPI_Orders" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="IKartModel.FK__COD_UPI_O__UserI__1DB06A4F" FromRole="COD_UPI_Orders" ToRole="User" />
           <Property Name="RazorpayPaymentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__COD_UPI_O__Produ__1CBC4616">
           <End Type="IKartModel.Product" Role="Product" Multiplicity="0..1" />
@@ -2034,6 +2036,7 @@
           <EntitySetMapping Name="COD_UPI_Orders">
             <EntityTypeMapping TypeName="IKartModel.COD_UPI_Orders">
               <MappingFragment StoreEntitySet="COD_UPI_Orders">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="RazorpayPaymentId" ColumnName="RazorpayPaymentId" />
                 <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
                 <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
