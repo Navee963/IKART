@@ -205,6 +205,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Admin\AdminAuthController.cs" />
+    <Compile Include="Controllers\Admin\AdminDashboardController.cs" />
     <Compile Include="Controllers\Admin\DashboardController.cs" />
     <Compile Include="Controllers\Admin\EmiCardController.cs" />
     <Compile Include="Controllers\Admin\FAQAdminController.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="Controllers\User\ProductPaymentController.cs" />
     <Compile Include="Controllers\User\ProductSearchController.cs" />
     <Compile Include="Controllers\User\SupportController.cs" />
+    <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -302,6 +305,8 @@
     <Content Include="Views\FAQAdmin\Edit.cshtml" />
     <Content Include="Views\FAQ\ProductFAQs.cshtml" />
     <Content Include="Views\ProductSearch\Products.cshtml" />
+    <Content Include="Views\AdminAuth\Login.cshtml" />
+    <Content Include="Views\AdminDashboard\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -312,6 +317,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Upload\ProductImages\" />
+    <Folder Include="Views\AdminAuthController\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IKart_Shared\IKart_Shared.csproj">

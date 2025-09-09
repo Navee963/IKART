@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; // ✅ create a new admin layout or reuse
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h2>Welcome, @ViewBag.Username 👋</h2>
+    <p class="mt-3">This is your admin dashboard.</p>
+
+    <a href="@Url.Action("Logout", "AdminAuth")" class="btn btn-danger">Logout</a>
+</div>

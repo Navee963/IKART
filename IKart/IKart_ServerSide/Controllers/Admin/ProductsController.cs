@@ -15,7 +15,7 @@ namespace IKart_ServerSide.Controllers
     {
         IKartEntities db = new IKartEntities();
 
-        // Helper for stock update
+        // Helper for stock update (NOT USED for add/delete product anymore!)
         private void ChangeStockAvailable(int? stockId, int delta)
         {
             if (stockId == null) return;
@@ -33,7 +33,7 @@ namespace IKart_ServerSide.Controllers
         public IHttpActionResult GetAll()
         {
             var data = db.Products
-                .Include(p => p.Stock) // Include related Stock data
+                .Include(p => p.Stock)
                 .ToList()
                 .Select(p => new ProductDto
                 {
@@ -78,7 +78,7 @@ namespace IKart_ServerSide.Controllers
             return Ok(dto);
         }
 
-        // Add new product
+        // Add new product (NO stock change)
         [HttpPost]
         [Route("")]
         public IHttpActionResult Add(ProductDto dto)
@@ -96,8 +96,7 @@ namespace IKart_ServerSide.Controllers
             db.Products.Add(p);
             db.SaveChanges();
 
-            // Update stock available count (decrement ON SERVER ONLY)
-            ChangeStockAvailable(p.Stock_Id, -1);
+            // DO NOT change AvailableStocks here
 
             dto.ProductId = p.ProductId;
             dto.CreatedDate = p.CreatedDate;
@@ -110,7 +109,7 @@ namespace IKart_ServerSide.Controllers
             return Ok(dto);
         }
 
-        // Update product
+        // Update product (NO stock change)
         [HttpPut]
         [Route("{id}")]
         public IHttpActionResult Update(int id, ProductDto dto)
@@ -129,11 +128,7 @@ namespace IKart_ServerSide.Controllers
 
             db.SaveChanges();
 
-            if (oldStockId != newStockId)
-            {
-                ChangeStockAvailable(oldStockId, 1);
-                ChangeStockAvailable(newStockId, -1);
-            }
+            // DO NOT change AvailableStocks here
 
             // Optionally update category info
             var stock = db.Stocks.Find(p.Stock_Id);
@@ -143,7 +138,7 @@ namespace IKart_ServerSide.Controllers
             return Ok(dto);
         }
 
-        // Delete product
+        // Delete product (NO stock change)
         [HttpDelete]
         [Route("{id}")]
         public IHttpActionResult Delete(int id)
@@ -151,13 +146,12 @@ namespace IKart_ServerSide.Controllers
             var p = db.Products.Find(id);
             if (p == null) return NotFound();
 
-            var stockId = p.Stock_Id;
+            // var stockId = p.Stock_Id;
 
             db.Products.Remove(p);
             db.SaveChanges();
 
-            // Update stock available count (increment ON SERVER ONLY)
-            ChangeStockAvailable(stockId, 1);
+            // DO NOT change AvailableStocks here
 
             return Ok("Deleted");
         }

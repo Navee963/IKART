@@ -1,0 +1,30 @@
+﻿@model IKart_Shared.DTOs.Authentication.UserLoginDto
+@{
+    Layout = "~/Views/Shared/_UserLogin.cshtml";
+    ViewBag.Title = "Admin Login";
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="text-center text-danger mb-3">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+@using (Html.BeginForm("Login", "AdminAuth", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="form-group mt-3 mb-3">
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Admin username" })
+        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Admin password" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Login</button>
+}
