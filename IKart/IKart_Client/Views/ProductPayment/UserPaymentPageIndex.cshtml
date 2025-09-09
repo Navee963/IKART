@@ -1,8 +1,7 @@
-﻿@model List<IKart_Shared.DTOs.Payment.UserPaymentDto>
+﻿﻿@using IKart_Shared.DTOs.Payment
+@model List<UserPaymentDto>
 
-@{
-    ViewBag.Title = "Your Payments";
-}
+@{ ViewBag.Title = "Your Payments"; }
 
 <h2>Your Payments</h2>
 
@@ -29,9 +28,66 @@
                 <td>@payment.PaymentDate.ToShortDateString()</td>
                 <td>@payment.Status</td>
                 <td>
-                    <a href="@Url.Action("Details", "ProductPayment", new { paymentId = payment.PaymentId })" class="btn btn-info">View</a>
+                    <a href="@Url.Action("Details", "ProductPayment", new { paymentId = payment.PaymentId })" class="btn btn-info btn-sm">View</a>
                 </td>
             </tr>
+            @* EMI details section *@ if (payment.TenureMonths > 1 && payment.Installments != null && payment.Installments.Any())
+            {
+                <tr>
+                    <td colspan="7">
+                        <h4>EMI Details</h4>
+                        <p><strong>Tenure:</strong> @payment.TenureMonths months</p>
+                        <p><strong>Monthly EMI:</strong> ₹@payment.EMIAmount</p>
+
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Installment ID</th>
+                                    <th>Due Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Penalty</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var inst in payment.Installments)
+                                {
+                                    <tr>
+                                        <td>@inst.InstallmentId</td>
+                                        <td>@inst.DueDate.ToShortDateString()</td>
+                                        <td>₹@inst.Amount</td>
+                                        <td>
+                                            @if (inst.IsPaid)
+                                            {
+                                                <span class="badge bg-success">Paid</span> }
+                                            else
+                                            {
+                                                <span class="badge bg-warning text-dark">Pending</span>}
+                                        </td>
+                                        <td>
+                                            @if (inst.Penalty != null)
+                                            {
+                                                <span>₹@inst.Penalty.PenaltyAmount (Days overdue: @inst.Penalty.Days_Overdue)</span> }
+                                            else
+                                            {
+                                                <span>-</span>}
+                                        </td>
+                                        <td>
+                                            @if (!inst.IsPaid)
+                                            {
+                                                <a href="@Url.Action("InstallmentRazorpay", "ProductPayment", new { installmentId = inst.InstallmentId, paymentId = payment.PaymentId })" class="btn btn-warning btn-sm">Pay</a> }
+                                            else
+                                            {
+                                                <span class="badge bg-success">Paid</span>}
+                                        </td>
+                                    </tr>
+}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+}
         }
     </tbody>
 </table>

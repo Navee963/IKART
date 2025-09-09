@@ -61,7 +61,7 @@ namespace IKart_Shared.DTOs.Payment
         public int ProductId { get; set; }
 
         public decimal Amount { get; set; } // Optional: you can use it for cross-checking if required
-
+        public int InstallmentId { get; set; }
     }
 
     // For Razorpay order creation
@@ -77,4 +77,3 @@ namespace IKart_Shared.DTOs.Payment
     }
 
 }
-

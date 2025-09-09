@@ -1,6 +1,8 @@
 ﻿﻿@model IEnumerable<IKart_Shared.DTOs.Admin.EmiCardDto>
+
 @{ ViewBag.Title = "Manage EMI Cards";
-                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 
 <div class="container mt-5 d-flex flex-column min-vh-100">
     <div class="card shadow-sm border-0 flex-grow-1">
@@ -10,9 +12,11 @@
         </div>
 
         <div class="card-body">
+
             @if (TempData["Message"] != null)
+
             {
-<div class="alert alert-success">@TempData["Message"]</div>            }
+<div class="alert alert-success">@TempData["Message"]</div>}
 
             <table class="table table-bordered table-hover align-middle">
                 <thead class="table-dark text-white">
@@ -27,7 +31,9 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     @foreach (var card in Model)
+
                     {
         <tr>
             <td>@card.CardId</td>
@@ -37,34 +43,43 @@
             <td>@card.FeeStatus</td>
             <td>
                 <span class="badge rounded-pill
+
                                     @(card.ApprovalStatus == "Approved" ? "bg-success" :
+
                                       card.ApprovalStatus == "Rejected" ? "bg-danger" :
+
                                       "text-bg-warning")">
+
                     @card.ApprovalStatus
                 </span>
             </td>
             <td class="text-center">
                 <div class="d-flex justify-content-center flex-wrap gap-2">
+
                     @using (Html.BeginForm("View", "EmiCard", new { id = card.CardId }, FormMethod.Get))
+
                     {
     <button type="submit" class="btn btn-outline-info btn-sm">
         <i class="fa fa-eye me-1"></i> View
     </button>}
 
                     @using (Html.BeginForm("UpdateStatus", "EmiCard", new { id = card.CardId, status = "Approved" }, FormMethod.Post))
+
                     {
     <button type="submit" class="btn btn-outline-success btn-sm">
         <i class="fa fa-check-circle me-1"></i> Approve
     </button>}
 
                     @using (Html.BeginForm("UpdateStatus", "EmiCard", new { id = card.CardId, status = "Rejected" }, FormMethod.Post))
+
                     {
     <button type="submit" class="btn btn-outline-danger btn-sm">
         <i class="fa fa-ban me-1"></i> Reject
     </button>}
                 </div>
             </td>
-        </tr>}
+        </tr>
+}
                 </tbody>
             </table>
         </div>

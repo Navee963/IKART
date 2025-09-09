@@ -1,0 +1,100 @@
+﻿@model IKart_Shared.DTOs.UserDto
+
+@{
+                Layout = "~/Views/Shared/_UserLayout.cshtml"; // Use the _UserLayout for header/footer/sidebar
+
+                ViewBag.Title = "My Profile";
+
+                var addresses = ViewBag.Addresses as List<IKart_Shared.DTOs.AddressDto>;
+
+}
+
+<div class="container-fluid mt-3">
+    <h2 class="mb-4" style="color:#1e3a8a;">My Profile</h2>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <h4 style="color:#556b2f;">Personal Details</h4>
+        <p><strong>Name:</strong> @Model.FullName</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Phone:</strong> @Model.PhoneNo</p>
+        <p><strong>Username:</strong> @Model.Username</p>
+    </div>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <h4 style="color:#6b2a6c;">Addresses</h4>
+
+        @if (addresses != null && addresses.Count > 0)
+
+        {
+<ul>
+
+    @foreach (var addr in addresses)
+
+    {
+<li>@addr.AddressId, @addr.Street, @addr.City, @addr.State - @addr.ZipCode, @addr.Country</li>
+                }
+</ul>
+            }
+
+            else
+
+            {
+<p>No addresses added.</p>
+            }
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="@Url.Action("User", "Account", new { id = Model.UserId })" class="btn btn-primary">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+<style>
+
+    /* Subtle hover effect for cards */
+
+    .card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+    /* Headings */
+
+    h2 {
+        font-weight: 600;
+    }
+
+    h4 {
+        font-weight: 500;
+    }
+
+    /* Buttons */
+
+    .btn-primary {
+        background-color: #1e3a8a;
+        border-color: #1e3a8a;
+    }
+
+        .btn-primary:hover {
+            background-color: #16307c;
+            border-color: #16307c;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+            color: #fff;
+        }
+</style>
+

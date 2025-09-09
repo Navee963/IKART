@@ -11,15 +11,13 @@ namespace IKart_Shared.DTOs
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public decimal? Cost { get; set; }
+        public decimal Cost { get; set; }
         public string ProductDetails { get; set; }
         public string ProductImage { get; set; }
-        public int? Stock_Id { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public string Category { get; set; }
-        public string SubCategory { get; set; }
-
-        //// <-- Add this only for handling upload
-        //public HttpPostedFileBase ImageFile { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int Stock_Id { get; set; }
+        public int AvailableQuantity { get; set; }   // ✅ Stock
+        public string CategoryName { get; set; }     // ✅ Category
+        public string SubCategoryName { get; set; }  // ✅ SubCategory
     }
 }

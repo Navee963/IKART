@@ -1,12 +1,11 @@
 ﻿@{ ViewBag.Title = "_AdminLayout"; }
 @{ var appRoot = Url.Content("~"); }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>@ViewBag.Title - IKart Admin Panel</title>
+    <title>@ViewBag.Title - Admin</title>
 
     <!-- Bootstrap & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
@@ -15,20 +14,27 @@
     <style>
         :root {
             --sidebar-width: 260px;
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --bg: #ecf0f1;
-            --text: #2d2d2d;
+            /* Theme colors (boyish, biscuit-brown style) */
+            --primary: #d2b48c;
+            /* Tan / Biscuit */
+            --secondary: #8b5e3c; /* Warm Brown */
+            --bg: #f5f2ef;
+            /* Light warm background */
+            --text: #2e2e2e;
+            /* Dark gray text */
         }
 
         body {
+            margin: 0;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg);
             color: var(--text);
-            margin: 0;
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+
 
         /* Sidebar */
         #sidebar {
@@ -37,39 +43,59 @@
             left: 0;
             width: var(--sidebar-width);
             height: 100%;
-            background-color: var(--primary);
-            color: #ecf0f1;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.15);
             padding: 20px;
-            transition: transform 0.3s ease;
             transform: translateX(-100%);
-            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
             z-index: 2000;
+            overflow-y: auto;
         }
 
             #sidebar.open {
                 transform: translateX(0);
             }
 
-        /* Main container */
+            #sidebar a {
+                display: block;
+                padding: 10px 12px;
+                margin: 4px 0;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 6px;
+                transition: background 0.2s, color 0.2s;
+            }
+
+                #sidebar a:hover {
+                    background: #deb887; /* lighter biscuit hover */
+                    color: #000 !important;
+                }
+
+
+        /* Main wrapper shifts right when sidebar is open */
         #main {
+            flex: 1;
             transition: margin-left 0.3s ease;
             margin-left: 0;
+            display: flex;
+            flex-direction: column;
         }
 
             #main.shifted {
                 margin-left: var(--sidebar-width);
             }
 
+
         /* Topbar */
         #topbar {
-            background-color: var(--secondary);
-            padding: 12px 20px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            padding: 10px 18px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 1000;
             color: #fff;
         }
@@ -77,29 +103,27 @@
         #menuBtn {
             background: transparent;
             border: none;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #fff;
             cursor: pointer;
         }
 
-        /* Content */
+
+        /* Page content */
         #content {
-            padding: 25px;
-            min-height: calc(100vh - 70px);
+            padding: 20px;
+            flex: 1;
         }
 
-        /* Footer */
+
+        /* Scrollable Footer (not fixed) */
         footer.footer {
-            background-color: var(--secondary);
-            color: #ecf0f1;
             text-align: center;
-            padding: 15px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Smooth hover */
-        a, button {
-            transition: all 0.2s ease;
+            padding: 12px;
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            font-weight: 500;
+            margin-top: auto;
         }
     </style>
 
@@ -111,23 +135,23 @@
         @Html.Partial("~/Views/Shared/_AdminSidebar.cshtml")
     </nav>
 
-    <!-- Main content -->
+    <!-- Main page -->
     <div id="main">
         <!-- Topbar -->
         <div id="topbar">
             <button id="menuBtn"><i class="fas fa-bars"></i></button>
-            <h5 class="mb-0">IKart Admin Panel</h5>
+            <h5 class="mb-0">IKart Admin</h5>
             @Html.Partial("~/Views/Shared/_AdminTopbar.cshtml")
         </div>
 
-        <!-- Page content -->
+        <!-- Content -->
         <div id="content" class="container-fluid">
             @RenderBody()
         </div>
 
-        <!-- Footer -->
+        <!-- Footer (scrollable, not fixed) -->
         <footer class="footer">
-            &copy; @DateTime.Now.Year - IKart Admin Panel
+            &copy; @DateTime.Now.Year - IKart Admin
         </footer>
     </div>
 

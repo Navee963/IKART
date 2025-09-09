@@ -1,18 +1,99 @@
 ﻿@model IKart_Shared.DTOs.FAQDto
-@{ ViewBag.Title = "Add FAQ"; }
 
-<h3>Add FAQ for Product ID: @Model.ProductId</h3>
+@{
+                ViewBag.Title = "Add FAQ";
 
-@using (Html.BeginForm())
-{
-@Html.AntiForgeryToken()
-                @Html.HiddenFor(m => m.ProductId)
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Question)
-                                    @Html.TextBoxFor(m => m.Question, new { @class = "form-control" })
-                                </div>
-                                                <div class="form-group">
-                                                    @Html.LabelFor(m => m.Answer)
-                                                    @Html.TextAreaFor(m => m.Answer, new { @class = "form-control", rows = 4 })
-                                                </div>
-                                                                <button type="submit" class="btn btn-success">Add FAQ</button>}
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+                int pid;
+
+}
+
+<style>
+
+    .faq-form-wrapper {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #fffaf0; /* biscuit */
+
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+        .faq-form-wrapper h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #5C4033; /* brown */
+
+            font-weight: 600;
+        }
+
+    .form-group label {
+        font-weight: 600;
+        color: #5C4033;
+    }
+
+    .form-control {
+        border: 1px solid #d2b48c;
+        border-radius: 6px;
+    }
+
+        .form-control:focus {
+            border-color: #a67b5b;
+            box-shadow: 0 0 8px rgba(166, 123, 91, 0.25);
+        }
+
+    .btn-submit {
+        background-color: #5C4033;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 500;
+        margin-top: 20px;
+    }
+
+        .btn-submit:hover {
+            background-color: #7B5E57;
+        }
+</style>
+
+<div class="faq-form-wrapper">
+    <h3>Add FAQ for Product ID: @Model.ProductId</h3>
+
+    @using (Html.BeginForm())
+
+    {
+
+        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(m => m.ProductId)
+                                        pid = Model.ProductId;
+
+                        <div class="form-group mb-3">
+
+                            @Html.LabelFor(m => m.Question)
+
+                            @Html.TextBoxFor(m => m.Question, new { @class = "form-control" })
+                        </div>
+
+                                        <div class="form-group mb-3">
+
+                                            @Html.LabelFor(m => m.Answer)
+
+                                            @Html.TextAreaFor(m => m.Answer, new { @class = "form-control", rows = 4 })
+                                        </div>
+
+                                                        <div class="text-center">
+                                                            <button type="submit" class="btn btn-submit">Add FAQ</button>
+                                                            <a href="@Url.Action("Index", "FAQAdmin",new { ProductId = pid })" class="btn btn-submit">Back</a>
+                                                        </div>
+                                                                        @*<div class="text-center">
+                                                                            <a href="@Url.Action("Index", "FAQAdmin",new { ProductId = pid })" class="btn"
+
+                                                                                           style=" color:white;">Back</a>
+                                                                            </div>*@
+                                                                                    }
+</div>
+

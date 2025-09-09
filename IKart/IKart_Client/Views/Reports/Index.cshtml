@@ -1,14 +1,92 @@
 ﻿@model IKart_Shared.DTOs.Admin.ReportsDto
 
 @using System
+
 @using System.Collections.Generic
+
 @using System.Linq
 
 @{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewBag.Title = "Reports Summary";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+                ViewBag.Title = "Reports Summary";
 
 }
+
+<style>
+
+    /* Theme colors */
+
+    :root {
+        --brown: #8B4513;
+        --light-grey: #f2f2f2;
+    }
+
+    body {
+        background-color: white; /* keep background white */
+
+        color: #333;
+    }
+
+    h2, h3 {
+        color: var(--brown); /* keep section headings brown */
+
+        font-weight: bold;
+        margin-top: 25px;
+    }
+
+    /* Tables */
+
+    .table {
+        background-color: white;
+        border: 1px solid var(--brown);
+    }
+
+        .table thead {
+            background-color: darkslategrey;
+            color: white;
+        }
+
+        .table tbody tr {
+            background-color: white;
+        }
+
+            .table tbody tr:hover {
+                background-color: var(--light-grey); /* light grey hover */
+            }
+
+    /* Dropdowns */
+
+    select {
+        background-color: white;
+        border: 1px solid var(--brown);
+        color: #333;
+        padding: 6px 10px;
+        border-radius: 5px;
+        margin: 0 10px 15px 0;
+    }
+
+    /* Buttons */
+
+    .btn-brown {
+        background-color: var(--brown);
+        color: white !important;
+        border: none;
+    }
+
+        .btn-brown:hover {
+            background-color: #5c2e0f;
+            color: white !important;
+        }
+
+    /* Section spacing */
+
+    p {
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+</style>
+
 
 <h2>Reports Summary</h2>
 
@@ -17,10 +95,12 @@
 
 <select id="cardTypeDropdown" onchange="filterCards(this.value)">
     <option value="">--Select Card Type--</option>
+
     @foreach (var kv in Model.EmiCardsByType)
+
     {
-        <option value="@kv.Key">@kv.Key (@kv.Value)</option>
-    }
+<option value="@kv.Key">@kv.Key (@kv.Value)</option>
+            }
 </select>
 
 <table id="cardsTable" class="table table-bordered">
@@ -34,16 +114,18 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var card in Model.EmiCards)
+
         {
-            <tr>
-                <td>@card.CardNumber</td>
-                <td>@card.UserFullName</td>
-                <td>@card.CardType</td>
-                <td>@card.Balance</td>
-                <td>@card.TotalLimit</td>
-            </tr>
-        }
+<tr>
+    <td>@card.CardNumber</td>
+    <td>@card.UserFullName</td>
+    <td>@card.CardType</td>
+    <td>@card.Balance</td>
+    <td>@card.TotalLimit</td>
+</tr>
+            }
     </tbody>
 </table>
 
@@ -61,17 +143,19 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var user in Model.Users)
+
         {
-            <tr>
-                <td>@user.FullName</td>
-                <td>@user.Email</td>
-                <td>@user.PhoneNo</td>
-                <td>@user.Username</td>
-                <td>@(user.Status ? "Active" : "Inactive")</td>
-                <td>@user.CreatedDate.ToString("yyyy-MM-dd")</td>
-            </tr>
-        }
+<tr>
+    <td>@user.FullName</td>
+    <td>@user.Email</td>
+    <td>@user.PhoneNo</td>
+    <td>@user.Username</td>
+    <td>@(user.Status ? "Active" : "Inactive")</td>
+    <td>@user.CreatedDate.ToString("yyyy-MM-dd")</td>
+</tr>
+            }
     </tbody>
 </table>
 
@@ -80,26 +164,32 @@
 
 <select id="regionDropdown" onchange="filterOrdersByRegion(this.value)">
     <option value="">--Select Region--</option>
+
     @foreach (var r in Model.OrdersByRegion.Keys)
+
     {
-        <option value="@r">@r (@Model.OrdersByRegion[r])</option>
-    }
+<option value="@r">@r (@Model.OrdersByRegion[r])</option>
+            }
 </select>
 
 <select id="categoryDropdown" onchange="filterOrdersByCategory(this.value)">
     <option value="">--Select Category--</option>
+
     @foreach (var c in Model.OrdersByCategory.Keys)
+
     {
-        <option value="@c">@c (@Model.OrdersByCategory[c])</option>
-    }
+<option value="@c">@c (@Model.OrdersByCategory[c])</option>
+            }
 </select>
 
 <select id="paymentDropdown" onchange="filterOrdersByPayment(this.value)">
     <option value="">--Select Payment Method--</option>
+
     @foreach (var p in Model.OrdersByPayment.Keys)
+
     {
-        <option value="@p">@p (@Model.OrdersByPayment[p])</option>
-    }
+<option value="@p">@p (@Model.OrdersByPayment[p])</option>
+            }
 </select>
 
 <table id="ordersTable" class="table table-bordered">
@@ -118,21 +208,23 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var o in Model.Orders)
+
         {
-            <tr>
-                <td>@o.OrderId</td>
-                <td>@o.UserFullName</td>
-                <td>@o.ProductName</td>
-                <td>@o.Region</td>
-                <td>@o.OrderStatus</td>
-                <td>@o.OrderDate.ToString("yyyy-MM-dd")</td>
-                <td>@(o.DeliveryDate.HasValue ? o.DeliveryDate.Value.ToString("yyyy-MM-dd") : "-")</td>
-                <td>@o.TotalAmount</td>
-                <td>@o.PaymentMethod</td>
-                <td>@o.CategoryName</td>
-            </tr>
-        }
+<tr>
+    <td>@o.OrderId</td>
+    <td>@o.UserFullName</td>
+    <td>@o.ProductName</td>
+    <td>@o.Region</td>
+    <td>@o.OrderStatus</td>
+    <td>@o.OrderDate.ToString("yyyy-MM-dd")</td>
+    <td>@(o.DeliveryDate.HasValue ? o.DeliveryDate.Value.ToString("yyyy-MM-dd") : "-")</td>
+    <td>@o.TotalAmount</td>
+    <td>@o.PaymentMethod</td>
+    <td>@o.CategoryName</td>
+</tr>
+            }
     </tbody>
 </table>
 
@@ -150,17 +242,19 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var r in Model.Refunds)
+
         {
-            <tr>
-                <td>@r.RefundId</td>
-                <td>@r.PaymentId</td>
-                <td>@r.Amount</td>
-                <td>@r.Reason</td>
-                <td>@r.Status</td>
-                <td>@r.RefundDate.ToString("yyyy-MM-dd")</td>
-            </tr>
-        }
+<tr>
+    <td>@r.RefundId</td>
+    <td>@r.PaymentId</td>
+    <td>@r.Amount</td>
+    <td>@r.Reason</td>
+    <td>@r.Status</td>
+    <td>@r.RefundDate.ToString("yyyy-MM-dd")</td>
+</tr>
+            }
     </tbody>
 </table>
 
@@ -179,18 +273,20 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var r in Model.Returns)
+
         {
-            <tr>
-                <td>@r.ReturnId</td>
-                <td>@r.OrderId</td>
-                <td>@r.UserId</td>
-                <td>@r.ProductId</td>
-                <td>@r.Reason</td>
-                <td>@r.Status</td>
-                <td>@r.ReturnDate.ToString("yyyy-MM-dd")</td>
-            </tr>
-        }
+<tr>
+    <td>@r.ReturnId</td>
+    <td>@r.OrderId</td>
+    <td>@r.UserId</td>
+    <td>@r.ProductId</td>
+    <td>@r.Reason</td>
+    <td>@r.Status</td>
+    <td>@r.ReturnDate.ToString("yyyy-MM-dd")</td>
+</tr>
+            }
     </tbody>
 </table>
 
@@ -208,46 +304,70 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var c in Model.Cancellations)
+
         {
-            <tr>
-                <td>@c.CancellationId</td>
-                <td>@c.OrderId</td>
-                <td>@c.UserId</td>
-                <td>@c.Reason</td>
-                <td>@c.CancelDate.ToString("yyyy-MM-dd")</td>
-                <td>@(c.Refunded ? "Yes" : "No")</td>
-            </tr>
-        }
+<tr>
+    <td>@c.CancellationId</td>
+    <td>@c.OrderId</td>
+    <td>@c.UserId</td>
+    <td>@c.Reason</td>
+    <td>@c.CancelDate.ToString("yyyy-MM-dd")</td>
+    <td>@(c.Refunded ? "Yes" : "No")</td>
+</tr>
+            }
     </tbody>
 </table>
 
 <script>
+
     function filterCards(type) {
+
         var table = document.getElementById("cardsTable");
+
         for (var i = 1, row; row = table.rows[i]; i++) {
+
             row.style.display = (type === "" || row.cells[2].innerText === type) ? "" : "none";
+
         }
+
     }
 
     function filterOrdersByRegion(region) {
+
         var table = document.getElementById("ordersTable");
+
         for (var i = 1, row; row = table.rows[i]; i++) {
+
             row.style.display = (region === "" || row.cells[3].innerText === region) ? "" : "none";
+
         }
+
     }
 
     function filterOrdersByCategory(category) {
+
         var table = document.getElementById("ordersTable");
+
         for (var i = 1, row; row = table.rows[i]; i++) {
+
             row.style.display = (category === "" || row.cells[9].innerText === category) ? "" : "none";
+
         }
+
     }
 
     function filterOrdersByPayment(payment) {
+
         var table = document.getElementById("ordersTable");
+
         for (var i = 1, row; row = table.rows[i]; i++) {
+
             row.style.display = (payment === "" || row.cells[8].innerText === payment) ? "" : "none";
+
         }
+
     }
 </script>
+

@@ -9,6 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
+
         html, body {
             height: 100%;
             margin: 0;
@@ -16,7 +17,7 @@
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, #fff4f8, #f3e8ff); /* pastel pink → lavender */
+            background: #ffffff; /* pure white background */
         }
 
             body > .main-content {
@@ -40,9 +41,11 @@
         .login-container {
             width: 100%;
             max-width: 360px;
-            background-color: #ffffff;
+            background-color: #f0f4ff; /* light cloud blue pop-up */
+
             border-radius: 12px;
-            border: 1px solid #f3e8ff;
+            border: 1px solid #5a7dbd; /* darker blue border */
+
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
             padding: 30px;
             transition: all 0.3s ease;
@@ -58,23 +61,24 @@
             font-weight: 600;
             margin-bottom: 20px;
             text-align: center;
-            color: #6b2a6c; /* soft lavender accent */
+            color: #1a1a1a; /* black text */
         }
 
         .form-control {
             font-size: 14px;
             border-radius: 6px;
-            border: 1px solid #e0c7ff;
+            border: 1px solid #5a7dbd; /* blue border */
         }
 
             .form-control:focus {
-                border-color: #c084fc;
-                box-shadow: 0 0 8px rgba(192,132,252,0.25);
+                border-color: #3e5a99;
+                box-shadow: 0 0 8px rgba(58, 93, 157, 0.25);
             }
 
         .btn-login {
             width: 100%;
-            background: linear-gradient(90deg, #fbcfe8, #d8b4fe);
+            background: linear-gradient(90deg, #5a7dbd, #3e5a99); /* dark blue gradient */
+
             border: none;
             color: #fff;
             font-weight: 600;
@@ -84,8 +88,7 @@
         }
 
             .btn-login:hover {
-                background: linear-gradient(90deg, #f9b7dc, #c084fc);
-                color: #fff;
+                background: linear-gradient(90deg, #3e5a99, #2a3f6c);
             }
 
         .extra-links {
@@ -96,7 +99,8 @@
         }
 
             .extra-links a {
-                color: #6b2a6c;
+                color: #3e5a99; /* dark blue links */
+
                 text-decoration: none;
             }
 
@@ -113,7 +117,7 @@
         }
 
             footer a {
-                color: #6b2a6c;
+                color: #3e5a99;
                 text-decoration: none;
             }
 
@@ -129,13 +133,17 @@
         </div>
 
         <div class="login-container">
+
             @RenderBody()
         </div>
 
         <div class="extra-links">
             <p>
+
                 By continuing, you agree to IKart's
+
                 @Html.ActionLink("Conditions of Use", "ConditionsOfUse", "Info") and
+
                 @Html.ActionLink("Privacy Notice", "PrivacyNotice", "Info").
             </p>
         </div>
@@ -146,3 +154,4 @@
     </footer>
 </body>
 </html>
+

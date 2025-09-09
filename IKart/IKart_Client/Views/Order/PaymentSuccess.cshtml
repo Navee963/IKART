@@ -1,7 +1,9 @@
-﻿@{ ViewBag.Title = "Payment Success"; }
-<h2>Payment Successful!</h2>
-<p>Your payment and order are complete.</p>
-@if (ViewBag.Message != null)
-{
-    <div class="alert alert-success">@ViewBag.Message</div>}
-<a href="/">Back to Home</a>
+﻿
+
+<div style="background-color:#f0f8ff; padding:40px; border-radius:10px; text-align:center; max-width:600px; margin:50px auto; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="color:#1e3a8a; font-weight:600;">@ViewBag.Message</h2>
+    <p style="color:#1e3a8a; font-size:18px;">Your order has been placed successfully.</p>
+
+    @*@Url.Action("Index","Product")<a>Back</a>*@
+    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary btn-lg">Back</a>
+</div>

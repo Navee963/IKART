@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 using System.Web.Mvc;
-
+using IKart_ClientSide.Filters;
 using IKart_Shared.DTOs;
 
 using IKart_Shared.DTOs.Admin;
@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 namespace IKart_Client.Controllers
 
 {
+    [AdminAuthorize]
 
     public class SupportTicketsController : Controller
 

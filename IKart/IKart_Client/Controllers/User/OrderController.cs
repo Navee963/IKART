@@ -12,9 +12,7 @@ namespace IKart_Client.Controllers.User
 {
     public class OrderController : Controller
     {
-        // GET: /Order/ChoosePayment
         string baseUrl = "https://localhost:44365/api/orders";
-        private int script;
 
         [HttpPost]
         public async Task<ActionResult> BuyNow(int productId)
@@ -44,9 +42,8 @@ namespace IKart_Client.Controllers.User
             ViewBag.ProductId = productId;
             ViewBag.UserId = userId;
 
-            return View("BuyNow", addresses); // Make sure BuyNow.cshtml exists
+            return View("BuyNow", addresses);
         }
-
 
         [HttpPost]
         public async Task<ActionResult> ShowUPISummary(int productId, int addressId, int userId, string method)
@@ -80,34 +77,47 @@ namespace IKart_Client.Controllers.User
             return View("ShowUPISummary");
         }
 
-        public ActionResult ChoosePayment(int productId, int addressId)
+        public async Task<ActionResult> ChoosePayment(int productId, int addressId)
         {
-            using (var client = new HttpClient())
+            using (var handler = new HttpClientHandler())
             {
-                var response = client.GetAsync($"https://localhost:44365/api/payments/options/{Session["UserId"]}/{productId}").Result;
-                if (response.IsSuccessStatusCode)
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
+                using (HttpClient client = new HttpClient(handler))
                 {
-                    var json = response.Content.ReadAsStringAsync().Result;
-                    dynamic result = JsonConvert.DeserializeObject(json);
-                    ViewBag.Cards = result.Cards;
-                    ViewBag.ProductCost = result.ProductCost;
-                    ViewBag.PlatformFee = result.PlatformFee;
-                    ViewBag.ProcessingFee = result.ProcessingFee;
+                    var response = await client.GetAsync($"https://localhost:44365/api/payments/options/{Session["UserId"]}/{productId}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = await response.Content.ReadAsStringAsync();
+                        dynamic result = JsonConvert.DeserializeObject(json);
+                        ViewBag.Cards = result.Cards;
+                        ViewBag.ProductCost = result.ProductCost;
+                        ViewBag.PlatformFee = result.PlatformFee;
+                        ViewBag.ProcessingFee = result.ProcessingFee;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Unable to load payment options.");
+                        return View("Error");
+                    }
                 }
             }
+
             ViewBag.ProductId = productId;
             ViewBag.AddressId = addressId;
             return View();
         }
 
-        // POST: /Order/PlaceOrder
         [HttpPost]
         public async Task<ActionResult> PlaceOrder(int productId, int addressId, string method, int? emiCardId = null, int? tenureMonths = null)
         {
             int userId = Convert.ToInt32(Session["UserId"]);
+
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
                 using (HttpClient client = new HttpClient(handler))
                 {
                     HttpResponseMessage res = null;
@@ -154,7 +164,6 @@ namespace IKart_Client.Controllers.User
             }
         }
 
-        // Razorpay flow
         [HttpGet]
         public async Task<ActionResult> InitiateRazorpay(int productId, int addressId)
         {
@@ -163,6 +172,7 @@ namespace IKart_Client.Controllers.User
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
                 using (HttpClient client = new HttpClient(handler))
                 {
                     var orderRequest = new OrderRequestDto
@@ -173,6 +183,7 @@ namespace IKart_Client.Controllers.User
                     var json = JsonConvert.SerializeObject(orderRequest);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var res = await client.PostAsync($"https://localhost:44365/api/payments/razorpay-order", content);
+
                     if (res.IsSuccessStatusCode)
                     {
                         var obj = JsonConvert.DeserializeObject<dynamic>(await res.Content.ReadAsStringAsync());
@@ -200,11 +211,13 @@ namespace IKart_Client.Controllers.User
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
                 using (HttpClient client = new HttpClient(handler))
                 {
                     var json = JsonConvert.SerializeObject(dto);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var res = await client.PostAsync("https://localhost:44365/api/payments/razorpay-verify", content);
+
                     if (res.IsSuccessStatusCode)
                     {
                         ViewBag.Message = "Payment and Order successful!";

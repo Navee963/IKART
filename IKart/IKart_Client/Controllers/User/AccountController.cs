@@ -13,7 +13,7 @@ namespace IKart_Client.Controllers
     {
         string baseUrl = "https://localhost:44365/api/account";
 
-        // ✅ View user profile
+        // View user profile
         public ActionResult User(int id)
         {
             UserDto user = null;
@@ -37,7 +37,7 @@ namespace IKart_Client.Controllers
             return View(user);
         }
 
-        // ✅ Update user
+        //Update user
         [HttpPost]
         public ActionResult User(int id, UserDto dto)
         {
@@ -61,10 +61,10 @@ namespace IKart_Client.Controllers
             return View(dto);
         }
 
-        // ✅ Get all addresses
+        // Get all addresses
         public ActionResult Addresses()
         {
-            var userId = Convert.ToInt32(Session["UserId"]); // ✅ take from session
+            var userId = Convert.ToInt32(Session["UserId"]); 
             var addresses = new List<AddressDto>();
 
             using (var handler = new HttpClientHandler())
@@ -83,7 +83,7 @@ namespace IKart_Client.Controllers
             return View(addresses);
         }
 
-        // ✅ Edit Address (GET)
+        // Edit Address (GET)
         public ActionResult EditAddress(int id)
         {
             AddressDto dto = null;
@@ -103,7 +103,7 @@ namespace IKart_Client.Controllers
             return View(dto);
         }
 
-        // ✅ Edit Address (POST)
+        // Edit Address (POST)
         [HttpPost]
         public ActionResult EditAddress(AddressDto dto)
         {
@@ -127,21 +127,21 @@ namespace IKart_Client.Controllers
             return View(dto);
         }
 
-        // ✅ Add Address (GET) – no parameter, get UserId from session
+        // Add Address (GET) – no parameter, get UserId from session
         public ActionResult AddAddress()
         {
             var userId = Convert.ToInt32(Session["UserId"]);
             return View(new AddressDto { UserId = userId });
         }
 
-        // ✅ Add Address (POST)
+        // Add Address (POST)
         [HttpPost]
         public async Task<ActionResult> AddAddress(AddressDto dto)
         {
             if (!ModelState.IsValid)
                 return View(dto);
 
-            dto.UserId = Convert.ToInt32(Session["UserId"]); // ✅ force session userId
+            dto.UserId = Convert.ToInt32(Session["UserId"]); 
 
             using (var handler = new HttpClientHandler())
             {
@@ -149,7 +149,7 @@ namespace IKart_Client.Controllers
 
                 using (var client = new HttpClient(handler))
                 {
-                    var res = await client.PostAsJsonAsync(baseUrl + "/address", dto); // ✅ fixed endpoint
+                    var res = await client.PostAsJsonAsync(baseUrl + "/address", dto); 
 
                     if (res.IsSuccessStatusCode)
                         return RedirectToAction("Addresses");
@@ -178,5 +178,88 @@ namespace IKart_Client.Controllers
             }
             return RedirectToAction("Addresses");
         }
+
+        //Profile
+
+        // GET: Profile Display Page
+
+        public ActionResult Profile()
+
+        {
+
+            if (Session["UserId"] == null)
+
+                return RedirectToAction("Login", "Auth");
+
+            int userId = Convert.ToInt32(Session["UserId"]);
+
+            UserDto user = null;
+
+            List<AddressDto> addresses = new List<AddressDto>();
+
+            // Fetch User Info
+
+            using (var handler = new HttpClientHandler())
+
+            {
+
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
+                using (HttpClient client = new HttpClient(handler))
+
+                {
+
+                    var res = client.GetAsync($"{baseUrl}/user/{userId}").Result;
+
+                    if (res.IsSuccessStatusCode)
+
+                    {
+
+                        var data = res.Content.ReadAsStringAsync().Result;
+
+                        user = JsonConvert.DeserializeObject<UserDto>(data);
+
+                    }
+
+                }
+
+            }
+
+            // Fetch Addresses
+
+            using (var handler = new HttpClientHandler())
+
+            {
+
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+
+                using (HttpClient client = new HttpClient(handler))
+
+                {
+
+                    var res = client.GetAsync($"{baseUrl}/address/user/{userId}").Result;
+
+                    if (res.IsSuccessStatusCode)
+
+                    {
+
+                        var data = res.Content.ReadAsStringAsync().Result;
+
+                        addresses = JsonConvert.DeserializeObject<List<AddressDto>>(data);
+
+                    }
+
+                }
+
+            }
+
+            ViewBag.Addresses = addresses;
+
+            return View(user);
+
+        }
+
+
+
     }
 }

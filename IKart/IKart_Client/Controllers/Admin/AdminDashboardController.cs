@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using IKart_ClientSide.Filters;
+using System.Web.Mvc;
 
 namespace IKart_ClientSide.Controllers.Admin
 {
+    [AdminAuthorize]
     public class AdminDashboardController : Controller
     {
         public ActionResult Index()

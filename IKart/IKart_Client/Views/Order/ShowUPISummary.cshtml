@@ -1,22 +1,143 @@
 ﻿@{
-    ViewBag.Title = "UPI Payment Summary";
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+                ViewBag.Title = "UPI Payment Summary";
+
+                var product = ViewBag.Product as IKart_Shared.DTOs.ProductDto;
+
+                decimal deliveryFee = 100;
+
+                decimal? totalCost = product.Cost + deliveryFee;
+
 }
 
-<h2>UPI Payment Summary</h2>
+<div class="container mt-4">
+    <h2 class="mb-4" style="color:#1e3a8a;">UPI Payment Summary</h2>
 
-<div>
-    <p><strong>Product:</strong> @ViewBag.Product.ProductName</p>
-    <p><strong>Cost:</strong> ₹@ViewBag.Product.Cost</p>
-    <p><strong>Platform Fee:</strong> ₹@ViewBag.PlatformFee</p>
-    <p><strong>Processing Fee:</strong> ₹@ViewBag.ProcessingFee</p>
-    <p><strong>Total:</strong> ₹(@ViewBag.Product.Cost + ViewBag.PlatformFee + ViewBag.ProcessingFee)</p>
+    <div class="card shadow-sm mb-3">
+        <div class="card-body text-center">
+            <h4 class="mb-3">@product.ProductName</h4>
+            <img src="@product.ProductImage" alt="@product.ProductName" class="img-fluid rounded mb-3" style="max-width:200px;" />
 
-    <form asp-action="PlaceOrder" method="post">
-        <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+            <p><strong>Price:</strong> ₹@product.Cost</p>
+            <p><strong>Delivery Fee:</strong> ₹@deliveryFee</p>
+            <p><strong>Total Cost:</strong> ₹@totalCost</p>
+            <p><strong>Expected Delivery Date:</strong> @DateTime.Now.AddDays(5).ToShortDateString()</p>
+        </div>
+    </div>
+
+
+    <div class="text-center mb-4">
+        <h4 class="mb-3" style="color:#1e3a8a;">Scan to Pay</h4>
+        <img src="/Content/Images/default-upi-qr.png" alt="UPI QR Code" class="img-fluid" style="max-width:200px;" />
+    </div>
+
+
+    <form method="post" action="@Url.Action("PlaceOrder", "Order")" onsubmit="return validatePayment();" class="text-center">
+        <input type="hidden" name="productId" value="@product.ProductId" />
         <input type="hidden" name="addressId" value="@ViewBag.AddressId" />
-        <input type="hidden" name="userId" value="@ViewBag.UserId" />
         <input type="hidden" name="method" value="@ViewBag.Method" />
 
-        <button type="submit" class="btn btn-success">Confirm Payment</button>
+        <!-- Checkbox aligned perfectly -->
+        <div class="upi-check-wrapper mb-3">
+            <div class="upi-check">
+                <input type="checkbox" id="paymentDone" name="paymentDone" />
+                <label for="paymentDone">I have completed the UPI payment</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
+        <a href="@Url.Action("ChoosePayment", "Order", new { productId = product.ProductId })" class="btn btn-secondary btn-lg ms-2">Back</a>
     </form>
 </div>
+
+<style>
+
+    /* Headings */
+
+    h2, h4 {
+        font-weight: 600;
+    }
+
+    /* Button colors */
+
+    .btn-primary {
+        background-color: #1e3a8a;
+        border-color: #1e3a8a;
+    }
+
+        .btn-primary:hover {
+            background-color: #16307c;
+            border-color: #16307c;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    /* Checkbox alignment */
+
+    .upi-check-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .upi-check {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        user-select: none;
+    }
+
+        .upi-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            flex: 0 0 auto;
+            vertical-align: middle;
+        }
+
+        .upi-check label {
+            margin: 0;
+            line-height: 1.2;
+            font-size: 1rem;
+            color: #1e3a8a;
+            cursor: pointer;
+        }
+
+    @@media (max-width: 420px) {
+
+        .upi-check label {
+            font-size: 0.95rem;
+        }
+
+        .upi-check input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+    }
+</style>
+
+<script>
+
+    function validatePayment() {
+
+        if (!document.getElementById("paymentDone").checked) {
+
+            alert("Please confirm that you have completed the UPI payment.");
+
+            return false;
+
+        }
+
+        return true;
+
+    }
+</script>

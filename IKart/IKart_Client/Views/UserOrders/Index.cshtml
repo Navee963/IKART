@@ -1,0 +1,35 @@
+﻿
+@model List<IKart_Shared.DTOs.Orders.UserOrderDto>
+
+@{ ViewBag.Title = "My Orders"; }
+
+<h2 class="mb-4">Your Orders</h2>
+
+@if (!Model.Any())
+{
+<div class="alert alert-info">You haven't placed any orders yet.</div> }
+            else
+            {
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Product</th>
+            <th>Payment Type</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+<tr>
+    <td>@order.OrderId</td>
+    <td>@order.ProductName</td>
+    <td>@order.PaymentType</td>
+    <td>@order.OrderDate.ToShortDateString()</td>
+    <td>@order.DeliveryDate.ToShortDateString()</td>
+</tr>}
+    </tbody>
+</table>}
+

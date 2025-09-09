@@ -4,9 +4,11 @@ using IKart_Shared.DTOs;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using IKart_Shared.DTOs.Admin;
+using IKart_ClientSide.Filters;
 
 namespace IKart_Client.Controllers
 {
+    [AdminAuthorize]
     public class ReportsController : Controller
     {
         private readonly string apiBaseUrl = "https://localhost:44365/api/reports";

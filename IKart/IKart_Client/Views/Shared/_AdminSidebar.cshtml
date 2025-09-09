@@ -1,80 +1,65 @@
 ﻿@{ var current = Request.Url.AbsolutePath.ToLower(); }
-<nav id="admin-sidebar" class="d-flex flex-column" style="min-height:100vh; background-color:#2c3e50; padding:20px; color:#ecf0f1;">
+<nav id="admin-sidebar" class="d-flex flex-column" style="min-height:100vh; background:#f5f2ef; padding:15px; box-shadow:2px 0 8px rgba(0,0,0,0.08);">
     <!-- Brand -->
     <div class="sidebar-brand d-flex align-items-center mb-4">
-        <img src="@Url.Content("~/Content/images/admin-logo.png")" alt="logo" style="height:32px; margin-right:10px;" onerror="this.style.display='none'" />
-        <strong style="font-size:1.2rem;">IKart Admin</strong>
+        <img src="@Url.Content("~/Content/images/admin-logo.png")"
+             alt="logo"
+             style="height:32px; margin-right:10px;"
+             onerror="this.style.display='none'" />
+        <strong style="color:#8b5e3c; font-size:1.2rem;">IKart Admin</strong>
     </div>
 
-    <!-- Nav Links -->
-    <ul class="nav flex-column flex-grow-1">
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/dashboard/index")) ? "active" : "")" href="@Url.Action("Index","Dashboard", new { area = "" })">
-                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/users/index")) ? "active" : "")" href="@Url.Action("Index","Users", new { area = "" })">
-                <i class="fas fa-users mr-2"></i> Users
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/products/index")) ? "active" : "")" href="@Url.Action("Index","Products", new { area = "" })">
-                <i class="fas fa-box-open mr-2"></i> Products
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/orders/index")) ? "active" : "")" href="@Url.Action("Index","Orders", new { area = "" })">
-                <i class="fas fa-shopping-cart mr-2"></i> Orders
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/refunds/index")) ? "active" : "")" href="@Url.Action("Index","Refunds", new { area = "" })">
-                <i class="fas fa-undo mr-2"></i> Refunds
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/emicard/index")) ? "active" : "")" href="@Url.Action("Index","EmiCard", new { area = "" })">
-                <i class="fas fa-credit-card mr-2"></i> EMI Card
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/reports/index")) ? "active" : "")" href="@Url.Action("Index","Reports", new { area = "" })">
-                <i class="fas fa-chart-line mr-2"></i> Reports
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-white @(current.Contains("/faqadmin") ? "active" : "")"
-               href="@Url.Action("SelectProduct","FAQAdmin", new { area = "" })">
-                <i class="fa fa-question-circle mr-2"></i>FAQs
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a class="nav-link d-flex align-items-center @((current.Contains("/supporttickets/index")) ? "active" : "")" href="@Url.Action("Index","SupportTickets", new { area = "" })">
-                <i class="fas fa-life-ring mr-2"></i> Support Ticket
-            </a>
-        </li>
+    <!-- Nav links -->
+    <ul class="nav flex-column sidebar-nav flex-grow-1">
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Dashboard", new { area = "" })"><i class="fa fa-tachometer-alt mr-2"></i>Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Users", new { area = "" })"><i class="fa fa-users mr-2"></i>Users</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Products", new { area = "" })"><i class="fa fa-box-open mr-2"></i>Products</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Orders", new { area = "" })"><i class="fa fa-shopping-cart mr-2"></i>Orders</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Refunds", new { area = "" })"><i class="fa fa-undo mr-2"></i>Refunds</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","EmiCard", new { area = "" })"><i class="fa fa-credit-card mr-2"></i>EMI Card</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","Reports", new { area = "" })"><i class="fa fa-chart-line mr-2"></i>Reports</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("Index","SupportTickets", new { area = "" })"><i class="fa fa-life-ring mr-2"></i>Support Ticket</a></li>
+        <li class="nav-item"><a class="nav-link text-muted" href="@Url.Action("SelectProduct","FAQAdmin", new { area = "" })"><i class="fa fa-life-ring mr-2"></i>FAQ's</a></li>
     </ul>
 </nav>
 
 <style>
     #admin-sidebar .nav-link {
-        color: #ecf0f1;
-        padding: 12px 16px;
-        border-radius: 6px;
-        transition: background 0.2s, transform 0.2s;
+        color: #555;
+        padding: 12px 14px;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        font-weight: 500;
+        transition: all 0.25s ease;
+        background: transparent;
     }
 
+        /* Hover with biscuit–brown accent */
         #admin-sidebar .nav-link:hover {
-            background-color: #34495e;
-            transform: translateX(4px);
-            color: #fff;
+            background: linear-gradient(90deg, #d2b48c, #c19a6b); /* Biscuit shades */
+            color: #111 !important;
+            transform: translateX(3px);
         }
 
+        /* Active link */
         #admin-sidebar .nav-link.active {
-            background-color: #3498db;
+            background: linear-gradient(90deg, #deb887, #8b5e3c); /* Biscuit → Brown */
+            color: #fff !important;
             font-weight: 600;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Icons */
+        #admin-sidebar .nav-link i {
+            color: #8b5e3c; /* Brown base */
+            transition: color 0.2s ease;
+        }
+
+        #admin-sidebar .nav-link:hover i {
+            color: #5c3a21; /* Darker brown on hover */
+        }
+
+        #admin-sidebar .nav-link.active i {
+            color: #fff; /* White when active */
         }
 </style>

@@ -1,4 +1,5 @@
-﻿using IKart_Shared.DTOs.Admin;
+﻿using IKart_ClientSide.Filters;
+using IKart_Shared.DTOs.Admin;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace IKart_Client.Controllers
 {
+    [AdminAuthorize]
     public class UsersController : Controller
     {
         private readonly string apiBaseUrl = "https://localhost:44365/api/users";

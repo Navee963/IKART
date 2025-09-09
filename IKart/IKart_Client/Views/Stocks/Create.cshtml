@@ -1,85 +1,63 @@
 ﻿@model IKart_Shared.DTOs.Admin.StocksDto
 
 @{
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewBag.Title = "Add Stock";
-    var categories = ViewBag.Categories as List<string>;
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+                ViewBag.Title = "Add Stock";
+
 }
 
 <div class="container mt-4">
-    <h2>@ViewBag.Title</h2>
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h2 class="text-center mb-4">@ViewBag.Title</h2>
 
-    @using (Html.BeginForm("Create", "Stocks", FormMethod.Post))
-    {
-        <div class="form-group mb-3">
-            @Html.LabelFor(m => m.Category)
+            @using (Html.BeginForm("Create", "Stocks", FormMethod.Post))
 
-            <div class="input-group">
-                @Html.DropDownListFor(
-                    m => m.Category,
-                    new SelectList(categories ?? new List<string>(), Model?.Category),
-                    "-- Select Category --",
-                    new { @class = "form-control", id = "Category" }
-                )
-                <button type="button" class="btn btn-primary" id="btnAddCategory">Add Category</button>
-            </div>
+            {
+<div class="form-group mb-3">
 
-            @Html.ValidationMessageFor(m => m.Category)
-        </div>
+    @Html.LabelFor(m => m.Category, new { @class = "form-label fw-bold" })
 
-        <div class="form-group mb-3" id="newCategoryGroup" style="display:none;">
-            <label for="NewCategory">New Category Name</label>
-            <input type="text" id="NewCategory" name="NewCategory" class="form-control" />
-            <small class="text-muted">Enter a new category name and it will be added to the dropdown.</small>
-        </div>
+    @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
 
-        <div class="form-group mb-3">
-            @Html.LabelFor(m => m.SubCategory)
-            @Html.TextBoxFor(m => m.SubCategory, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SubCategory)
-        </div>
-
-        <div class="form-group mb-3">
-            @Html.LabelFor(m => m.TotalStocks)
-            @Html.TextBoxFor(m => m.TotalStocks, new { @class = "form-control", type = "number", min = "0" })
-            @Html.ValidationMessageFor(m => m.TotalStocks)
-        </div>
-
-        <!-- Hide AvailableStocks on creation -->
-        <div class="form-group mb-3" style="display:none;">
-            @Html.LabelFor(m => m.AvailableStocks)
-            @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0" })
-            @Html.ValidationMessageFor(m => m.AvailableStocks)
-        </div>
-
-        <button type="submit" class="btn btn-success">Save</button>
-        <a href="@Url.Action("Index", "Stocks")" class="btn btn-secondary">Cancel</a>
-    }
+    @Html.ValidationMessageFor(m => m.Category)
 </div>
 
-@section Scripts {
-    <script>
-        $(function () {
-            // Toggle new category input
-            $("#btnAddCategory").click(function () {
-                $("#newCategoryGroup").toggle();
+                <div class="form-group mb-3">
 
-                if ($("#newCategoryGroup").is(":visible")) {
-                    $("#NewCategory").focus();
-                }
-            });
+                    @Html.LabelFor(m => m.SubCategory, new { @class = "form-label fw-bold" })
 
-            // Before submit, if NewCategory is filled, use it instead of dropdown
-            $("form").submit(function () {
-                var newCat = $("#NewCategory").val().trim();
-                if (newCat.length > 0) {
-                    // Add to dropdown dynamically and select it
-                    if ($("#Category option").filter(function () { return $(this).text().toLowerCase() === newCat.toLowerCase(); }).length === 0) {
-                        $("#Category").append(new Option(newCat, newCat));
-                    }
-                    $("#Category").val(newCat);
-                }
-            });
-        });
-    </script>
-}
+                    @Html.TextBoxFor(m => m.SubCategory, new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(m => m.SubCategory)
+                </div>
+
+                                <div class="form-group mb-3">
+
+                                    @Html.LabelFor(m => m.TotalStocks, new { @class = "form-label fw-bold" })
+
+                                    @Html.TextBoxFor(m => m.TotalStocks, new { @class = "form-control", type = "number", min = "0" })
+
+                                    @Html.ValidationMessageFor(m => m.TotalStocks)
+                                </div>
+
+                                                <div class="form-group mb-3">
+
+                                                    @Html.LabelFor(m => m.AvailableStocks, new { @class = "form-label fw-bold" })
+
+                                                    @Html.TextBoxFor(m => m.AvailableStocks, new { @class = "form-control", type = "number", min = "0" })
+
+                                                    @Html.ValidationMessageFor(m => m.AvailableStocks)
+                                                </div>
+
+                                                                <div class="d-flex justify-content-center gap-3 mt-4">
+                                                                    <button type="submit" class="btn btn-success px-4">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <a href="@Url.Action("Index", "Stocks")" class="btn btn-outline-secondary px-4">Cancel</a>
+                                                                </div>
+                                                                            }
+        </div>
+    </div>
+</div>
+

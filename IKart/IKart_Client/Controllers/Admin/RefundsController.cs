@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using IKart_ClientSide.Filters;
 using IKart_Shared.DTOs;
 using IKart_Shared.DTOs.Admin;
 using Newtonsoft.Json;
 
 namespace IKart_Client.Controllers
 {
+    [AdminAuthorize]
     public class RefundsController : Controller
     {
         private readonly string apiBaseUrl = "https://localhost:44365/api/refunds";

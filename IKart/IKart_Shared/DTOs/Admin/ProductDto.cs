@@ -15,8 +15,8 @@ namespace IKart_Shared.DTOs.Admin
         public string ProductImage { get; set; }
         public int? Stock_Id { get; set; }
         public DateTime? CreatedDate { get; set; }
-        public string Category { get; set; }
-        public string SubCategory { get; set; }
+        public string CategoryName { get; set; }
+        public string SubCategoryName { get; set; }
 
         //// <-- Add this only for handling upload
         //public HttpPostedFileBase ImageFile { get; set; }

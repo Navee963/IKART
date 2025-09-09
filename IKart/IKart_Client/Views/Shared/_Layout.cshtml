@@ -9,15 +9,18 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <style>
+
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #fff6fb, #f4ebff); /* soft pastel pink → lavender */
+
             color: #333;
             margin: 0;
             padding-top: 70px; /* space for navbar */
         }
 
         /* Navbar styling */
+
         .navbar-inverse {
             background: linear-gradient(90deg, #fbcfe8, #d8b4fe);
             border: none;
@@ -47,6 +50,7 @@
                 }
 
         /* Body content */
+
         .body-content {
             max-width: 960px;
             margin: 30px auto;
@@ -71,6 +75,7 @@
         }
 
         /* Navbar toggle for mobile */
+
         .navbar-toggle .icon-bar {
             background-color: #6b2a6c;
         }
@@ -87,6 +92,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 @Html.ActionLink("IKart Application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
@@ -98,6 +104,7 @@
     </div>
 
     <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer>

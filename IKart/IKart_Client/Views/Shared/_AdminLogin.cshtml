@@ -1,0 +1,142 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - IKart</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fff4f8, #f3e8ff); /* pastel pink → lavender */
+        }
+
+            body > .main-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 80px;
+            }
+
+        .brand-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+            .brand-logo img {
+                max-width: 160px;
+            }
+
+        .login-container {
+            width: 100%;
+            max-width: 360px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #f3e8ff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+            .login-container:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            }
+
+        .login-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #6b2a6c; /* soft lavender accent */
+        }
+
+        .form-control {
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #e0c7ff;
+        }
+
+            .form-control:focus {
+                border-color: #c084fc;
+                box-shadow: 0 0 8px rgba(192,132,252,0.25);
+            }
+
+        .btn-login {
+            width: 100%;
+            background: linear-gradient(90deg, #fbcfe8, #d8b4fe);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-login:hover {
+                background: linear-gradient(90deg, #f9b7dc, #c084fc);
+                color: #fff;
+            }
+
+        .extra-links {
+            font-size: 13px;
+            margin-top: 20px;
+            text-align: center;
+            color: #444;
+        }
+
+            .extra-links a {
+                color: #6b2a6c;
+                text-decoration: none;
+            }
+
+                .extra-links a:hover {
+                    text-decoration: underline;
+                }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+            footer a {
+                color: #6b2a6c;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="brand-logo">
+            <img src="~/Logo/Logo.png" alt="IKart" />
+        </div>
+
+        <div class="login-container">
+            @RenderBody()
+        </div>
+
+
+    </div>
+
+    <footer>
+        <p>© 2025, IKart.com, Inc. or its affiliates</p>
+    </footer>
+</body>
+</html>

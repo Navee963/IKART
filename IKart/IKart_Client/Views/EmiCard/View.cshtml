@@ -1,6 +1,8 @@
 ﻿﻿@model IKart_Shared.DTOs.Admin.EmiCardDto
+
 @{ ViewBag.Title = "EMI Card Details";
-                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 
 <div class="container mt-5">
     <div class="card shadow-lg border-0 rounded-3">
@@ -28,6 +30,7 @@
                 <dt class="col-sm-3 fw-bold text-secondary"><i class="fa fa-wallet me-2"></i> Fee Status</dt>
                 <dd class="col-sm-9">
                     <span class="badge rounded-pill @(Model.FeeStatus == "Paid" ? "bg-success" : "bg-danger")">
+
                         @Model.FeeStatus
                     </span>
                 </dd>
@@ -35,6 +38,7 @@
                 <dt class="col-sm-3 fw-bold text-secondary"><i class="fa fa-check-circle me-2"></i> Approval Status</dt>
                 <dd class="col-sm-9">
                     <span class="badge rounded-pill @(Model.ApprovalStatus == "Approved" ? "bg-success" : "bg-warning text-dark")">
+
                         @Model.ApprovalStatus
                     </span>
                 </dd>
@@ -51,11 +55,15 @@
                 <label for="docSelect" class="fw-semibold">Select Document</label>
                 <select id="docSelect" class="form-select">
                     <option value="">-- Select Document --</option>
+
                     @foreach (var doc in Model.Documents)
+
                     {
         <option value="@Url.Content(doc.FilePath)">
+
             @doc.DocumentType (@doc.FileName)
-        </option>}
+        </option>
+}
                 </select>
             </div>
 
@@ -67,15 +75,26 @@
 </div>
 
 <script>
+
     document.getElementById("docSelect").addEventListener("change", function () {
+
         var path = this.value;
+
         var viewer = document.getElementById("docViewer");
+
         if (path) {
+
             viewer.src = path;
+
             viewer.hidden = false;
+
         } else {
+
             viewer.src = "";
+
             viewer.hidden = true;
+
         }
+
     });
 </script>

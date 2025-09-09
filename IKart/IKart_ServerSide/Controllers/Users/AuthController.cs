@@ -44,7 +44,7 @@ namespace IKart_ServerSide.Controllers.Users
                 Email = dto.Email,
                 PhoneNo = dto.PhoneNo,
                 Username = dto.Username,
-                PasswordHash = dto.Password, // ⚠️ Use hashing in production
+                PasswordHash = dto.Password, 
                 Status = "Pending",
                 OTP = otp,
                 OtpExpiry = expiry,
@@ -56,7 +56,7 @@ namespace IKart_ServerSide.Controllers.Users
             db.SaveChanges();
 
             // send OTP via email (async)
-            await _emailService.SendEmailAsync(user.Email, "OTP Verification", $"Your OTP is <b>{otp}</b>. It is valid for 5 minutes.");
+            await _emailService.SendEmailAsync(user.Email, "IKart OTP Verification", $"Your IKart OTP is <b>{otp}</b>. It is valid for 5 minutes.");
 
             return Ok(new { message = "OTP sent to your email", user.UserId });
         }
@@ -102,7 +102,7 @@ namespace IKart_ServerSide.Controllers.Users
             user.OtpExpiry = expiry;
             db.SaveChanges();
 
-            await _emailService.SendEmailAsync(user.Email, "OTP Verification", $"Your new OTP is <b>{otp}</b>. It is valid for 5 minutes.");
+            await _emailService.SendEmailAsync(user.Email, "IKart OTP Verification", $"Your IKart new OTP is <b>{otp}</b>. It is valid for 5 minutes.");
 
             return Ok(new { message = "New OTP sent to your email" });
         }
@@ -123,7 +123,7 @@ namespace IKart_ServerSide.Controllers.Users
             user.OtpExpiry = expiry;
             db.SaveChanges();
 
-            await _emailService.SendEmailAsync(user.Email, "Password Reset OTP", $"Your OTP is <b>{otp}</b>. It is valid for 5 minutes.");
+            await _emailService.SendEmailAsync(user.Email, "IKart Password Reset OTP", $"Your IKart OTP is <b>{otp}</b>. It is valid for 5 minutes.");
 
             return Ok(new { message = "OTP sent to your email", user.UserId });
         }

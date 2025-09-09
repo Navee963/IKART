@@ -1,19 +1,82 @@
-﻿
-@model IEnumerable<IKart_Shared.DTOs.ProductDto>
-@{ ViewBag.Title = "Select Product"; }
+﻿@model IEnumerable<IKart_Shared.DTOs.ProductDto>
 
-<h3>Select Product to Manage FAQs</h3>
-<ul class="list-group">
-    @if (Model != null && Model.Any())
-    {
-        foreach (var product in Model)
+@{
+                ViewBag.Title = "Select Product";
+
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<style>
+
+    .faq-header {
+        text-align: center;
+        margin: 30px 0;
+        color: #5C4033; /* brown */
+
+        font-weight: 600;
+    }
+
+    .product-list {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #f5f0e6; /* biscuit */
+
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .list-group-item {
+        background-color: #fff;
+        border: 1px solid #e0d4c3;
+        color: #5C4033;
+        font-weight: 500;
+    }
+
+        .list-group-item a.btn {
+            background-color: #5C4033;
+            border: none;
+            color: #fff;
+        }
+
+            .list-group-item a.btn:hover {
+                background-color: #7B5E57;
+            }
+
+    .no-products {
+        text-align: center;
+        color: #8B6D5C;
+        font-style: italic;
+    }
+</style>
+
+<h3 class="faq-header">Select Product to Manage FAQs</h3>
+
+<div class="product-list">
+    <ul class="list-group">
+
+        @if (Model != null && Model.Any())
+
         {
+
+            foreach (var product in Model)
+
+            {
 <li class="list-group-item d-flex justify-content-between align-items-center">
+
     @product.ProductName
     <a class="btn btn-primary btn-sm" href="@Url.Action("Index", "FAQAdmin", new { productId = product.ProductId })">Manage FAQs</a>
-</li> }
+</li>
+                }
+
             }
+
             else
+
             {
-<li class="list-group-item text-center">No products available.</li>}
-</ul>
+<li class="list-group-item no-products">No products available.</li>
+            }
+    </ul>
+</div>
+

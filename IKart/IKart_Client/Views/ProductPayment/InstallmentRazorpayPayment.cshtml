@@ -1,0 +1,46 @@
+﻿
+@{ ViewBag.Title = "Pay Installment with Razorpay"; }
+
+<h2>Pay Installment with Razorpay</h2>
+<p>Installment ID: @ViewBag.InstallmentId</p>
+<p>Amount: ₹@((decimal)ViewBag.Amount / 100)</p>
+
+<form id="razorpayInstallmentForm">
+    <input type="hidden" id="orderId" value="@ViewBag.OrderId" />
+    <input type="hidden" id="installmentId" value="@ViewBag.InstallmentId" />
+    <input type="hidden" id="paymentId" value="@ViewBag.PaymentId" />
+    <button type="button" id="payBtn" class="btn btn-success">Pay Now</button>
+</form>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById("payBtn").onclick = function () {
+    var options = {
+        "key": "rzp_test_REOSbBMiZHhMMR",
+        "amount": "@ViewBag.Amount",
+        "currency": "@ViewBag.Currency",
+        "name": "IKart Installment Payment",
+        "order_id": "@ViewBag.OrderId",
+        "handler": function (response){
+            // Call server to verify
+            fetch("/ProductPayment/VerifyInstallmentPayment?paymentId=" + document.getElementById("paymentId").value, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    RazorpayOrderId: response.razorpay_order_id,
+                    RazorpayPaymentId: response.razorpay_payment_id,
+                    RazorpaySignature: response.razorpay_signature,
+                    InstallmentId: document.getElementById("installmentId").value
+                })
+            })
+            .then(res => res.text())
+            .then(data => {
+                window.location = "/ProductPayment/Details?paymentId=" + document.getElementById("paymentId").value;
+            });
+        },
+        "theme": { "color": "#F37254" }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>

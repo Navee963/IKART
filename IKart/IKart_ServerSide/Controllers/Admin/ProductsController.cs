@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Data.Entity;
 using IKart_ServerSide.Models;
@@ -14,18 +11,6 @@ namespace IKart_ServerSide.Controllers
     public class ProductsController : ApiController
     {
         IKartEntities db = new IKartEntities();
-
-        // Helper for stock update (NOT USED for add/delete product anymore!)
-        private void ChangeStockAvailable(int? stockId, int delta)
-        {
-            if (stockId == null) return;
-            var stock = db.Stocks.Find(stockId);
-            if (stock != null)
-            {
-                stock.Available_Stocks = (stock.Available_Stocks ?? 0) + delta;
-                db.SaveChanges();
-            }
-        }
 
         // Get all products
         [HttpGet]
@@ -39,14 +24,16 @@ namespace IKart_ServerSide.Controllers
                 {
                     ProductId = p.ProductId,
                     ProductName = p.ProductName,
-                    Cost = p.Cost,
+                    Cost = (decimal)p.Cost,
                     ProductDetails = p.ProductDetails,
                     ProductImage = p.ProductImage,
-                    Stock_Id = p.Stock_Id,
-                    CreatedDate = p.CreatedDate,
-                    Category = p.Stock?.CategoryName,
-                    SubCategory = p.Stock?.SubCategoryName
-                }).ToList();
+                    Stock_Id = (int)p.Stock_Id,
+                    CreatedDate = (DateTime)p.CreatedDate,
+                    AvailableQuantity = p.Stock?.Available_Stocks ?? 0, // ✅ include stock availability
+                    CategoryName = p.Stock?.CategoryName,
+                    SubCategoryName = p.Stock?.SubCategoryName
+                })
+                .ToList();
 
             return Ok(data);
         }
@@ -66,24 +53,29 @@ namespace IKart_ServerSide.Controllers
             {
                 ProductId = p.ProductId,
                 ProductName = p.ProductName,
-                Cost = p.Cost,
+                Cost = (decimal)p.Cost,
                 ProductDetails = p.ProductDetails,
                 ProductImage = p.ProductImage,
-                Stock_Id = p.Stock_Id,
-                CreatedDate = p.CreatedDate,
-                Category = p.Stock?.CategoryName,
-                SubCategory = p.Stock?.SubCategoryName
+                Stock_Id = (int)p.Stock_Id,
+                CreatedDate = (DateTime)p.CreatedDate,
+                AvailableQuantity = p.Stock?.Available_Stocks ?? 0,
+                CategoryName = p.Stock?.CategoryName,
+                SubCategoryName = p.Stock?.SubCategoryName
             };
 
             return Ok(dto);
         }
 
-        // Add new product (NO stock change)
+        // Add new product
         [HttpPost]
         [Route("")]
         public IHttpActionResult Add(ProductDto dto)
         {
-            Product p = new Product
+            // ✅ validate stock
+            var stock = db.Stocks.Find(dto.Stock_Id);
+            if (stock == null) return BadRequest("Invalid stock ID.");
+
+            var p = new Product
             {
                 ProductName = dto.ProductName,
                 Cost = dto.Cost,
@@ -96,20 +88,16 @@ namespace IKart_ServerSide.Controllers
             db.Products.Add(p);
             db.SaveChanges();
 
-            // DO NOT change AvailableStocks here
-
             dto.ProductId = p.ProductId;
-            dto.CreatedDate = p.CreatedDate;
-
-            // Optionally fetch category info after insert
-            var stock = db.Stocks.Find(p.Stock_Id);
-            dto.Category = stock?.CategoryName;
-            dto.SubCategory = stock?.SubCategoryName;
+            dto.CreatedDate = (DateTime)p.CreatedDate;
+            dto.AvailableQuantity = stock.Available_Stocks ?? 0;
+            dto.CategoryName = stock.CategoryName;
+            dto.SubCategoryName = stock.SubCategoryName;
 
             return Ok(dto);
         }
 
-        // Update product (NO stock change)
+        // Update product
         [HttpPut]
         [Route("{id}")]
         public IHttpActionResult Update(int id, ProductDto dto)
@@ -117,8 +105,9 @@ namespace IKart_ServerSide.Controllers
             var p = db.Products.Find(id);
             if (p == null) return NotFound();
 
-            var oldStockId = p.Stock_Id;
-            var newStockId = dto.Stock_Id;
+            // ✅ validate stock
+            var stock = db.Stocks.Find(dto.Stock_Id);
+            if (stock == null) return BadRequest("Invalid stock ID.");
 
             p.ProductName = dto.ProductName;
             p.Cost = dto.Cost;
@@ -128,17 +117,14 @@ namespace IKart_ServerSide.Controllers
 
             db.SaveChanges();
 
-            // DO NOT change AvailableStocks here
-
-            // Optionally update category info
-            var stock = db.Stocks.Find(p.Stock_Id);
-            dto.Category = stock?.CategoryName;
-            dto.SubCategory = stock?.SubCategoryName;
+            dto.AvailableQuantity = stock.Available_Stocks ?? 0;
+            dto.CategoryName = stock.CategoryName;
+            dto.SubCategoryName = stock.SubCategoryName;
 
             return Ok(dto);
         }
 
-        // Delete product (NO stock change)
+        // Delete product
         [HttpDelete]
         [Route("{id}")]
         public IHttpActionResult Delete(int id)
@@ -146,12 +132,8 @@ namespace IKart_ServerSide.Controllers
             var p = db.Products.Find(id);
             if (p == null) return NotFound();
 
-            // var stockId = p.Stock_Id;
-
             db.Products.Remove(p);
             db.SaveChanges();
-
-            // DO NOT change AvailableStocks here
 
             return Ok("Deleted");
         }

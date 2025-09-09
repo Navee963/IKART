@@ -12,7 +12,7 @@ namespace IKart_ServerSide.Controllers.Admin
 
         // ✅ Admin Login
         [HttpPost]
-        [Route("api/admin/auth/login")]
+        [Route("login")]
         public IHttpActionResult Login(AdminLoginDto dto)
         {
             var admin = db.Admins.FirstOrDefault(a => a.Username == dto.Username && a.PasswordHash == dto.Password);
@@ -29,7 +29,7 @@ namespace IKart_ServerSide.Controllers.Admin
         }
 
         [HttpGet]
-        [Route("api/admin/auth/logout")]
+        [Route("logout")]
         public IHttpActionResult Logout()
         {
             // API logout just for consistency (Client clears session itself)

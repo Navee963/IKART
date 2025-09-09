@@ -24,4 +24,15 @@ namespace IKart_Shared.DTOs.Orders
         public DateTime OrderDate { get; set; }    // Order date
         public DateTime DeliveryDate { get; set; } // Delivery date
     }
+
+    public class UserOrderDto
+    {
+        public int OrderId { get; set; }
+        public string ProductName { get; set; }
+        public string PaymentType { get; set; } // "Online", "COD", "UPI"
+        public string PaymentStatus { get; set; } // Optional
+        public DateTime OrderDate { get; set; }
+        public DateTime DeliveryDate { get; set; }
+
+    }
 }

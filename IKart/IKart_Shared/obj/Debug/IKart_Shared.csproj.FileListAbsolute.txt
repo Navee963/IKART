@@ -101,8 +101,8 @@ C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\bin\Debug\Newtonsoft.J
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\bin\Debug\Razorpay.dll
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\bin\Debug\Newtonsoft.Json.xml
-C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CoreCompileInputs.cache
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.CopyComplete
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.dll
 C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.pdb
+C:\Users\naveent\Downloads\MARK_I_KART\IKart\IKart_Shared\obj\Debug\IKart_Shared.csproj.AssemblyReference.cache

@@ -9,15 +9,15 @@ namespace IKart_ServerSide.Services
     {
         private readonly string smtpServer = "smtp.gmail.com";
         private readonly int smtpPort = 587;
-        private readonly string senderEmail = "tk.navee.tk@gmail.com"; 
-        private readonly string senderPassword = "ymxk oorl lvgy hwgq"; 
+        private readonly string senderEmail = "noreply.ikart@gmail.com"; 
+        private readonly string senderPassword = "chsn cewa gnhj iiqk"; /*ymxk oorl lvgy hwgq*/
 
         public async Task SendEmailAsync(string toEmail, string subject, string body)
         {
             using (var client = new SmtpClient(smtpServer, smtpPort))
             {
                 client.EnableSsl = true;
-                client.UseDefaultCredentials = false; // 👈 must disable default creds
+                client.UseDefaultCredentials = false; 
                 client.Credentials = new NetworkCredential(senderEmail, senderPassword);
 
                 var mailMessage = new MailMessage

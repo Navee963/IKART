@@ -17,7 +17,7 @@ namespace IKart_ClientSide.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(UserLoginDto dto)
+        public async Task<ActionResult> Login(AdminLoginDto dto)
         {
             if (!ModelState.IsValid)
                 return View(dto);

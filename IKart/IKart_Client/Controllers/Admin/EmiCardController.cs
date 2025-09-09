@@ -1,4 +1,5 @@
-﻿using IKart_Shared.DTOs;
+﻿using IKart_ClientSide.Filters;
+using IKart_Shared.DTOs;
 using IKart_Shared.DTOs.Admin;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace IKart_Client.Controllers
 {
+    [AdminAuthorize]
     public class EmiCardController : Controller
     {
         private readonly string apiBaseUrl = "https://localhost:44365/api/emicards";

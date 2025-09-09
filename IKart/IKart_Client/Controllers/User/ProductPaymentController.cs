@@ -1,8 +1,11 @@
 ﻿using IKart_Shared.DTOs.Payment;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace IKart_Client.Controllers.User
@@ -57,23 +60,65 @@ namespace IKart_Client.Controllers.User
             return View(payment);
         }
 
-        [HttpPost]
-        public ActionResult PayInstallment(int installmentId, int paymentId)
+        // New: Razorpay Installment Payment Initiation
+        [HttpGet]
+        public async Task<ActionResult> InstallmentRazorpay(int installmentId, int paymentId)
         {
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
                 using (var client = new HttpClient(handler))
                 {
-                    var res = client.PostAsync($"{apiBase}/pay-installment/{installmentId}", null).Result;
-                    if (res.IsSuccessStatusCode)
-                        TempData["Success"] = "Installment paid successfully.";
+                    var response = await client.PostAsync($"{apiBase}/installment-razorpay-order/{installmentId}", null);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = await response.Content.ReadAsStringAsync();
+                        dynamic obj = JsonConvert.DeserializeObject(json);
+
+                        ViewBag.OrderId = obj.orderId;
+                        ViewBag.Amount = obj.amount;
+                        ViewBag.Currency = obj.currency;
+                        ViewBag.InstallmentId = obj.installmentId;
+                        ViewBag.PaymentId = paymentId;
+                        return View("InstallmentRazorpayPayment");
+                    }
                     else
-                        TempData["Error"] = "Payment failed.";
+                    {
+                        TempData["Error"] = "Unable to initiate Razorpay payment for installment.";
+                        return RedirectToAction("Details", new { paymentId });
+                    }
                 }
             }
+        }
 
-            return RedirectToAction("Details", new { paymentId });
+
+
+        // New: Razorpay Installment Payment Verification
+        [HttpPost]
+        public async Task<ActionResult> VerifyInstallmentPayment(VerifyPaymentDto dto, int paymentId)
+        {
+            using (var handler = new HttpClientHandler())
+            {
+                handler.ServerCertificateCustomValidationCallback = (s, c, ch, e) => true;
+                using (var client = new HttpClient(handler))
+                {
+                    var json = JsonConvert.SerializeObject(dto);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var res = await client.PostAsync($"{apiBase}/installment-razorpay-verify", content);
+
+                    if (res.IsSuccessStatusCode)
+                    {
+                        TempData["Message"] = "Installment paid successfully!";
+                    }
+                    else
+                    {
+                        var error = await res.Content.ReadAsStringAsync();
+                        TempData["Error"] = error;
+                    }
+                    return RedirectToAction("UserPaymentPageIndex", new { paymentId = paymentId });
+                }
+            }
         }
     }
 }

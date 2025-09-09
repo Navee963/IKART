@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<IKart_Shared.DTOs.Admin.OrderDto>
+
 @using Newtonsoft.Json
 
 @{ Layout = "~/Views/Shared/_AdminLayout.cshtml";
-                ViewBag.Title = "Dashboard"; }
+
+    ViewBag.Title = "Dashboard"; }
 
 <div class="container mt-5">
     <h2 class="heading-title mb-4">@ViewBag.Title</h2>
@@ -16,12 +18,15 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled mb-0">
+
                         @foreach (var token in ViewBag.Tokens)
+
                         {
             <li class="mb-2">
                 <strong>Token #@token.TicketId</strong> - @token.Subject
                 <span class="float-end badge bg-info text-dark">@token.Status</span>
-            </li>}
+            </li>
+}
                     </ul>
                 </div>
             </div>
@@ -78,7 +83,9 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach (var order in Model)
+
                             {
                 <tr>
                     <td>#@order.Order_Id</td>
@@ -86,14 +93,19 @@
                     <td>₹@order.TotalAmount.ToString("N2")</td>
                     <td>
                         <span class="badge rounded-pill
+
                                             @(order.Status == "Paid" ? "bg-success" :
+
                                               order.Status == "Pending" ? "bg-warning text-dark" :
+
                                               order.Status == "Failed" ? "bg-danger" : "bg-info text-dark")">
+
                             @order.Status
                         </span>
                     </td>
                     <td>@order.OrderDate.ToString("dd-MMM-yyyy")</td>
-                </tr>}
+                </tr>
+}
                         </tbody>
                     </table>
                 </div>
@@ -104,48 +116,88 @@
 
 @section Scripts {
     <script>
+
         $(function () {
+
             // Chart.js Revenue Line Chart
+
             var revenueData = @Html.Raw(JsonConvert.SerializeObject(ViewBag.Revenue));
+
             var labels = revenueData.map(r => moment(r.Date).format("DD-MMM"));
+
             var data = revenueData.map(r => r.Total);
 
             var ctx = document.getElementById('revenueChart').getContext('2d');
+
             var revenueChart = new Chart(ctx, {
+
                 type: 'line',
+
                 data: {
+
                     labels: labels,
+
                     datasets: [{
+
                         label: 'Revenue',
+
                         data: data,
+
                         backgroundColor: 'rgba(173, 216, 230, 0.3)',
+
                         borderColor: 'rgba(100, 149, 237, 1)',
+
                         fill: true,
+
                         tension: 0.4
+
                     }]
+
                 },
+
                 options: {
+
                     responsive: true,
+
                     maintainAspectRatio: false,
+
                     plugins: {
+
                         legend: {
+
                             labels: {
+
                                 font: {
+
                                     family: 'Segoe UI',
+
                                     weight: '600'
+
                                 }
+
                             }
+
                         }
+
                     }
+
                 }
+
             });
 
             // DataTable for recent orders
+
             $('#recentOrders').DataTable({
+
                 paging: true,
+
                 searching: false,
+
                 info: false
+
             });
+
         });
     </script>
+
 }

@@ -1,16 +1,21 @@
 ﻿@model IEnumerable<IKart_Shared.DTOs.Admin.StocksDto>
 
 @{
-    ViewBag.Title = "Stocks";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+                ViewBag.Title = "Stocks";
+
+                Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4">Stocks</h2>
+    <h2 class="mb-4 text-center">@ViewBag.Title</h2>
 
-    <a href="@Url.Action("Create", "Stocks")" class="btn btn-success mb-3">Add Stock</a>
+    <!-- Add Stock Button Centered -->
+    <div class="text-center mb-4">
+        <a href="@Url.Action("Create", "Stocks")" class="btn btn-success px-4">Add Stock</a>
+    </div>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped text-center align-middle">
         <thead class="table-dark">
             <tr>
                 <th>Stock Id</th>
@@ -22,20 +27,28 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach (var item in Model)
+
             {
-                <tr>
-                    <td>@item.StockId</td>
-                    <td>@item.Category</td>
-                    <td>@item.SubCategory</td>
-                    <td>@item.TotalStocks</td>
-                    <td>@item.AvailableStocks</td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="@Url.Action("Delete", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
+<tr>
+    <td>@item.StockId</td>
+    <td>@item.Category</td>
+    <td>@item.SubCategory</td>
+    <td>@item.TotalStocks</td>
+    <td>@item.AvailableStocks</td>
+    <td>
+        <a href="@Url.Action("Edit", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-primary">Edit</a>
+        <a href="@Url.Action("Delete", "Stocks", new { id = item.StockId })" class="btn btn-sm btn-danger">Delete</a>
+    </td>
+</tr>
             }
         </tbody>
     </table>
+
+    <!-- Back Button Centered -->
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "Products")" class="btn btn-outline-secondary px-4">← Back</a>
+    </div>
 </div>
+

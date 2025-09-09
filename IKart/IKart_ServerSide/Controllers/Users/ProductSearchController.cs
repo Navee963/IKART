@@ -33,11 +33,11 @@ namespace IKart_ServerSide.Controllers
                 {
                     ProductId = p.ProductId,
                     ProductName = p.ProductName,
-                    Cost = p.Cost,
+                    Cost = (decimal)p.Cost,
                     ProductDetails = p.ProductDetails,
                     ProductImage = p.ProductImage,
-                    Category = p.Stock.CategoryName,
-                    SubCategory = p.Stock.SubCategoryName
+                    CategoryName = p.Stock.CategoryName,
+                    SubCategoryName = p.Stock.SubCategoryName
                 })
                 .ToList();
 

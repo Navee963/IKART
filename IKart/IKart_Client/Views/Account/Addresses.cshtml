@@ -1,32 +1,39 @@
 ﻿@model IEnumerable<IKart_Shared.DTOs.AddressDto>
 
 @{
-    ViewBag.Title = "My Addresses";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+                ViewBag.Title = "My Addresses";
+
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+
 }
 
-<h2>Saved Addresses</h2>
+<div class="container-fluid mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm p-3 mb-4">
+                <h2 class="mb-4" style="color:#1e3a8a;">Saved Addresses</h2>
 
-<p>
-    @Html.ActionLink("Add New Address", "AddAddress", "Account", new { userId = ViewBag.UserId }, new { @class = "btn btn-success" })
-</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Street</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>ZipCode</th>
+                                <th>Country</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Street</th>
-            <th>City</th>
-            <th>State</th>
-            <th>ZipCode</th>
-            <th>Country</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Any())
-        {
-            foreach (var a in Model)
-            {
+                            @if (Model != null && Model.Any())
+
+                            {
+
+                                foreach (var a in Model)
+
+                                {
                 <tr>
                     <td>@a.Street</td>
                     <td>@a.City</td>
@@ -34,20 +41,102 @@
                     <td>@a.ZipCode</td>
                     <td>@a.Country</td>
                     <td>
-                        @Html.ActionLink("Edit", "EditAddress", "Account", new { id = a.AddressId }, new { @class = "btn btn-sm btn-warning" })
-                        @using (Html.BeginForm("DeleteAddress", "Account", FormMethod.Post, new { @class = "d-inline" }))
-                        {
-                            @Html.Hidden("id", a.AddressId)
-                            @Html.Hidden("userId", a.UserId)
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
-                        }
+                        <div class="d-flex gap-2">
+
+                            @Html.ActionLink("Edit", "EditAddress", "Account", new { id = a.AddressId }, new { @class = "btn btn-sm btn-info text-white" })
+
+                            @using (Html.BeginForm("DeleteAddress", "Account", FormMethod.Post, new { @class = "d-inline" }))
+
+                            {
+
+                                @Html.Hidden("id", a.AddressId)
+
+                                                        @Html.Hidden("userId", a.UserId)
+                                                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+                                                                                                    }
+                        </div>
                     </td>
                 </tr>
-            }
+                                }
+
+                            }
+
+                            else
+
+                            {
+                <tr><td colspan="6" class="text-center">No addresses found.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+
+                    @Html.ActionLink("Add New Address", "AddAddress", "Account", new { userId = ViewBag.UserId }, new { @class = "btn btn-primary" })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    @Html.ActionLink("Back", "Profile", "Account", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .card {
+        background-color: #fff;
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .btn-primary {
+        background-color: #1e3a8a;
+        border-color: #1e3a8a;
+    }
+
+        .btn-primary:hover {
+            background-color: #16307c;
+            border-color: #16307c;
         }
-        else
-        {
-            <tr><td colspan="6">No addresses found.</td></tr>
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        color: #fff;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+            color: #fff;
         }
-    </tbody>
-</table>
+
+    .btn-danger {
+        background-color: #c82333;
+        border-color: #c82333;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background-color: #a71d2a;
+            border-color: #a71d2a;
+            color: #fff;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+            color: #fff;
+        }
+
+    table th, table td {
+        vertical-align: middle !important;
+    }
+</style>
+

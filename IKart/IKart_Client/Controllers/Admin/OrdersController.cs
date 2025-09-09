@@ -8,9 +8,11 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using IKart_Shared.DTOs.Admin;
+using IKart_ClientSide.Filters;
 
 namespace IKart_Client.Controllers
 {
+    [AdminAuthorize]
     public class OrdersController : Controller
     {
         private readonly string apiBase = "https://localhost:44365/api/orders"; // Use the actual port of server

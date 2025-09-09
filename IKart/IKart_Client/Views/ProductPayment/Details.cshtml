@@ -1,70 +1,106 @@
 ﻿@model IKart_Shared.DTOs.Payment.UserPaymentDto
 
-@{
-    ViewBag.Title = "Payment Details";
+@{ ViewBag.Title = "Payment Details"; }
+
+<div class="container my-4">
+    <h2 class="mb-4">Payment Details</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>}
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>}
+
+    @if (Model != null)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Payment Information</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Payment ID:</strong> @Model.PaymentId</p>
+                        <p><strong>Product:</strong> @(Model.ProductName ?? "N/A")</p>
+                        <p><strong>Card Type:</strong> @(Model.CardType ?? "N/A")</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Total Amount:</strong> ₹@Model.TotalAmount</p>
+                        <p><strong>Payment Date:</strong> @Model.PaymentDate.ToShortDateString()</p>
+                        <p>
+                            <strong>Status:</strong>
+                            @if (Model.Status?.ToLower() == "paid")
+                            {
+                                <span class="badge bg-success">Paid</span> }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">@Model.Status ?? "Pending"</span>}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> if (Model.TenureMonths > 1 && Model.Installments != null && Model.Installments.Any())
+        {
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">EMI Details</h5>
+                    <p><strong>Tenure:</strong> @Model.TenureMonths months</p>
+                    <p><strong>Monthly EMI:</strong> ₹@Model.EMIAmount</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Installment ID</th>
+                                    <th>Due Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Penalty</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var inst in Model.Installments)
+                                {
+                                    <tr>
+                                        <td>@inst.InstallmentId</td>
+                                        <td>@inst.DueDate.ToShortDateString()</td>
+                                        <td>₹@inst.Amount</td>
+                                        <td>
+                                            @if (inst.IsPaid)
+                                            {
+                                                <span class="badge bg-success">Paid</span> }
+                                            else
+                                            {
+                                                <span class="badge bg-warning text-dark">Pending</span>}
+                                        </td>
+                                        <td>
+                                            @if (inst.Penalty != null)
+                                            {
+                                                <span class="text-danger">@inst.Penalty.PenaltyAmount (Days overdue: @inst.Penalty.Days_Overdue)</span> }
+                                            else
+                                            {
+                                                <span>-</span>}
+                                        </td>
+                                        <td>
+                                            @if (!inst.IsPaid)
+                                            {
+                                                <a class="btn btn-warning btn-sm"
+                                                   href='@Url.Action("PayInstallment", "ProductPayment", new { installmentId = inst.InstallmentId, paymentId = Model.PaymentId })'>
+                                                    Pay Now
+                                                </a> }
+                                            else
+                                            {
+                                                <span class="badge bg-success">Paid</span>}
+                                        </td>
+                                    </tr>
 }
-
-<h2>Payment Details</h2>
-
-<p><strong>Payment ID:</strong> @Model.PaymentId</p>
-<p><strong>Product:</strong> @Model.ProductName</p>
-<p><strong>Card Type:</strong> @Model.CardType</p>
-<p><strong>Total Amount:</strong> ₹@Model.TotalAmount</p>
-<p><strong>Payment Date:</strong> @Model.PaymentDate.ToShortDateString()</p>
-<p><strong>Status:</strong> @Model.Status</p>
-
-@if (Model.TenureMonths > 1)
-{
-    <h3>EMI Details</h3>
-    <p><strong>Tenure:</strong> @Model.TenureMonths months</p>
-    <p><strong>Monthly EMI:</strong> ₹@Model.EMIAmount</p>
-
-    <h4>Installments</h4>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Installment ID</th>
-                <th>Due Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Penalty</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var inst in Model.Installments)
-            {
-                <tr>
-                    <td>@inst.InstallmentId</td>
-                    <td>@inst.DueDate.ToShortDateString()</td>
-                    <td>₹@inst.Amount</td>
-                    <td>@(inst.IsPaid ? "Paid" : "Pending")</td>
-                    <td>
-                        @if (inst.Penalty != null)
-                        {
-                            <span>@inst.Penalty.PenaltyAmount (Days overdue: @inst.Penalty.Days_Overdue)</span>
-                        }
-                        else
-                        {
-                            <span>-</span>
-                        }
-                    </td>
-                    <td>
-                        @if (!inst.IsPaid)
-                        {
-                            <form asp-action="PayInstallment" method="post" style="display:inline;">
-                                <input type="hidden" name="installmentId" value="@inst.InstallmentId" />
-                                <input type="hidden" name="paymentId" value="@Model.PaymentId" />
-                                <button type="submit" class="btn btn-success btn-sm">Pay</button>
-                            </form>
-                        }
-                        else
-                        {
-                            <span>-</span>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> }
+    }
+    else
+    {
+        <div class="alert alert-info">No payment details found.</div>}
+</div>

@@ -1,24 +1,68 @@
-﻿﻿@model List<IKart_Shared.DTOs.AddressDto>
+﻿@model List<IKart_Shared.DTOs.AddressDto>
+@{ Layout = "~/Views/Shared/_UserLayout.cshtml";
+                ViewBag.Title = "Select Delivery Address"; }
+<div class="container mt-4">
+    <h2 class="page-title mb-4">Select Delivery Address</h2>
+    <form method="post" action="@Url.Action("ChoosePayment", "Order")">
+        <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+        @foreach (var address in Model)
+        {
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <label class="w-100 d-flex align-items-center">
+            <input type="radio" name="addressId" value="@address.AddressId" required class="form-check-input me-2" />
+            <span>@address.Street, @address.City, @address.State - @address.ZipCode, @address.Country</span>
+        </label>
+    </div>
+</div>}
+        <div class="text-center mt-3">
+            <a href="@Url.Action("AddAddress", "Account")" class="btn btn-outline-primary">+ Add New Address</a>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <button type="submit" class="btn btn-theme btn-lg">Continue to Payment</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="@Url.Action("Details", "Product", new { id = @ViewBag.ProductId })" class="btn btn-secondary btn-lg">Back</a>
+        </div>
+    </form>
+</div>
+<style>
+    .page-title {
+        color: #1e3a8a; /* Dark Blue */
+        font-weight: 600;
+        border-left: 5px solid #1e3a8a;
+        padding-left: 10px;
+    }
 
-@{ ViewBag.Title = "Select Delivery Address"; }
+    .btn-theme {
+        background-color: #1e3a8a; /* Primary Blue */
+        border-color: #1e3a8a;
+        color: #fff;
+    }
 
-<h2>Select Delivery Address</h2>
+        .btn-theme:hover {
+            background-color: #16307c; /* Darker Blue */
+            border-color: #16307c;
+            color: #fff;
+        }
 
-<form method="post" action="@Url.Action("ChoosePayment", "Order")">
-    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+    .btn-outline-primary {
+        border-color: #1e3a8a;
+        color: #1e3a8a;
+    }
 
-    @foreach (var address in Model)
-    {
-        <div class="card mb-2">
-            <div class="card-body">
-                <label>
-                    <input type="radio" name="addressId" value="@address.AddressId" required />
-                    @address.Street, @address.City, @address.State - @address.ZipCode, @address.Country
-                </label>
-            </div>
-        </div>}
+        .btn-outline-primary:hover {
+            background-color: #1e3a8a;
+            color: #fff;
+        }
 
-    <button type="submit" class="btn btn-success">Continue to Payment</button>
-</form>
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
 
-<a href="@Url.Action("AddAddress", "Account")" class="btn btn-info mt-3">Add New Address</a>
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+</style>

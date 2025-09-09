@@ -4,11 +4,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using IKart_ClientSide.Filters;
 using IKart_Shared.DTOs;
 using Newtonsoft.Json;
 
 namespace IKart_Client.Controllers.Admin
 {
+    [AdminAuthorize]
     public class FAQAdminController : Controller
     {
         private readonly string apiUrl = "https://localhost:44365/api/faq";

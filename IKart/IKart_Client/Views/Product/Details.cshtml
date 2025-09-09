@@ -1,15 +1,60 @@
 ﻿@model IKart_Shared.DTOs.ProductDto
-@{ Layout = "~/Views/Shared/_UserLayout.cshtml"; }
 
-<h2>@Model.ProductName</h2>
-<img src="@Model.ProductImage" alt="@Model.ProductName" style="width:300px;" />
-<p><strong>Price:</strong> ₹@Model.Cost</p>
-<p><strong>Description:</strong> @Model.ProductDetails</p>
+@{
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
 
-<form method="post" action="/Order/BuyNow">
-    <input type="hidden" name="productId" value="@Model.ProductId" />
-    <button type="submit">Buy Now</button>
-</form>
+                ViewBag.Title = "Product Details";
 
-<a href="@Url.Action("ProductFAQs", "FAQ", new { productId = Model.ProductId })"
-   class="btn btn-info">View FAQs</a>
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4">
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-md-5 text-center">
+                <img src="~/Content/ProductImages/@Model.ProductImage" alt="@Model.ProductName" class="product-img" />
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-md-7">
+                <h2 class="mb-3">@Model.ProductName</h2>
+                <p>
+                    <strong>Price:</strong>
+                    <span style="color:#000; font-size:22px; font-weight:bold;">
+
+                        ₹@Model.Cost
+                    </span>
+                </p>
+                <p><strong>Description:</strong> @Model.ProductDetails</p>
+
+                <!-- Buy Now Form -->
+                <form method="post" action="/Order/BuyNow" class="d-inline">
+                    <input type="hidden" name="productId" value="@Model.ProductId" />
+                    <button type="submit" class="btn btn-theme btn-lg">Buy Now</button>
+                </form>
+
+                <!-- View FAQs -->
+                <a href="@Url.Action("ProductFAQs", "FAQ", new { productId = Model.ProductId })"
+                   class="btn btn-info btn-lg ms-2">View FAQs</a>
+
+                <!-- Back Button -->
+                <a href="@Url.Action("Index", "Product")" class="btn btn-secondary btn-lg ms-2">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .btn-theme {
+        background-color: #1e3a8a;
+        border-color: #1e3a8a;
+        color: #fff;
+    }
+
+        .btn-theme:hover {
+            background-color: #16307c;
+            border-color: #16307c;
+            color: #fff;
+        }
+</style>

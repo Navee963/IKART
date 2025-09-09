@@ -228,6 +228,7 @@
     <Compile Include="Controllers\User\ProductPaymentController.cs" />
     <Compile Include="Controllers\User\ProductSearchController.cs" />
     <Compile Include="Controllers\User\SupportController.cs" />
+    <Compile Include="Controllers\User\UserOrdersController.cs" />
     <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -256,8 +257,6 @@
     <Content Include="Views\EMICards\Index.cshtml" />
     <Content Include="Views\Auth\VerifyOtp.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
-    <Content Include="Views\Shared\_UserHeader.cshtml" />
-    <Content Include="Views\Shared\_UserFooter.cshtml" />
     <Content Include="Views\Shared\_UserLogin.cshtml" />
     <Content Include="Views\Info\ConditionsOfUse.cshtml" />
     <Content Include="Views\Info\PrivacyNotice.cshtml" />
@@ -307,6 +306,10 @@
     <Content Include="Views\ProductSearch\Products.cshtml" />
     <Content Include="Views\AdminAuth\Login.cshtml" />
     <Content Include="Views\AdminDashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLogin.cshtml" />
+    <Content Include="Views\ProductPayment\InstallmentRazorpayPayment.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\UserOrders\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -317,7 +320,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Upload\ProductImages\" />
-    <Folder Include="Views\AdminAuthController\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IKart_Shared\IKart_Shared.csproj">
